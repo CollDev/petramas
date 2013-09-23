@@ -1,0 +1,5 @@
+petramas_main:
+    resource: "@PetramasMainBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
