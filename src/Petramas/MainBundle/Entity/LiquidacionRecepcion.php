@@ -1,0 +1,154 @@
+<?php
+
+namespace Petramas\MainBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * LiquidacionRecepcion
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\LiquidacionRecepcionRepository")
+ */
+class LiquidacionRecepcion
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_liquidacion", type="datetime")
+     */
+    private $fechaLiquidacion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_inicio", type="datetime")
+     */
+    private $fechaInicio;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_fin", type="datetime")
+     */
+    private $fechaFin;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="importe", type="decimal")
+     */
+    private $importe;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set fechaLiquidacion
+     *
+     * @param \DateTime $fechaLiquidacion
+     * @return LiquidacionRecepcion
+     */
+    public function setFechaLiquidacion($fechaLiquidacion)
+    {
+        $this->fechaLiquidacion = $fechaLiquidacion;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaLiquidacion
+     *
+     * @return \DateTime 
+     */
+    public function getFechaLiquidacion()
+    {
+        return $this->fechaLiquidacion;
+    }
+
+    /**
+     * Set fechaInicio
+     *
+     * @param \DateTime $fechaInicio
+     * @return LiquidacionRecepcion
+     */
+    public function setFechaInicio($fechaInicio)
+    {
+        $this->fechaInicio = $fechaInicio;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaInicio
+     *
+     * @return \DateTime 
+     */
+    public function getFechaInicio()
+    {
+        return $this->fechaInicio;
+    }
+
+    /**
+     * Set fechaFin
+     *
+     * @param \DateTime $fechaFin
+     * @return LiquidacionRecepcion
+     */
+    public function setFechaFin($fechaFin)
+    {
+        $this->fechaFin = $fechaFin;
+    
+        return $this;
+    }
+
+    /**
+     * Get fechaFin
+     *
+     * @return \DateTime 
+     */
+    public function getFechaFin()
+    {
+        return $this->fechaFin;
+    }
+
+    /**
+     * Set importe
+     *
+     * @param float $importe
+     * @return LiquidacionRecepcion
+     */
+    public function setImporte($importe)
+    {
+        $this->importe = $importe;
+    
+        return $this;
+    }
+
+    /**
+     * Get importe
+     *
+     * @return float 
+     */
+    public function getImporte()
+    {
+        return $this->importe;
+    }
+}
