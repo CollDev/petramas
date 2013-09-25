@@ -31,9 +31,9 @@ class Responsable
     /**
      * @var string
      *
-     * @ORM\Column(name=": email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255)
      */
-    private $:Email;
+    private $email;
 
 
     /**
@@ -70,25 +70,25 @@ class Responsable
     }
 
     /**
-     * Set :Email
+     * Set email
      *
-     * @param string $:Email
+     * @param string $email
      * @return Responsable
      */
-    public function set:Email($:Email)
+    public function setEmail($email)
     {
-        $this->:Email = $:Email;
+        $this->email = $email;
     
         return $this;
     }
 
     /**
-     * Get :Email
+     * Get email
      *
      * @return string 
      */
-    public function get:Email()
+    public function getEmail()
     {
-        return $this->:Email;
+        return $this->email;
     }
 }
