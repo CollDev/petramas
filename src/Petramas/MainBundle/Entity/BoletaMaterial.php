@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * BoletaMaterial
@@ -22,12 +23,31 @@ class BoletaMaterial
     private $id;
 
     /**
+     * @var integer
+     * 
+     * @ORM\OneToMany(targetEntity="BoletaRecepcion", mappedBy="boleta_material")
+     */
+    protected $boleta_recepciones;
+    
+    /**
+     * @var integer
+     * 
+     * @ORM\OneToMany(targetEntity="Tarifa", mappedBy="boleta_material")
+     */
+    protected $tarifas;
+    
+    /**
      * @var float
      *
      * @ORM\Column(name="neto", type="decimal")
      */
     private $neto;
 
+    public function __construct()
+    {
+        $this->boleta_recepciones = new ArrayCollection();
+        $this->tarifas = new ArrayCollection();
+    }
 
     /**
      * Get id

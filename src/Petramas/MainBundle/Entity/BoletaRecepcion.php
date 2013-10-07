@@ -22,6 +22,12 @@ class BoletaRecepcion
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="BoletaMaterial", inversedBy="boleta_recepciones")
+     * @ORM\JoinColumn(name="boleta_material_id", referencedColumnName="id")
+     */
+    protected $boleta_material;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_ingreso", type="datetime")

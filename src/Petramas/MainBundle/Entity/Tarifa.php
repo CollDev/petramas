@@ -22,6 +22,12 @@ class Tarifa
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="BoletaMaterial", inversedBy="boleta_recepciones")
+     * @ORM\JoinColumn(name="boleta_material_id", referencedColumnName="id")
+     */
+    protected $boleta_material;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
