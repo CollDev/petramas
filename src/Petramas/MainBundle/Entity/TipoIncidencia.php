@@ -22,6 +22,11 @@ class TipoIncidencia
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="tipo_incidencia")
+     */
+    protected $incidencias;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -29,6 +34,11 @@ class TipoIncidencia
     private $nombre;
 
 
+    public function __construct()
+    {
+        $this->incidencias = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *

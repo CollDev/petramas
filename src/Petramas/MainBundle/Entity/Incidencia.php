@@ -22,6 +22,30 @@ class Incidencia
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="TipoIncidencia", inversedBy="incidencias")
+     * @ORM\JoinColumn(name="tipo_incidencia_id", referencedColumnName="id")
+     */
+    protected $tipo_incidencia;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Responsable", inversedBy="incidencias")
+     * @ORM\JoinColumn(name="responsable_id", referencedColumnName="id")
+     */
+    protected $responsable;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Estado", inversedBy="incidencias")
+     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
+     */
+    protected $estado;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Unidad", inversedBy="incidencias")
+     * @ORM\JoinColumn(name="unidad_id", referencedColumnName="id")
+     */
+    protected $unidad;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_incidencia", type="datetime")

@@ -32,6 +32,11 @@ class Estado
     protected $clientes;
     
     /**
+     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="estado")
+     */
+    protected $incidencias;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -40,7 +45,9 @@ class Estado
 
     
     public function __construct() {
-        $this->clientes = new ArrayCollection();;
+        $this->boleta_recepciones = new ArrayCollection();
+        $this->clientes = new ArrayCollection();
+        $this->incidencias = new ArrayCollection();
     }
 
     /**

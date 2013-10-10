@@ -22,11 +22,6 @@ class BoletaRecepcion
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="BoletaMaterial", mappedBy="boleta_recepcion")
-     */
-    protected $boleta_materiales;
-    
-    /**
      * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="boleta_recepciones")
      * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
      */
@@ -43,6 +38,11 @@ class BoletaRecepcion
      * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
      */
     protected $estado;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="BoletaMaterial", mappedBy="boleta_recepcion")
+     */
+    protected $boleta_materiales;
     
     /**
      * @var \DateTime

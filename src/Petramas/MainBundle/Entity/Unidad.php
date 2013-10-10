@@ -27,6 +27,11 @@ class Unidad
     protected $boleta_recepciones;
     
     /**
+     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="unidad")
+     */
+    protected $incidencias;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="marca", type="string", length=255)
@@ -54,6 +59,11 @@ class Unidad
      */
     private $tiempo;
 
+    
+    public function __construct()
+    {
+        $this->incidencias = new ArrayCollection();
+    }
 
     /**
      * Get id

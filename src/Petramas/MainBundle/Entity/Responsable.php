@@ -22,6 +22,11 @@ class Responsable
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="responsable")
+     */
+    protected $incidencias;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -36,6 +41,11 @@ class Responsable
     private $email;
 
 
+    public function __construct()
+    {
+        $this->incidencias = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *
