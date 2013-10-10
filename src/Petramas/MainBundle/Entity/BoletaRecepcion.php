@@ -45,6 +45,11 @@ class BoletaRecepcion
     protected $boleta_materiales;
     
     /**
+     * @ORM\OneToMany(targetEntity="RecepcionMaterial", mappedBy="boleta_recepcion")
+     */
+    protected $recepcion_materiales;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_ingreso", type="datetime")
@@ -83,6 +88,7 @@ class BoletaRecepcion
     public function __construct()
     {
         $this->boleta_materiales = new ArrayCollection();
+        $this->recepcion_materiales = new ArrayCollection();
     }
 
     /**

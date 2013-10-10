@@ -22,6 +22,11 @@ class UnidadMedida
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="RecepcionMaterial", mappedBy="unidad_medida")
+     */
+    protected $recepcion_materiales;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -36,6 +41,11 @@ class UnidadMedida
     private $valor;
 
 
+    public function __construct()
+    {
+        $this->recepcion_materiales = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *

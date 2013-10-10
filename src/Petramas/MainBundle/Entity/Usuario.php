@@ -22,12 +22,22 @@ class Usuario
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="RecepcionMaterial", mappedBy="usuario")
+     */
+    protected $recepcion_materiales;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
      */
     private $nombre;
 
+    
+    public function __construct()
+    {
+        $this->recepcion_materiales = new ArrayCollection();
+    }
 
     /**
      * Get id

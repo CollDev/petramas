@@ -22,6 +22,30 @@ class RecepcionMaterial
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="BoletaRecepcion", inversedBy="recepcion_materiales")
+     * @ORM\JoinColumn(name="boleta_recepcion_id", referencedColumnName="id")
+     */
+    protected $boleta_recepcion;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Material", inversedBy="recepcion_materiales")
+     * @ORM\JoinColumn(name="material_id", referencedColumnName="id")
+     */
+    protected $material;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="UnidadMedida", inversedBy="recepcion_materiales")
+     * @ORM\JoinColumn(name="unidad_medida_id", referencedColumnName="id")
+     */
+    protected $unidad_medida;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Usuario", inversedBy="recepcion_materiales")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     */
+    protected $usuario;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_ingreso", type="datetime")

@@ -27,6 +27,11 @@ class Material
     protected $pedido_detalles;
     
     /**
+     * @ORM\OneToMany(targetEntity="RecepcionMaterial", mappedBy="material")
+     */
+    protected $recepcion_materiales;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -51,6 +56,7 @@ class Material
     public function __construct()
     {
         $this->pedido_detalles = new ArrayCollection();
+        $this->recepcion_materiales = new ArrayCollection();
     }
     
     /**
