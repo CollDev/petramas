@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Responsable
@@ -41,6 +42,9 @@ class Responsable
     private $email;
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->incidencias = new ArrayCollection();
@@ -100,5 +104,38 @@ class Responsable
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Add incidencias
+     *
+     * @param \Petramas\MainBundle\Entity\Incidencia $incidencias
+     * @return Responsable
+     */
+    public function addIncidencias(\Petramas\MainBundle\Entity\Incidencia $incidencias)
+    {
+        $this->incidencias[] = $incidencias;
+    
+        return $this;
+    }
+
+    /**
+     * Remove incidencias
+     *
+     * @param \Petramas\MainBundle\Entity\Incidencia $incidencias
+     */
+    public function removeIncidencias(\Petramas\MainBundle\Entity\Incidencia $incidencias)
+    {
+        $this->incidencias->removeElement($incidencias);
+    }
+
+    /**
+     * Get incidencias
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIncidencias()
+    {
+        return $this->incidencias;
     }
 }

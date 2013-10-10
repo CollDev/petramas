@@ -67,4 +67,27 @@ class LiquidacionMaterialDetalle
     {
         return $this->importe;
     }
+
+    /**
+     * Set liquidacion_material
+     *
+     * @param \Petramas\MainBundle\Entity\LiquidacionMaterial $liquidacionMaterial
+     * @return LiquidacionMaterialDetalle
+     */
+    public function setLiquidacionMaterial(\Petramas\MainBundle\Entity\LiquidacionMaterial $liquidacionMaterial = null)
+    {
+        $this->liquidacion_material = $liquidacionMaterial;
+    
+        return $this;
+    }
+
+    /**
+     * Get liquidacion_material
+     *
+     * @return \Petramas\MainBundle\Entity\LiquidacionMaterial 
+     */
+    public function getLiquidacionMaterial()
+    {
+        return $this->liquidacion_material;
+    }
 }

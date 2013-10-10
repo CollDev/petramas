@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Material
@@ -53,6 +54,9 @@ class Material
     private $tarifa;
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->pedido_detalles = new ArrayCollection();
@@ -136,5 +140,71 @@ class Material
     public function getTarifa()
     {
         return $this->tarifa;
+    }
+
+    /**
+     * Add pedido_detalles
+     *
+     * @param \Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles
+     * @return Material
+     */
+    public function addPedidoDetalles(\Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles)
+    {
+        $this->pedido_detalles[] = $pedidoDetalles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove pedido_detalles
+     *
+     * @param \Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles
+     */
+    public function removePedidoDetalles(\Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles)
+    {
+        $this->pedido_detalles->removeElement($pedidoDetalles);
+    }
+
+    /**
+     * Get pedido_detalles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPedidoDetalles()
+    {
+        return $this->pedido_detalles;
+    }
+
+    /**
+     * Add recepcion_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales
+     * @return Material
+     */
+    public function addRecepcionMateriales(\Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales)
+    {
+        $this->recepcion_materiales[] = $recepcionMateriales;
+    
+        return $this;
+    }
+
+    /**
+     * Remove recepcion_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales
+     */
+    public function removeRecepcionMateriales(\Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales)
+    {
+        $this->recepcion_materiales->removeElement($recepcionMateriales);
+    }
+
+    /**
+     * Get recepcion_materiales
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecepcionMateriales()
+    {
+        return $this->recepcion_materiales;
     }
 }

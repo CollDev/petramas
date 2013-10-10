@@ -97,4 +97,27 @@ class IncidenciaResolucion
     {
         return $this->resolucion;
     }
+
+    /**
+     * Set incidencia
+     *
+     * @param \Petramas\MainBundle\Entity\Incidencia $incidencia
+     * @return IncidenciaResolucion
+     */
+    public function setIncidencia(\Petramas\MainBundle\Entity\Incidencia $incidencia = null)
+    {
+        $this->incidencia = $incidencia;
+    
+        return $this;
+    }
+
+    /**
+     * Get incidencia
+     *
+     * @return \Petramas\MainBundle\Entity\Incidencia 
+     */
+    public function getIncidencia()
+    {
+        return $this->incidencia;
+    }
 }

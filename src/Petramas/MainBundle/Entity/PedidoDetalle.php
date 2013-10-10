@@ -103,4 +103,50 @@ class PedidoDetalle
     {
         return $this->importe;
     }
+
+    /**
+     * Set pedido
+     *
+     * @param \Petramas\MainBundle\Entity\Pedido $pedido
+     * @return PedidoDetalle
+     */
+    public function setPedido(\Petramas\MainBundle\Entity\Pedido $pedido = null)
+    {
+        $this->pedido = $pedido;
+    
+        return $this;
+    }
+
+    /**
+     * Get pedido
+     *
+     * @return \Petramas\MainBundle\Entity\Pedido 
+     */
+    public function getPedido()
+    {
+        return $this->pedido;
+    }
+
+    /**
+     * Set material
+     *
+     * @param \Petramas\MainBundle\Entity\Material $material
+     * @return PedidoDetalle
+     */
+    public function setMaterial(\Petramas\MainBundle\Entity\Material $material = null)
+    {
+        $this->material = $material;
+    
+        return $this;
+    }
+
+    /**
+     * Get material
+     *
+     * @return \Petramas\MainBundle\Entity\Material 
+     */
+    public function getMaterial()
+    {
+        return $this->material;
+    }
 }

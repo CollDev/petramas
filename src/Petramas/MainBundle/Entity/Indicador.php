@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Indicador
@@ -74,6 +75,9 @@ class Indicador
     private $observacion;
 
     
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->movimiento_indicadores = new ArrayCollection();
@@ -226,5 +230,71 @@ class Indicador
     public function getObservacion()
     {
         return $this->observacion;
+    }
+
+    /**
+     * Add movimiento_indicadores
+     *
+     * @param \Petramas\MainBundle\Entity\MovimientoIndicador $movimientoIndicadores
+     * @return Indicador
+     */
+    public function addMovimientoIndicadores(\Petramas\MainBundle\Entity\MovimientoIndicador $movimientoIndicadores)
+    {
+        $this->movimiento_indicadores[] = $movimientoIndicadores;
+    
+        return $this;
+    }
+
+    /**
+     * Remove movimiento_indicadores
+     *
+     * @param \Petramas\MainBundle\Entity\MovimientoIndicador $movimientoIndicadores
+     */
+    public function removeMovimientoIndicadores(\Petramas\MainBundle\Entity\MovimientoIndicador $movimientoIndicadores)
+    {
+        $this->movimiento_indicadores->removeElement($movimientoIndicadores);
+    }
+
+    /**
+     * Get movimiento_indicadores
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMovimientoIndicadores()
+    {
+        return $this->movimiento_indicadores;
+    }
+
+    /**
+     * Add topes
+     *
+     * @param \Petramas\MainBundle\Entity\Tope $topes
+     * @return Indicador
+     */
+    public function addTopes(\Petramas\MainBundle\Entity\Tope $topes)
+    {
+        $this->topes[] = $topes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove topes
+     *
+     * @param \Petramas\MainBundle\Entity\Tope $topes
+     */
+    public function removeTopes(\Petramas\MainBundle\Entity\Tope $topes)
+    {
+        $this->topes->removeElement($topes);
+    }
+
+    /**
+     * Get topes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTopes()
+    {
+        return $this->topes;
     }
 }

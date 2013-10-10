@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Incidencia
@@ -86,6 +87,9 @@ class Incidencia
     private $solucion;
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->incidencia_resoluciones = new ArrayCollection();
@@ -214,5 +218,130 @@ class Incidencia
     public function getSolucion()
     {
         return $this->solucion;
+    }
+
+    /**
+     * Set tipo_incidencia
+     *
+     * @param \Petramas\MainBundle\Entity\TipoIncidencia $tipoIncidencia
+     * @return Incidencia
+     */
+    public function setTipoIncidencia(\Petramas\MainBundle\Entity\TipoIncidencia $tipoIncidencia = null)
+    {
+        $this->tipo_incidencia = $tipoIncidencia;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipo_incidencia
+     *
+     * @return \Petramas\MainBundle\Entity\TipoIncidencia 
+     */
+    public function getTipoIncidencia()
+    {
+        return $this->tipo_incidencia;
+    }
+
+    /**
+     * Set responsable
+     *
+     * @param \Petramas\MainBundle\Entity\Responsable $responsable
+     * @return Incidencia
+     */
+    public function setResponsable(\Petramas\MainBundle\Entity\Responsable $responsable = null)
+    {
+        $this->responsable = $responsable;
+    
+        return $this;
+    }
+
+    /**
+     * Get responsable
+     *
+     * @return \Petramas\MainBundle\Entity\Responsable 
+     */
+    public function getResponsable()
+    {
+        return $this->responsable;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param \Petramas\MainBundle\Entity\Estado $estado
+     * @return Incidencia
+     */
+    public function setEstado(\Petramas\MainBundle\Entity\Estado $estado = null)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return \Petramas\MainBundle\Entity\Estado 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set unidad
+     *
+     * @param \Petramas\MainBundle\Entity\Unidad $unidad
+     * @return Incidencia
+     */
+    public function setUnidad(\Petramas\MainBundle\Entity\Unidad $unidad = null)
+    {
+        $this->unidad = $unidad;
+    
+        return $this;
+    }
+
+    /**
+     * Get unidad
+     *
+     * @return \Petramas\MainBundle\Entity\Unidad 
+     */
+    public function getUnidad()
+    {
+        return $this->unidad;
+    }
+
+    /**
+     * Add incidencia_resoluciones
+     *
+     * @param \Petramas\MainBundle\Entity\IncidenciaResolucion $incidenciaResoluciones
+     * @return Incidencia
+     */
+    public function addIncidenciaResoluciones(\Petramas\MainBundle\Entity\IncidenciaResolucion $incidenciaResoluciones)
+    {
+        $this->incidencia_resoluciones[] = $incidenciaResoluciones;
+    
+        return $this;
+    }
+
+    /**
+     * Remove incidencia_resoluciones
+     *
+     * @param \Petramas\MainBundle\Entity\IncidenciaResolucion $incidenciaResoluciones
+     */
+    public function removeIncidenciaResoluciones(\Petramas\MainBundle\Entity\IncidenciaResolucion $incidenciaResoluciones)
+    {
+        $this->incidencia_resoluciones->removeElement($incidenciaResoluciones);
+    }
+
+    /**
+     * Get incidencia_resoluciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIncidenciaResoluciones()
+    {
+        return $this->incidencia_resoluciones;
     }
 }

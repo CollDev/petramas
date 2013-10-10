@@ -115,4 +115,96 @@ class RecepcionMaterial
     {
         return $this->cantidad;
     }
+
+    /**
+     * Set boleta_recepcion
+     *
+     * @param \Petramas\MainBundle\Entity\BoletaRecepcion $boletaRecepcion
+     * @return RecepcionMaterial
+     */
+    public function setBoletaRecepcion(\Petramas\MainBundle\Entity\BoletaRecepcion $boletaRecepcion = null)
+    {
+        $this->boleta_recepcion = $boletaRecepcion;
+    
+        return $this;
+    }
+
+    /**
+     * Get boleta_recepcion
+     *
+     * @return \Petramas\MainBundle\Entity\BoletaRecepcion 
+     */
+    public function getBoletaRecepcion()
+    {
+        return $this->boleta_recepcion;
+    }
+
+    /**
+     * Set material
+     *
+     * @param \Petramas\MainBundle\Entity\Material $material
+     * @return RecepcionMaterial
+     */
+    public function setMaterial(\Petramas\MainBundle\Entity\Material $material = null)
+    {
+        $this->material = $material;
+    
+        return $this;
+    }
+
+    /**
+     * Get material
+     *
+     * @return \Petramas\MainBundle\Entity\Material 
+     */
+    public function getMaterial()
+    {
+        return $this->material;
+    }
+
+    /**
+     * Set unidad_medida
+     *
+     * @param \Petramas\MainBundle\Entity\UnidadMedida $unidadMedida
+     * @return RecepcionMaterial
+     */
+    public function setUnidadMedida(\Petramas\MainBundle\Entity\UnidadMedida $unidadMedida = null)
+    {
+        $this->unidad_medida = $unidadMedida;
+    
+        return $this;
+    }
+
+    /**
+     * Get unidad_medida
+     *
+     * @return \Petramas\MainBundle\Entity\UnidadMedida 
+     */
+    public function getUnidadMedida()
+    {
+        return $this->unidad_medida;
+    }
+
+    /**
+     * Set usuario
+     *
+     * @param \Petramas\MainBundle\Entity\Usuario $usuario
+     * @return RecepcionMaterial
+     */
+    public function setUsuario(\Petramas\MainBundle\Entity\Usuario $usuario = null)
+    {
+        $this->usuario = $usuario;
+    
+        return $this;
+    }
+
+    /**
+     * Get usuario
+     *
+     * @return \Petramas\MainBundle\Entity\Usuario 
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
+    }
 }

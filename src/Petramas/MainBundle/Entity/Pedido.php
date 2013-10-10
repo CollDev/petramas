@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Pedido
@@ -52,6 +53,9 @@ class Pedido
     private $fechaProgramacion;
 
     
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->pedido_detalles = new ArrayCollection();
@@ -88,5 +92,107 @@ class Pedido
     public function getFechaProgramacion()
     {
         return $this->fechaProgramacion;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Petramas\MainBundle\Entity\Cliente $cliente
+     * @return Pedido
+     */
+    public function setCliente(\Petramas\MainBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Petramas\MainBundle\Entity\Cliente 
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param \Petramas\MainBundle\Entity\Estado $estado
+     * @return Pedido
+     */
+    public function setEstado(\Petramas\MainBundle\Entity\Estado $estado = null)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return \Petramas\MainBundle\Entity\Estado 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Set factura
+     *
+     * @param \Petramas\MainBundle\Entity\Factura $factura
+     * @return Pedido
+     */
+    public function setFactura(\Petramas\MainBundle\Entity\Factura $factura = null)
+    {
+        $this->factura = $factura;
+    
+        return $this;
+    }
+
+    /**
+     * Get factura
+     *
+     * @return \Petramas\MainBundle\Entity\Factura 
+     */
+    public function getFactura()
+    {
+        return $this->factura;
+    }
+
+    /**
+     * Add pedido_detalles
+     *
+     * @param \Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles
+     * @return Pedido
+     */
+    public function addPedidoDetalles(\Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles)
+    {
+        $this->pedido_detalles[] = $pedidoDetalles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove pedido_detalles
+     *
+     * @param \Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles
+     */
+    public function removePedidoDetalles(\Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles)
+    {
+        $this->pedido_detalles->removeElement($pedidoDetalles);
+    }
+
+    /**
+     * Get pedido_detalles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPedidoDetalles()
+    {
+        return $this->pedido_detalles;
     }
 }

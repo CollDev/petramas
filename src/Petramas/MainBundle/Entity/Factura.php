@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Factura
@@ -54,6 +55,9 @@ class Factura
     private $fecha;
 
     
+    /**
+     * Constructor
+     */
     public function __construct() {
         $this->pedidos = new ArrayCollection();
     }
@@ -135,5 +139,61 @@ class Factura
     public function getFecha()
     {
         return $this->fecha;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Petramas\MainBundle\Entity\Cliente $cliente
+     * @return Factura
+     */
+    public function setCliente(\Petramas\MainBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Petramas\MainBundle\Entity\Cliente 
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Add pedidos
+     *
+     * @param \Petramas\MainBundle\Entity\Pedido $pedidos
+     * @return Factura
+     */
+    public function addPedidos(\Petramas\MainBundle\Entity\Pedido $pedidos)
+    {
+        $this->pedidos[] = $pedidos;
+    
+        return $this;
+    }
+
+    /**
+     * Remove pedidos
+     *
+     * @param \Petramas\MainBundle\Entity\Pedido $pedidos
+     */
+    public function removePedidos(\Petramas\MainBundle\Entity\Pedido $pedidos)
+    {
+        $this->pedidos->removeElement($pedidos);
+    }
+
+    /**
+     * Get pedidos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPedidos()
+    {
+        return $this->pedidos;
     }
 }

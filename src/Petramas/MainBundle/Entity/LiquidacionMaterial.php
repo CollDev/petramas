@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * LiquidacionMaterial
@@ -47,6 +48,9 @@ class LiquidacionMaterial
     private $importe;
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->liquidacion_material_detalles = new ArrayCollection();
@@ -106,5 +110,61 @@ class LiquidacionMaterial
     public function getImporte()
     {
         return $this->importe;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Petramas\MainBundle\Entity\Cliente $cliente
+     * @return LiquidacionMaterial
+     */
+    public function setCliente(\Petramas\MainBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Petramas\MainBundle\Entity\Cliente 
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Add liquidacion_material_detalles
+     *
+     * @param \Petramas\MainBundle\Entity\LiquidacionMaterialDetalle $liquidacionMaterialDetalles
+     * @return LiquidacionMaterial
+     */
+    public function addLiquidacionMaterialDetalles(\Petramas\MainBundle\Entity\LiquidacionMaterialDetalle $liquidacionMaterialDetalles)
+    {
+        $this->liquidacion_material_detalles[] = $liquidacionMaterialDetalles;
+    
+        return $this;
+    }
+
+    /**
+     * Remove liquidacion_material_detalles
+     *
+     * @param \Petramas\MainBundle\Entity\LiquidacionMaterialDetalle $liquidacionMaterialDetalles
+     */
+    public function removeLiquidacionMaterialDetalles(\Petramas\MainBundle\Entity\LiquidacionMaterialDetalle $liquidacionMaterialDetalles)
+    {
+        $this->liquidacion_material_detalles->removeElement($liquidacionMaterialDetalles);
+    }
+
+    /**
+     * Get liquidacion_material_detalles
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLiquidacionMaterialDetalles()
+    {
+        return $this->liquidacion_material_detalles;
     }
 }

@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Tarifa
@@ -40,6 +41,14 @@ class Tarifa
      */
     private $valor;
 
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->boleta_materiales = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -95,5 +104,38 @@ class Tarifa
     public function getValor()
     {
         return $this->valor;
+    }
+
+    /**
+     * Add boleta_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\BoletaMaterial $boletaMateriales
+     * @return Tarifa
+     */
+    public function addBoletaMateriales(\Petramas\MainBundle\Entity\BoletaMaterial $boletaMateriales)
+    {
+        $this->boleta_materiales[] = $boletaMateriales;
+    
+        return $this;
+    }
+
+    /**
+     * Remove boleta_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\BoletaMaterial $boletaMateriales
+     */
+    public function removeBoletaMateriales(\Petramas\MainBundle\Entity\BoletaMaterial $boletaMateriales)
+    {
+        $this->boleta_materiales->removeElement($boletaMateriales);
+    }
+
+    /**
+     * Get boleta_materiales
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBoletaMateriales()
+    {
+        return $this->boleta_materiales;
     }
 }

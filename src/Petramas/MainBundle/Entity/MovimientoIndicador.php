@@ -103,4 +103,50 @@ class MovimientoIndicador
     {
         return $this->fechaMovimiento;
     }
+
+    /**
+     * Set indicador
+     *
+     * @param \Petramas\MainBundle\Entity\Indicador $indicador
+     * @return MovimientoIndicador
+     */
+    public function setIndicador(\Petramas\MainBundle\Entity\Indicador $indicador = null)
+    {
+        $this->indicador = $indicador;
+    
+        return $this;
+    }
+
+    /**
+     * Get indicador
+     *
+     * @return \Petramas\MainBundle\Entity\Indicador 
+     */
+    public function getIndicador()
+    {
+        return $this->indicador;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param \Petramas\MainBundle\Entity\Estado $estado
+     * @return MovimientoIndicador
+     */
+    public function setEstado(\Petramas\MainBundle\Entity\Estado $estado = null)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return \Petramas\MainBundle\Entity\Estado 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
 }

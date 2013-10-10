@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Unidad
@@ -22,6 +23,12 @@ class Unidad
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Estado", inversedBy="unidades")
+     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
+     */
+    protected $estado;
+    
+    /**
      * @ORM\OneToMany(targetEntity="BoletaRecepcion", mappedBy="unidad")
      */
     protected $boleta_recepciones;
@@ -30,12 +37,6 @@ class Unidad
      * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="unidad")
      */
     protected $incidencias;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Estado", inversedBy="unidades")
-     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
-     */
-    protected $estado;
     
     /**
      * @var string
@@ -66,8 +67,12 @@ class Unidad
     private $tiempo;
 
     
+    /**
+     * Constructor
+     */
     public function __construct()
     {
+        $this->boleta_recepciones = new ArrayCollection();
         $this->incidencias = new ArrayCollection();
     }
 
@@ -171,5 +176,94 @@ class Unidad
     public function getTiempo()
     {
         return $this->tiempo;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param \Petramas\MainBundle\Entity\Estado $estado
+     * @return Unidad
+     */
+    public function setEstado(\Petramas\MainBundle\Entity\Estado $estado = null)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return \Petramas\MainBundle\Entity\Estado 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Add boleta_recepciones
+     *
+     * @param \Petramas\MainBundle\Entity\BoletaRecepcion $boletaRecepciones
+     * @return Unidad
+     */
+    public function addBoletaRecepciones(\Petramas\MainBundle\Entity\BoletaRecepcion $boletaRecepciones)
+    {
+        $this->boleta_recepciones[] = $boletaRecepciones;
+    
+        return $this;
+    }
+
+    /**
+     * Remove boleta_recepciones
+     *
+     * @param \Petramas\MainBundle\Entity\BoletaRecepcion $boletaRecepciones
+     */
+    public function removeBoletaRecepciones(\Petramas\MainBundle\Entity\BoletaRecepcion $boletaRecepciones)
+    {
+        $this->boleta_recepciones->removeElement($boletaRecepciones);
+    }
+
+    /**
+     * Get boleta_recepciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBoletaRecepciones()
+    {
+        return $this->boleta_recepciones;
+    }
+
+    /**
+     * Add incidencias
+     *
+     * @param \Petramas\MainBundle\Entity\Incidencia $incidencias
+     * @return Unidad
+     */
+    public function addIncidencias(\Petramas\MainBundle\Entity\Incidencia $incidencias)
+    {
+        $this->incidencias[] = $incidencias;
+    
+        return $this;
+    }
+
+    /**
+     * Remove incidencias
+     *
+     * @param \Petramas\MainBundle\Entity\Incidencia $incidencias
+     */
+    public function removeIncidencias(\Petramas\MainBundle\Entity\Incidencia $incidencias)
+    {
+        $this->incidencias->removeElement($incidencias);
+    }
+
+    /**
+     * Get incidencias
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIncidencias()
+    {
+        return $this->incidencias;
     }
 }

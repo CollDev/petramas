@@ -157,4 +157,27 @@ class LiquidacionRecepcion
     {
         return $this->importe;
     }
+
+    /**
+     * Set cliente
+     *
+     * @param \Petramas\MainBundle\Entity\Cliente $cliente
+     * @return LiquidacionRecepcion
+     */
+    public function setCliente(\Petramas\MainBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Petramas\MainBundle\Entity\Cliente 
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
 }

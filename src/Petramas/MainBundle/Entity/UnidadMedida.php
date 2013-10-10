@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * UnidadMedida
@@ -46,6 +47,9 @@ class UnidadMedida
     private $valor;
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->recepcion_materiales = new ArrayCollection();
@@ -106,5 +110,71 @@ class UnidadMedida
     public function getValor()
     {
         return $this->valor;
+    }
+
+    /**
+     * Add recepcion_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales
+     * @return UnidadMedida
+     */
+    public function addRecepcionMateriales(\Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales)
+    {
+        $this->recepcion_materiales[] = $recepcionMateriales;
+    
+        return $this;
+    }
+
+    /**
+     * Remove recepcion_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales
+     */
+    public function removeRecepcionMateriales(\Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales)
+    {
+        $this->recepcion_materiales->removeElement($recepcionMateriales);
+    }
+
+    /**
+     * Get recepcion_materiales
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecepcionMateriales()
+    {
+        return $this->recepcion_materiales;
+    }
+
+    /**
+     * Add topes
+     *
+     * @param \Petramas\MainBundle\Entity\Tope $topes
+     * @return UnidadMedida
+     */
+    public function addTopes(\Petramas\MainBundle\Entity\Tope $topes)
+    {
+        $this->topes[] = $topes;
+    
+        return $this;
+    }
+
+    /**
+     * Remove topes
+     *
+     * @param \Petramas\MainBundle\Entity\Tope $topes
+     */
+    public function removeTopes(\Petramas\MainBundle\Entity\Tope $topes)
+    {
+        $this->topes->removeElement($topes);
+    }
+
+    /**
+     * Get topes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTopes()
+    {
+        return $this->topes;
     }
 }

@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * BoletaRecepcion
@@ -85,6 +86,9 @@ class BoletaRecepcion
     private $neto;
 
     
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->boleta_materiales = new ArrayCollection();
@@ -214,5 +218,140 @@ class BoletaRecepcion
     public function getNeto()
     {
         return $this->neto;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Petramas\MainBundle\Entity\Cliente $cliente
+     * @return BoletaRecepcion
+     */
+    public function setCliente(\Petramas\MainBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Petramas\MainBundle\Entity\Cliente 
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Set unidad
+     *
+     * @param \Petramas\MainBundle\Entity\Unidad $unidad
+     * @return BoletaRecepcion
+     */
+    public function setUnidad(\Petramas\MainBundle\Entity\Unidad $unidad = null)
+    {
+        $this->unidad = $unidad;
+    
+        return $this;
+    }
+
+    /**
+     * Get unidad
+     *
+     * @return \Petramas\MainBundle\Entity\Unidad 
+     */
+    public function getUnidad()
+    {
+        return $this->unidad;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param \Petramas\MainBundle\Entity\Estado $estado
+     * @return BoletaRecepcion
+     */
+    public function setEstado(\Petramas\MainBundle\Entity\Estado $estado = null)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return \Petramas\MainBundle\Entity\Estado 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
+    }
+
+    /**
+     * Add boleta_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\BoletaMaterial $boletaMateriales
+     * @return BoletaRecepcion
+     */
+    public function addBoletaMateriales(\Petramas\MainBundle\Entity\BoletaMaterial $boletaMateriales)
+    {
+        $this->boleta_materiales[] = $boletaMateriales;
+    
+        return $this;
+    }
+
+    /**
+     * Remove boleta_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\BoletaMaterial $boletaMateriales
+     */
+    public function removeBoletaMateriales(\Petramas\MainBundle\Entity\BoletaMaterial $boletaMateriales)
+    {
+        $this->boleta_materiales->removeElement($boletaMateriales);
+    }
+
+    /**
+     * Get boleta_materiales
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBoletaMateriales()
+    {
+        return $this->boleta_materiales;
+    }
+
+    /**
+     * Add recepcion_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales
+     * @return BoletaRecepcion
+     */
+    public function addRecepcionMateriales(\Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales)
+    {
+        $this->recepcion_materiales[] = $recepcionMateriales;
+    
+        return $this;
+    }
+
+    /**
+     * Remove recepcion_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales
+     */
+    public function removeRecepcionMateriales(\Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales)
+    {
+        $this->recepcion_materiales->removeElement($recepcionMateriales);
+    }
+
+    /**
+     * Get recepcion_materiales
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecepcionMateriales()
+    {
+        return $this->recepcion_materiales;
     }
 }

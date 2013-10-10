@@ -73,4 +73,50 @@ class BoletaMaterial
     {
         return $this->neto;
     }
+
+    /**
+     * Set boleta_recepcion
+     *
+     * @param \Petramas\MainBundle\Entity\BoletaRecepcion $boletaRecepcion
+     * @return BoletaMaterial
+     */
+    public function setBoletaRecepcion(\Petramas\MainBundle\Entity\BoletaRecepcion $boletaRecepcion = null)
+    {
+        $this->boleta_recepcion = $boletaRecepcion;
+    
+        return $this;
+    }
+
+    /**
+     * Get boleta_recepcion
+     *
+     * @return \Petramas\MainBundle\Entity\BoletaRecepcion 
+     */
+    public function getBoletaRecepcion()
+    {
+        return $this->boleta_recepcion;
+    }
+
+    /**
+     * Set tarifa
+     *
+     * @param \Petramas\MainBundle\Entity\Tarifa $tarifa
+     * @return BoletaMaterial
+     */
+    public function setTarifa(\Petramas\MainBundle\Entity\Tarifa $tarifa = null)
+    {
+        $this->tarifa = $tarifa;
+    
+        return $this;
+    }
+
+    /**
+     * Get tarifa
+     *
+     * @return \Petramas\MainBundle\Entity\Tarifa 
+     */
+    public function getTarifa()
+    {
+        return $this->tarifa;
+    }
 }

@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Usuario
@@ -34,6 +35,9 @@ class Usuario
     private $nombre;
 
     
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->recepcion_materiales = new ArrayCollection();
@@ -70,5 +74,38 @@ class Usuario
     public function getNombre()
     {
         return $this->nombre;
+    }
+
+    /**
+     * Add recepcion_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales
+     * @return Usuario
+     */
+    public function addRecepcionMateriales(\Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales)
+    {
+        $this->recepcion_materiales[] = $recepcionMateriales;
+    
+        return $this;
+    }
+
+    /**
+     * Remove recepcion_materiales
+     *
+     * @param \Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales
+     */
+    public function removeRecepcionMateriales(\Petramas\MainBundle\Entity\RecepcionMaterial $recepcionMateriales)
+    {
+        $this->recepcion_materiales->removeElement($recepcionMateriales);
+    }
+
+    /**
+     * Get recepcion_materiales
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRecepcionMateriales()
+    {
+        return $this->recepcion_materiales;
     }
 }

@@ -3,6 +3,7 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * TipoIncidencia
@@ -34,6 +35,9 @@ class TipoIncidencia
     private $nombre;
 
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         $this->incidencias = new ArrayCollection();
@@ -70,5 +74,38 @@ class TipoIncidencia
     public function getNombre()
     {
         return $this->nombre;
+    }
+
+    /**
+     * Add incidencias
+     *
+     * @param \Petramas\MainBundle\Entity\Incidencia $incidencias
+     * @return TipoIncidencia
+     */
+    public function addIncidencias(\Petramas\MainBundle\Entity\Incidencia $incidencias)
+    {
+        $this->incidencias[] = $incidencias;
+    
+        return $this;
+    }
+
+    /**
+     * Remove incidencias
+     *
+     * @param \Petramas\MainBundle\Entity\Incidencia $incidencias
+     */
+    public function removeIncidencias(\Petramas\MainBundle\Entity\Incidencia $incidencias)
+    {
+        $this->incidencias->removeElement($incidencias);
+    }
+
+    /**
+     * Get incidencias
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getIncidencias()
+    {
+        return $this->incidencias;
     }
 }

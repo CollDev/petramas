@@ -163,4 +163,50 @@ class Tope
     {
         return $this->fechaRegistro;
     }
+
+    /**
+     * Set indicador
+     *
+     * @param \Petramas\MainBundle\Entity\Indicador $indicador
+     * @return Tope
+     */
+    public function setIndicador(\Petramas\MainBundle\Entity\Indicador $indicador = null)
+    {
+        $this->indicador = $indicador;
+    
+        return $this;
+    }
+
+    /**
+     * Get indicador
+     *
+     * @return \Petramas\MainBundle\Entity\Indicador 
+     */
+    public function getIndicador()
+    {
+        return $this->indicador;
+    }
+
+    /**
+     * Set unidad_medida
+     *
+     * @param \Petramas\MainBundle\Entity\UnidadMedida $unidadMedida
+     * @return Tope
+     */
+    public function setUnidadMedida(\Petramas\MainBundle\Entity\UnidadMedida $unidadMedida = null)
+    {
+        $this->unidad_medida = $unidadMedida;
+    
+        return $this;
+    }
+
+    /**
+     * Get unidad_medida
+     *
+     * @return \Petramas\MainBundle\Entity\UnidadMedida 
+     */
+    public function getUnidadMedida()
+    {
+        return $this->unidad_medida;
+    }
 }
