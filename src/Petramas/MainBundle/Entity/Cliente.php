@@ -45,6 +45,12 @@ class Cliente
     protected $liquidacion_material;
     
     /**
+     * @ORM\ManyToOne(targetEntity="LiquidacionRecepcion", inversedBy="clientes")
+     * @ORM\JoinColumn(name="liquidacion_recepcion_id", referencedColumnName="id")
+     */
+    protected $liquidacion_recepcion;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="razon_social", type="string", length=255)
