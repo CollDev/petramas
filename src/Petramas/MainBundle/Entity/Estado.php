@@ -52,6 +52,11 @@ class Estado
     protected $pedidos;
     
     /**
+     * @ORM\OneToMany(targetEntity="Unidad", mappedBy="estado")
+     */
+    protected $unidades;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -66,6 +71,7 @@ class Estado
         $this->liquidacion_recepciones = new ArrayCollection();
         $this->movimiento_indicadores = new ArrayCollection();
         $this->pedidos = new ArrayCollection();
+        $this->unidades = new ArrayCollection();
     }
 
     /**
