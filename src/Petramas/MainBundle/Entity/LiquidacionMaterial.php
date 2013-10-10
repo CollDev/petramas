@@ -28,6 +28,11 @@ class LiquidacionMaterial
     protected $cliente;
     
     /**
+     * @ORM\OneToMany(targetEntity="LiquidacionMaterialDetalle", mappedBy="liquidacion_material")
+     */
+    protected $liquidacion_material_detalles;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_liquidacion", type="datetime")
@@ -42,6 +47,11 @@ class LiquidacionMaterial
     private $importe;
 
 
+    public function __construct()
+    {
+        $this->liquidacion_material_detalles = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *

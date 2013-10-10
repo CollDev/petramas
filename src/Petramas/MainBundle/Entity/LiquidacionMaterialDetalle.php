@@ -20,6 +20,12 @@ class LiquidacionMaterialDetalle
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="LiquidacionMaterial", inversedBy="liquidacion_material_detalles")
+     * @ORM\JoinColumn(name="liquidacion_material_id", referencedColumnName="id")
+     */
+    protected $liquidacion_material;
 
     /**
      * @var float
