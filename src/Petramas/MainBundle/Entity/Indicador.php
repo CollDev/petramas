@@ -73,6 +73,13 @@ class Indicador
      * @ORM\Column(name="observacion", type="string", length=255)
      */
     private $observacion;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="tipo_indicador", type="string", length=255)
+     */
+    private $tipo_indicador;
 
     
     /**
@@ -230,6 +237,29 @@ class Indicador
     public function getObservacion()
     {
         return $this->observacion;
+    }
+
+    /**
+     * Set tipo_indicador
+     *
+     * @param string $tipo_indicador
+     * @return Indicador
+     */
+    public function setTipoIndicador($tipo_indicador)
+    {
+        $this->tipo_indicador = $tipo_indicador;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipo_indicador
+     *
+     * @return string 
+     */
+    public function getTipoIndicador()
+    {
+        return $this->tipo_indicador;
     }
 
     /**
