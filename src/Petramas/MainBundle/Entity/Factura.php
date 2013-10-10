@@ -28,6 +28,11 @@ class Factura
     protected $cliente;
     
     /**
+     * @ORM\OneToMany(targetEntity="Pedido", mappedBy="facturas")
+     */
+    protected $pedidos;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="codigo", type="string", length=50)
@@ -48,6 +53,10 @@ class Factura
      */
     private $fecha;
 
+    
+    public function __construct() {
+        $this->pedidos = new ArrayCollection();
+    }
 
     /**
      * Get id

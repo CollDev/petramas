@@ -22,6 +22,24 @@ class Pedido
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="pedidos")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     */
+    protected $cliente;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Estado", inversedBy="pedidos")
+     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
+     */
+    protected $estado;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Factura", inversedBy="pedidos")
+     * @ORM\JoinColumn(name="factura_id", referencedColumnName="id")
+     */
+    protected $factura;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_programacion", type="datetime")
