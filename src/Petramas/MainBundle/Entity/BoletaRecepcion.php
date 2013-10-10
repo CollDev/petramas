@@ -22,6 +22,11 @@ class BoletaRecepcion
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="BoletaMaterial", mappedBy="boleta_recepcion")
+     */
+    protected $boleta_materiales;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_ingreso", type="datetime")
@@ -56,6 +61,11 @@ class BoletaRecepcion
      */
     private $neto;
 
+    
+    public function __construct()
+    {
+        $this->boleta_materiales = new ArrayCollection();
+    }
 
     /**
      * Get id

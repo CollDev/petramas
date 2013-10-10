@@ -22,6 +22,18 @@ class BoletaMaterial
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="BoletaRecepcion", inversedBy="boleta_materiales")
+     * @ORM\JoinColumn(name="boleta_recepcion_id", referencedColumnName="id")
+     */
+    protected $boleta_recepcion;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Tarifa", inversedBy="boleta_materiales")
+     * @ORM\JoinColumn(name="tarifa_id", referencedColumnName="id")
+     */
+    protected $tarifa;
+    
+    /**
      * @var float
      *
      * @ORM\Column(name="neto", type="decimal", precision=10, scale=2)

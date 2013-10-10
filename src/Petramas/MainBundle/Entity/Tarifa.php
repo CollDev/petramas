@@ -22,6 +22,11 @@ class Tarifa
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="BoletaMaterial", mappedBy="tarifa")
+     */
+    protected $boleta_materiales;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
