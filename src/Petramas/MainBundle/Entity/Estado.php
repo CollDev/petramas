@@ -25,6 +25,11 @@ class Estado
      * @ORM\OneToMany(targetEntity="BoletaRecepcion", mappedBy="estado")
      */
     protected $boleta_recepciones;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Cliente", mappedBy="estado")
+     */
+    protected $clientes;
     
     /**
      * @var string
@@ -33,6 +38,10 @@ class Estado
      */
     private $nombre;
 
+    
+    public function __construct() {
+        $this->clientes = new ArrayCollection();;
+    }
 
     /**
      * Get id
