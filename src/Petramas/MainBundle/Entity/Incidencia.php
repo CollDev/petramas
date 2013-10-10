@@ -22,6 +22,26 @@ class Incidencia
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="TipoIncidencia", mappedBy="incidencia")
+     */
+    protected $tipo_incidencias;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Responsable", mappedBy="incidencia")
+     */
+    protected $responsables;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Estado", mappedBy="incidencia")
+     */
+    protected $estados;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Unidad", mappedBy="incidencia")
+     */
+    protected $unidades;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_incidencia", type="datetime")
@@ -56,6 +76,13 @@ class Incidencia
      */
     private $solucion;
 
+    public function __construct()
+    {
+        $this->tipo_incidencias = new ArrayCollection();
+        $this->responsables = new ArrayCollection();
+        $this->estados = new ArrayCollection();
+        $this->unidades = new ArrayCollection();
+    }
 
     /**
      * Get id

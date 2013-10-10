@@ -22,6 +22,12 @@ class TipoIncidencia
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Incidencia", inversedBy="tipo_incidencias")
+     * @ORM\JoinColumn(name="incidencia_id", referencedColumnName="id")
+     */
+    protected $incidencia;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
