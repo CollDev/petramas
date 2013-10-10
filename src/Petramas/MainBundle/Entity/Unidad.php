@@ -22,6 +22,12 @@ class Unidad
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="BoletaRecepcion", inversedBy="unidades")
+     * @ORM\JoinColumn(name="boleta_recepcion_id", referencedColumnName="id")
+     */
+    protected $boleta_recepcion;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="marca", type="string", length=255)
