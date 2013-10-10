@@ -23,7 +23,7 @@ class LoadUserData extends LoadPetramasData implements OrderedFixtureInterface
         foreach ($estados['Estado'] as $reference => $columns)
         {
             $estado = new Estado();
-            $estado->setFirstname($columns['nombre']);
+            $estado->setNombre($columns['nombre']);
             $manager->persist($estado);
 
             // Add a reference to be able to use this object in others entities loaders
