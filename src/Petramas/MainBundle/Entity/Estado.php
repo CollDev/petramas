@@ -37,6 +37,11 @@ class Estado
     protected $incidencias;
     
     /**
+     * @ORM\OneToMany(targetEntity="LiquidacionRecepcion", mappedBy="estado")
+     */
+    protected $liquidacion_recepciones;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -48,6 +53,7 @@ class Estado
         $this->boleta_recepciones = new ArrayCollection();
         $this->clientes = new ArrayCollection();
         $this->incidencias = new ArrayCollection();
+        $this->liquidacion_recepciones = new ArrayCollection();
     }
 
     /**

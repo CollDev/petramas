@@ -43,6 +43,11 @@ class Cliente
     protected $liquidacion_materiales;
     
     /**
+     * @ORM\OneToMany(targetEntity="LiquidacionRecepcion", mappedBy="cliente")
+     */
+    protected $liquidacion_recepciones;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="razon_social", type="string", length=255)
@@ -68,6 +73,7 @@ class Cliente
     {
         $this->boleta_recepciones = new ArrayCollection();
         $this->liquidacion_materiales = new ArrayCollection();
+        $this->liquidacion_recepciones = new ArrayCollection();
     }
 
     /**

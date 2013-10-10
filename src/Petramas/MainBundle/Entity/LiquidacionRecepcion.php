@@ -22,6 +22,12 @@ class LiquidacionRecepcion
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="liquidacion_recepcion")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     */
+    protected $cliente;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_liquidacion", type="datetime")
