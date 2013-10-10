@@ -39,6 +39,12 @@ class Cliente
     protected $factura;
     
     /**
+     * @ORM\ManyToOne(targetEntity="LiquidacionMaterial", inversedBy="clientes")
+     * @ORM\JoinColumn(name="liquidacion_material_id", referencedColumnName="id")
+     */
+    protected $liquidacion_material;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="razon_social", type="string", length=255)
