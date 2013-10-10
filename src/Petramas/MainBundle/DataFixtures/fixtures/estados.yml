@@ -1,0 +1,18 @@
+Estado:
+    activo:
+        nombre: Activo
+        
+    inactivo:
+        nombre: Inactivo
+        
+    completado:
+        nombre: Completado
+        
+    pendiente:
+        nombre: Pendiente
+        
+    confirmado:
+        nombre: Confirmado
+        
+    atendido:
+        nombre: Atendido
