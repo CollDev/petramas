@@ -22,6 +22,11 @@ class Indicador
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="MovimientoIndicador", mappedBy="indicador")
+     */
+    protected $movimiento_indicadores;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -63,6 +68,11 @@ class Indicador
      */
     private $observacion;
 
+    
+    public function __construct()
+    {
+        $this->movimiento_indicadores = new ArrayCollection();
+    }
 
     /**
      * Get id

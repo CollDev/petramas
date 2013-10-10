@@ -42,6 +42,11 @@ class Estado
     protected $liquidacion_recepciones;
     
     /**
+     * @ORM\OneToMany(targetEntity="MovimientoIndicador", mappedBy="estado")
+     */
+    protected $movimiento_indicadores;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -54,6 +59,7 @@ class Estado
         $this->clientes = new ArrayCollection();
         $this->incidencias = new ArrayCollection();
         $this->liquidacion_recepciones = new ArrayCollection();
+        $this->movimiento_indicadores = new ArrayCollection();
     }
 
     /**
