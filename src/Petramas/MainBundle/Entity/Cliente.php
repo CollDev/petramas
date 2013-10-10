@@ -22,6 +22,11 @@ class Cliente
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="BoletaRecepcion", mappedBy="cliente")
+     */
+    protected $boleta_recepciones;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="razon_social", type="string", length=255)
@@ -42,6 +47,11 @@ class Cliente
      */
     private $direccion;
 
+    
+    public function __construct()
+    {
+        $this->boleta_recepciones = new ArrayCollection();
+    }
 
     /**
      * Get id

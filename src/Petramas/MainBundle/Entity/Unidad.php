@@ -22,6 +22,11 @@ class Unidad
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="BoletaRecepcion", mappedBy="unidad")
+     */
+    protected $boleta_recepciones;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="marca", type="string", length=255)

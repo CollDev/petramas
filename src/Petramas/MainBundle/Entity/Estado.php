@@ -22,6 +22,11 @@ class Estado
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="BoletaRecepcion", mappedBy="estado")
+     */
+    protected $boleta_recepciones;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)

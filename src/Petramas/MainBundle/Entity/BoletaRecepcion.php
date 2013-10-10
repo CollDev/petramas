@@ -27,6 +27,24 @@ class BoletaRecepcion
     protected $boleta_materiales;
     
     /**
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="boleta_recepciones")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     */
+    protected $cliente;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Unidad", inversedBy="boleta_recepciones")
+     * @ORM\JoinColumn(name="unidad_id", referencedColumnName="id")
+     */
+    protected $unidad;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Estado", inversedBy="boleta_recepciones")
+     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
+     */
+    protected $estado;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_ingreso", type="datetime")
