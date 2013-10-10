@@ -22,6 +22,11 @@ class Material
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="PedidoDetalle", mappedBy="material")
+     */
+    protected $pedido_detalles;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -43,6 +48,11 @@ class Material
     private $tarifa;
 
 
+    public function __construct()
+    {
+        $this->pedido_detalles = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *

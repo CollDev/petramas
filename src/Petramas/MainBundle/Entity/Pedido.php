@@ -40,12 +40,22 @@ class Pedido
     protected $factura;
     
     /**
+     * @ORM\OneToMany(targetEntity="PedidoDetalle", mappedBy="pedido")
+     */
+    protected $pedido_detalles;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_programacion", type="datetime")
      */
     private $fechaProgramacion;
 
+    
+    public function __construct()
+    {
+        $this->pedido_detalles = new ArrayCollection();
+    }
 
     /**
      * Get id

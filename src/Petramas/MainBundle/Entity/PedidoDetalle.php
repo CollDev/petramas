@@ -22,6 +22,18 @@ class PedidoDetalle
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Pedido", inversedBy="pedido_detalles")
+     * @ORM\JoinColumn(name="pedido_id", referencedColumnName="id")
+     */
+    protected $pedido;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Material", inversedBy="pedido_detalles")
+     * @ORM\JoinColumn(name="material_id", referencedColumnName="id")
+     */
+    protected $material;
+    
+    /**
      * @var integer
      *
      * @ORM\Column(name="cantidad", type="integer")
