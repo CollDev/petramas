@@ -22,6 +22,12 @@ class Factura
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="facturas")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     */
+    protected $cliente;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="codigo", type="string", length=50)

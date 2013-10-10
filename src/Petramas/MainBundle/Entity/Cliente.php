@@ -22,15 +22,20 @@ class Cliente
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Estado", inversedBy="clientes")
+     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
+     */
+    protected $estado;
+    
+    /**
      * @ORM\OneToMany(targetEntity="BoletaRecepcion", mappedBy="cliente")
      */
     protected $boleta_recepciones;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Estado", inversedBy="clientes")
-     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Factura", mappedBy="cliente")
      */
-    protected $estado;
+    protected $facturas;
     
     /**
      * @var string
