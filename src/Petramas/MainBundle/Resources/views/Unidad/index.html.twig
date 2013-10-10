@@ -1,0 +1,47 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Unidad list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Marca</th>
+                <th>Fechamantenimiento</th>
+                <th>Kilometraje</th>
+                <th>Tiempo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('unidad_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.marca }}</td>
+                <td>{% if entity.fechaMantenimiento %}{{ entity.fechaMantenimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.kilometraje }}</td>
+                <td>{% if entity.tiempo %}{{ entity.tiempo|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('unidad_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('unidad_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('unidad_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
