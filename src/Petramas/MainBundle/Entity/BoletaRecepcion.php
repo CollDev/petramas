@@ -3,7 +3,6 @@
 namespace Petramas\MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * BoletaRecepcion
@@ -22,27 +21,6 @@ class BoletaRecepcion
      */
     private $id;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="BoletaMaterial", inversedBy="boleta_recepciones")
-     * @ORM\JoinColumn(name="boleta_material_id", referencedColumnName="id")
-     */
-    protected $boleta_material;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Cliente", mappedBy="boleta_recepcion")
-     */
-    protected $clientes;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Unidad", mappedBy="boleta_recepcion")
-     */
-    protected $unidades;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Estado", mappedBy="boleta_recepcion")
-     */
-    protected $estados;
-    
     /**
      * @var \DateTime
      *
@@ -78,12 +56,6 @@ class BoletaRecepcion
      */
     private $neto;
 
-    public function __construct()
-    {
-        $this->clientes = new ArrayCollection();
-        $this->unidades = new ArrayCollection();
-        $this->estados = new ArrayCollection();
-    }
 
     /**
      * Get id

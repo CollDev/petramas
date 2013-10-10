@@ -22,12 +22,6 @@ class Responsable
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Incidencia", inversedBy="responsables")
-     * @ORM\JoinColumn(name="incidencia_id", referencedColumnName="id")
-     */
-    protected $incidencia;
-    
-    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)

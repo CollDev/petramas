@@ -22,11 +22,6 @@ class IncidenciaResolucion
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Incidencia", mappedBy="incidencia_resolucion")
-     */
-    protected $incidencias;
-    
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_resolucion", type="datetime")
@@ -40,10 +35,6 @@ class IncidenciaResolucion
      */
     private $resolucion;
 
-    public function __construct()
-    {
-        $this->incidencias = new ArrayCollection();
-    }
 
     /**
      * Get id

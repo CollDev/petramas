@@ -22,11 +22,6 @@ class LiquidacionMaterial
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Cliente", mappedBy="liquidacion_material")
-     */
-    protected $clientes;
-    
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_liquidacion", type="datetime")
@@ -40,10 +35,6 @@ class LiquidacionMaterial
      */
     private $importe;
 
-    public function __construct()
-    {
-        $this->clientes = new ArrayCollection();
-    }
 
     /**
      * Get id

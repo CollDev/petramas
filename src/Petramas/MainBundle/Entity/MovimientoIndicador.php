@@ -22,16 +22,6 @@ class MovimientoIndicador
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Indicador", mappedBy="movimiento_indicador")
-     */
-    protected $indicadores;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Estado", mappedBy="movimiento_indicador")
-     */
-    protected $estados;
-    
-    /**
      * @var integer
      *
      * @ORM\Column(name="valor", type="integer")
@@ -45,11 +35,6 @@ class MovimientoIndicador
      */
     private $fechaMovimiento;
 
-    public function __construct()
-    {
-        $this->indicadores = new ArrayCollection();
-        $this->estados = new ArrayCollection();
-    }
 
     /**
      * Get id

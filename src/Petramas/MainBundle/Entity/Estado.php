@@ -22,36 +22,6 @@ class Estado
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="BoletaRecepcion", inversedBy="estados")
-     * @ORM\JoinColumn(name="boleta_recepcion_id", referencedColumnName="id")
-     */
-    protected $boleta_recepcion;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="estados")
-     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
-     */
-    protected $cliente;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Incidencia", inversedBy="estados")
-     * @ORM\JoinColumn(name="incidencia_id", referencedColumnName="id")
-     */
-    protected $incidencia;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="LiquidacionRecepcion", inversedBy="estados")
-     * @ORM\JoinColumn(name="liquidacion_recepcion_id", referencedColumnName="id")
-     */
-    protected $liquidacion_recepcion;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="MovimientoIndicador", inversedBy="estados")
-     * @ORM\JoinColumn(name="movimiento_indicador_id", referencedColumnName="id")
-     */
-    protected $movimiento_indicador;
-    
-    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)

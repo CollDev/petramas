@@ -22,16 +22,6 @@ class LiquidacionRecepcion
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Cliente", mappedBy="liquidacion_recepcion")
-     */
-    protected $clientes;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Estado", mappedBy="liquidacion_recepcion")
-     */
-    protected $estados;
-    
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_liquidacion", type="datetime")
@@ -59,11 +49,6 @@ class LiquidacionRecepcion
      */
     private $importe;
 
-    public function __construct()
-    {
-        $this->clientes = new ArrayCollection();
-        $this->estados = new ArrayCollection();
-    }
 
     /**
      * Get id

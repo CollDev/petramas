@@ -22,35 +22,6 @@ class Cliente
     private $id;
 
     /**
-     * @ORM\OneToMany(targetEntity="Estado", mappedBy="Cliente")
-     */
-    protected $estados;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="BoletaRecepcion", inversedBy="clientes")
-     * @ORM\JoinColumn(name="boleta_recepcion_id", referencedColumnName="id")
-     */
-    protected $boleta_recepcion;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="Factura", inversedBy="clientes")
-     * @ORM\JoinColumn(name="factura_id", referencedColumnName="id")
-     */
-    protected $factura;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="LiquidacionMaterial", inversedBy="clientes")
-     * @ORM\JoinColumn(name="liquidacion_material_id", referencedColumnName="id")
-     */
-    protected $liquidacion_material;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="LiquidacionRecepcion", inversedBy="clientes")
-     * @ORM\JoinColumn(name="liquidacion_recepcion_id", referencedColumnName="id")
-     */
-    protected $liquidacion_recepcion;
-    
-    /**
      * @var string
      *
      * @ORM\Column(name="razon_social", type="string", length=255)
@@ -71,11 +42,7 @@ class Cliente
      */
     private $direccion;
 
-    public function __construct()
-    {
-        $this->estados = new ArrayCollection();
-    }
-    
+
     /**
      * Get id
      *
