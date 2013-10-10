@@ -31,14 +31,14 @@ class Material
     /**
      * @var float
      *
-     * @ORM\Column(name="stock", type="decimal")
+     * @ORM\Column(name="stock", type="decimal", precision=10, scale=2)
      */
     private $stock;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="tarifa", type="decimal")
+     * @ORM\Column(name="tarifa", type="decimal", precision=10, scale=2, nullable=true)
      */
     private $tarifa;
 

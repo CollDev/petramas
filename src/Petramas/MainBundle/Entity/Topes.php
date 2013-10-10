@@ -31,21 +31,21 @@ class Topes
     /**
      * @var float
      *
-     * @ORM\Column(name="acumulado", type="decimal")
+     * @ORM\Column(name="acumulado", type="decimal", precision=10, scale=2)
      */
     private $acumulado;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="previo", type="decimal")
+     * @ORM\Column(name="previo", type="decimal", precision=10, scale=2)
      */
     private $previo;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_registro", type="datetime")
+     * @ORM\Column(name="fecha_registro", type="datetime", nullable=true)
      */
     private $fechaRegistro;
 

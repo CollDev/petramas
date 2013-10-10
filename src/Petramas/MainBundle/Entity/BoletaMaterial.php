@@ -24,7 +24,7 @@ class BoletaMaterial
     /**
      * @var float
      *
-     * @ORM\Column(name="neto", type="decimal")
+     * @ORM\Column(name="neto", type="decimal", precision=10, scale=2)
      */
     private $neto;
 

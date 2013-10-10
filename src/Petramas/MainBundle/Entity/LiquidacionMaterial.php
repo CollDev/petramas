@@ -31,7 +31,7 @@ class LiquidacionMaterial
     /**
      * @var float
      *
-     * @ORM\Column(name="importe", type="decimal")
+     * @ORM\Column(name="importe", type="decimal", precision=10, scale=2)
      */
     private $importe;
 

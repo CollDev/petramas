@@ -38,21 +38,21 @@ class BoletaRecepcion
     /**
      * @var float
      *
-     * @ORM\Column(name="total", type="decimal")
+     * @ORM\Column(name="total", type="decimal", precision=10, scale=2)
      */
     private $total;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="tara", type="decimal")
+     * @ORM\Column(name="tara", type="decimal", precision=10, scale=2)
      */
     private $tara;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="neto", type="decimal")
+     * @ORM\Column(name="neto", type="decimal", precision=10, scale=2)
      */
     private $neto;
 

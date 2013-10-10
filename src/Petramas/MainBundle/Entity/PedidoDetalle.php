@@ -22,16 +22,16 @@ class PedidoDetalle
     private $id;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="cantidad", type="decimal")
+     * @ORM\Column(name="cantidad", type="integer")
      */
     private $cantidad;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="importe", type="decimal")
+     * @ORM\Column(name="importe", type="decimal", precision=10, scale=2)
      */
     private $importe;
 
@@ -49,7 +49,7 @@ class PedidoDetalle
     /**
      * Set cantidad
      *
-     * @param float $cantidad
+     * @param integer $cantidad
      * @return PedidoDetalle
      */
     public function setCantidad($cantidad)
@@ -62,7 +62,7 @@ class PedidoDetalle
     /**
      * Get cantidad
      *
-     * @return float 
+     * @return integer 
      */
     public function getCantidad()
     {

@@ -31,7 +31,7 @@ class UnidadMedida
     /**
      * @var float
      *
-     * @ORM\Column(name="valor", type="decimal")
+     * @ORM\Column(name="valor", type="decimal", precision=10, scale=2)
      */
     private $valor;
 

@@ -31,14 +31,14 @@ class Incidencia
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_resolucion", type="datetime")
+     * @ORM\Column(name="fecha_resolucion", type="datetime", nullable=true)
      */
     private $fechaResolucion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="maquinaria", type="string", length=255)
+     * @ORM\Column(name="maquinaria", type="string", length=255, nullable=true)
      */
     private $maquinaria;
 
@@ -52,7 +52,7 @@ class Incidencia
     /**
      * @var string
      *
-     * @ORM\Column(name="solucion", type="string", length=255)
+     * @ORM\Column(name="solucion", type="string", length=255, nullable=true)
      */
     private $solucion;
 
