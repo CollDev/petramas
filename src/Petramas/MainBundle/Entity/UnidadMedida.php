@@ -27,6 +27,11 @@ class UnidadMedida
     protected $recepcion_materiales;
     
     /**
+     * @ORM\OneToMany(targetEntity="Tope", mappedBy="unidad_medida")
+     */
+    protected $topes;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -44,6 +49,7 @@ class UnidadMedida
     public function __construct()
     {
         $this->recepcion_materiales = new ArrayCollection();
+        $this->topes = new ArrayCollection();
     }
     
     /**

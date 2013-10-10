@@ -5,12 +5,12 @@ namespace Petramas\MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Topes
+ * Tope
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\TopesRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\TopeRepository")
  */
-class Topes
+class Tope
 {
     /**
      * @var integer
@@ -21,6 +21,18 @@ class Topes
      */
     private $id;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Indicador", inversedBy="topes")
+     * @ORM\JoinColumn(name="indicador_id", referencedColumnName="id")
+     */
+    protected $indicador;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="UnidadMedida", inversedBy="topes")
+     * @ORM\JoinColumn(name="unidad_medida_id", referencedColumnName="id")
+     */
+    protected $unidad_medida;
+    
     /**
      * @var string
      *

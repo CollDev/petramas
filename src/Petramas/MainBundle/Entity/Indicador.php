@@ -27,6 +27,11 @@ class Indicador
     protected $movimiento_indicadores;
     
     /**
+     * @ORM\OneToMany(targetEntity="Tope", mappedBy="indicador")
+     */
+    protected $topes;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
@@ -72,6 +77,7 @@ class Indicador
     public function __construct()
     {
         $this->movimiento_indicadores = new ArrayCollection();
+        $this->topes = new ArrayCollection();
     }
 
     /**
