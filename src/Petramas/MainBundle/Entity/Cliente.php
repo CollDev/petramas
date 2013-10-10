@@ -22,6 +22,11 @@ class Cliente
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="Estado", mappedBy="Cliente")
+     */
+    protected $estados;
+    
+    /**
      * @ORM\ManyToOne(targetEntity="BoletaRecepcion", inversedBy="clientes")
      * @ORM\JoinColumn(name="boleta_recepcion_id", referencedColumnName="id")
      */
@@ -48,7 +53,11 @@ class Cliente
      */
     private $direccion;
 
-
+    public function __construct()
+    {
+        $this->estados = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *

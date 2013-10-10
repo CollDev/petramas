@@ -28,6 +28,12 @@ class Estado
     protected $boleta_recepcion;
     
     /**
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="estados")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
+     */
+    protected $cliente;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
