@@ -46,6 +46,12 @@ class Estado
     protected $liquidacion_recepcion;
     
     /**
+     * @ORM\ManyToOne(targetEntity="MovimientoIndicador", inversedBy="estados")
+     * @ORM\JoinColumn(name="movimiento_indicador_id", referencedColumnName="id")
+     */
+    protected $movimiento_indicador;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)

@@ -22,6 +22,12 @@ class Indicador
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="MovimientoIndicador", inversedBy="indicadores")
+     * @ORM\JoinColumn(name="movimiento_indicador_id", referencedColumnName="id")
+     */
+    protected $movimiento_indicador;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255)
