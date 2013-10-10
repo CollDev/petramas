@@ -46,6 +46,11 @@ class Incidencia
     protected $unidad;
     
     /**
+     * @ORM\OneToMany(targetEntity="IncidenciaResolucion", mappedBy="incidencia")
+     */
+    protected $incidencia_resoluciones;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_incidencia", type="datetime")
@@ -81,6 +86,11 @@ class Incidencia
     private $solucion;
 
 
+    public function __construct()
+    {
+        $this->incidencia_resoluciones = new ArrayCollection();
+    }
+    
     /**
      * Get id
      *

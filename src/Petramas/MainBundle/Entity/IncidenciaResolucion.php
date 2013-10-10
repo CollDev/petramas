@@ -22,6 +22,12 @@ class IncidenciaResolucion
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Incidencia", inversedBy="IncidenciaResolucion")
+     * @ORM\JoinColumn(name="incidencia_id", referencedColumnName="id")
+     */
+    protected $incidencia;
+    
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="fecha_resolucion", type="datetime")
