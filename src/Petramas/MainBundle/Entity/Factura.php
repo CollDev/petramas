@@ -22,6 +22,11 @@ class Factura
     private $id;
 
     /**
+     * @ORM\OneToMany(targetEntity="Cliente", mappedBy="factura")
+     */
+    protected $clientes;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="codigo", type="string", length=50)
@@ -42,6 +47,10 @@ class Factura
      */
     private $fecha;
 
+    public function __construct()
+    {
+        $this->clientes = new ArrayCollection();
+    }
 
     /**
      * Get id

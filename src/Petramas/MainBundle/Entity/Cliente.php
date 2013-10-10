@@ -33,6 +33,12 @@ class Cliente
     protected $boleta_recepcion;
     
     /**
+     * @ORM\ManyToOne(targetEntity="Factura", inversedBy="clientes")
+     * @ORM\JoinColumn(name="factura_id", referencedColumnName="id")
+     */
+    protected $factura;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="razon_social", type="string", length=255)
