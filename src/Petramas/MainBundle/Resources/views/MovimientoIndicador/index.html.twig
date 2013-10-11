@@ -1,43 +1,41 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content -%}
-    <h1>MovimientoIndicador list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Valor</th>
-                <th>Fechamovimiento</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('movimientoindicador_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.valor }}</td>
-                <td>{% if entity.fechaMovimiento %}{{ entity.fechaMovimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
+                <h1>MovimientoIndicador list</h1>
+                <table class="records_list">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Valor</th>
+                            <th>Fechamovimiento</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities -%}
+                        <tr>
+                            <td><a href="{{ path('movimientoindicador_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.valor }}</td>
+                            <td>{% if entity.fechaMovimiento %}{{ entity.fechaMovimiento|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('movimientoindicador_show', { 'id': entity.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('movimientoindicador_edit', { 'id': entity.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                            </td>
+                        </tr>
+                        {% endfor -%}
+                    </tbody>
+                </table>
                 <ul>
                     <li>
-                        <a href="{{ path('movimientoindicador_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('movimientoindicador_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('movimientoindicador_new') }}">
+                            Create a new entry
+                        </a>
                     </li>
                 </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('movimientoindicador_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}

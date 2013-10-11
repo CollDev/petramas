@@ -1,41 +1,39 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content -%}
-    <h1>LiquidacionMaterialDetalle list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Importe</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('liquidacionmaterialdetalle_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.importe }}</td>
-                <td>
+                <h1>LiquidacionMaterialDetalle list</h1>
+                <table class="records_list">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Importe</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities -%}
+                        <tr>
+                            <td><a href="{{ path('liquidacionmaterialdetalle_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.importe }}</td>
+                            <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('liquidacionmaterialdetalle_show', { 'id': entity.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('liquidacionmaterialdetalle_edit', { 'id': entity.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                            </td>
+                        </tr>
+                        {% endfor -%}
+                    </tbody>
+                </table>
                 <ul>
                     <li>
-                        <a href="{{ path('liquidacionmaterialdetalle_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('liquidacionmaterialdetalle_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('liquidacionmaterialdetalle_new') }}">
+                            Create a new entry
+                        </a>
                     </li>
                 </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('liquidacionmaterialdetalle_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}

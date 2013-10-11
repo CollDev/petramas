@@ -1,47 +1,45 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content -%}
-    <h1>Tope list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Descripcion</th>
-                <th>Acumulado</th>
-                <th>Previo</th>
-                <th>Fecharegistro</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('tope_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.descripcion }}</td>
-                <td>{{ entity.acumulado }}</td>
-                <td>{{ entity.previo }}</td>
-                <td>{% if entity.fechaRegistro %}{{ entity.fechaRegistro|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>
+                <h1>Tope list</h1>
+                <table class="records_list">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Descripcion</th>
+                            <th>Acumulado</th>
+                            <th>Previo</th>
+                            <th>Fecharegistro</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities -%}
+                        <tr>
+                            <td><a href="{{ path('tope_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{{ entity.descripcion }}</td>
+                            <td>{{ entity.acumulado }}</td>
+                            <td>{{ entity.previo }}</td>
+                            <td>{% if entity.fechaRegistro %}{{ entity.fechaRegistro|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('tope_show', { 'id': entity.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('tope_edit', { 'id': entity.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                            </td>
+                        </tr>
+                        {% endfor -%}
+                    </tbody>
+                </table>
                 <ul>
                     <li>
-                        <a href="{{ path('tope_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('tope_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('tope_new') }}">
+                            Create a new entry
+                        </a>
                     </li>
                 </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('tope_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}

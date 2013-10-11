@@ -1,49 +1,47 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content -%}
-    <h1>Incidencia list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Fechaincidencia</th>
-                <th>Fecharesolucion</th>
-                <th>Maquinaria</th>
-                <th>Observacion</th>
-                <th>Solucion</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('incidencia_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{% if entity.fechaIncidencia %}{{ entity.fechaIncidencia|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{% if entity.fechaResolucion %}{{ entity.fechaResolucion|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.maquinaria }}</td>
-                <td>{{ entity.observacion }}</td>
-                <td>{{ entity.solucion }}</td>
-                <td>
+                <h1>Incidencia list</h1>
+                <table class="records_list">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Fechaincidencia</th>
+                            <th>Fecharesolucion</th>
+                            <th>Maquinaria</th>
+                            <th>Observacion</th>
+                            <th>Solucion</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities -%}
+                        <tr>
+                            <td><a href="{{ path('incidencia_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                            <td>{% if entity.fechaIncidencia %}{{ entity.fechaIncidencia|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{% if entity.fechaResolucion %}{{ entity.fechaResolucion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>{{ entity.maquinaria }}</td>
+                            <td>{{ entity.observacion }}</td>
+                            <td>{{ entity.solucion }}</td>
+                            <td>
+                            <ul>
+                                <li>
+                                    <a href="{{ path('incidencia_show', { 'id': entity.id }) }}">show</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('incidencia_edit', { 'id': entity.id }) }}">edit</a>
+                                </li>
+                            </ul>
+                            </td>
+                        </tr>
+                        {% endfor -%}
+                    </tbody>
+                </table>
                 <ul>
                     <li>
-                        <a href="{{ path('incidencia_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('incidencia_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('incidencia_new') }}">
+                            Create a new entry
+                        </a>
                     </li>
                 </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('incidencia_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}
