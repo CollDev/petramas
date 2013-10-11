@@ -15,7 +15,7 @@ class DatabaseUpdateCommand extends ContainerAwareCommand
     public function __construct()
     {
         parent::__construct();
-        $this->route = 'cd ' . __DIR__ . '/../../../../;';
+        $this->route = 'cd ' . __DIR__ . '/../../../../;php app/console ';
     }
     
     protected function configure()
@@ -28,16 +28,16 @@ class DatabaseUpdateCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $output->write('<comment>Dropping database</comment> <question>>></question> ');
-        $output->writeln(shell_exec($this->route . 'php app/console doctrine:database:drop --force'));
+        $output->writeln(shell_exec($this->route . 'doctrine:database:drop --force'));
         
         $output->write('<comment>Creating database</comment> <question>>></question> ');
-        $output->writeln(shell_exec($this->route . 'php app/console doctrine:database:create'));
+        $output->writeln(shell_exec($this->route . 'doctrine:database:create'));
         
         $output->write('<comment>Creating schema</comment> <question>>></question> ');
-        $output->writeln(shell_exec($this->route . 'php app/console doctrine:schema:create'));
+        $output->writeln(shell_exec($this->route . 'doctrine:schema:create'));
         
         $output->write('<comment>Loading fixtures</comment> <question>>></question> ');
-        $output->writeln(shell_exec($this->route . 'php app/console doctrine:fixtures:load -n'));
+        $output->writeln(shell_exec($this->route . 'doctrine:fixtures:load -n'));
         
         $output->writeln('<info>Finished successfully.</info>');
     }
