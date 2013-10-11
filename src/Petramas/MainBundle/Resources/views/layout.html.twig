@@ -30,36 +30,44 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestión<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{ path('cliente') }}">Cliente</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="{{ path('pedido') }}">Pedido</a></li>
+                        <li><a href="{{ path('factura') }}">Factura</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="{{ path('incidencia') }}">Incidencia</a></li>
+                        <li><a href="{{ path('incidenciaresolucion') }}">Incidencia Resolución</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="{{ path('liquidacionmaterial') }}">Liquidación Material</a></li>
+                        <li><a href="{{ path('liquidacionrecepcion') }}">Liquidación Recepción</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seguimiento<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="{{ path('boletamaterial') }}">Boleta Material</a></li>
+                        <li><a href="{{ path('boletarecepcion') }}">Boleta Recepción</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="{{ path('liquidacionmaterialdetalle') }}">Liquidación Material Detalle</a></li>
+                        <li><a href="{{ path('pedidodetalle') }}">Pedido Detalle</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="{{ path('recepcionmaterial') }}">Recepción Material</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
+                        <li><a href="{{ path('estado') }}">Estado</a></li>
+                        <li><a href="{{ path('material') }}">Material</a></li>
+                        <li><a href="{{ path('indicador') }}">Indicador</a></li>
+                        <li><a href="{{ path('movimientoindicador') }}">Movimiento Indicador</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">Separated link</a></li>
+                        <li><a href="{{ path('tope') }}">Tope</a></li>
+                        <li><a href="{{ path('responsable') }}">Responsable</a></li>
+                        <li><a href="{{ path('tarifa') }}">Tarifa</a></li>
+                        <li><a href="{{ path('tipoincidencia') }}">Tipo Incidencia</a></li>
                         <li class="divider"></li>
-                        <li><a href="#">One more separated link</a></li>
+                        <li><a href="{{ path('unidad') }}">Unidad</a></li>
+                        <li><a href="{{ path('unidadmedida') }}">Unidad Medida</a></li>
+                        <li><a href="{{ path('usuario') }}">Usuario</a></li>
                     </ul>
                 </li>
             </ul>
