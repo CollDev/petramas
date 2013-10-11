@@ -1,0 +1,18 @@
+TipoIncidencia:
+    accidente_mayor:
+        nombre: Accidente Mayor
+    
+    accidente_menor:
+        nombre: Accidente Menor
+    
+    choque:
+        nombre: Choque
+    
+    desborde:
+        nombre: Desborde
+    
+    falto_cobertura_insecticidas:
+        nombre: Falto cobertura insecticidas
+    
+    falto_cobertura_agua:
+        nombre: Falto cobertura agua
