@@ -1,41 +1,36 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content -%}
-                <h1>Responsable list</h1>
-                <table class="records_list">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for entity in entities -%}
-                        <tr>
-                            <td><a href="{{ path('responsable_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                            <td>{{ entity.nombre }}</td>
-                            <td>{{ entity.email }}</td>
-                            <td>
-                            <ul>
-                                <li>
-                                    <a href="{{ path('responsable_show', { 'id': entity.id }) }}">show</a>
-                                </li>
-                                <li>
-                                    <a href="{{ path('responsable_edit', { 'id': entity.id }) }}">edit</a>
-                                </li>
-                            </ul>
-                            </td>
-                        </tr>
-                        {% endfor -%}
-                    </tbody>
-                </table>
-                <ul>
-                    <li>
-                        <a href="{{ path('responsable_new') }}">
-                            Create a new entry
-                        </a>
-                    </li>
-                </ul>
+                <h1>
+                    Responsables
+                    <a class="btn btn-primary entity pull-right" href="{{ path('responsable_new') }}" rel="tooltip" title="Nuevo">
+                        <span class="glyphicon glyphicon-file"></span>
+                    </a>
+                </h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Nº</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for entity in entities -%}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ entity.nombre }}</td>
+                                <td>{{ entity.email }}</td>
+                                <td>
+                                    <a class="btn btn-info btn-xs entity" href="{{ path('responsable_show', { 'id': entity.id }) }}" rel="tooltip" title="Detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                    <a class="btn btn-warning btn-xs entity" href="{{ path('responsable_edit', { 'id': entity.id }) }}" rel="tooltip" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a class="btn btn-danger btn-xs delete" href="{{ path('responsable_delete', { 'id': entity.id }) }}" rel="tooltip" title="Eliminar"><span class="glyphicon glyphicon-remove"></span></a>
+                                </td>
+                            </tr>
+                            {% endfor -%}
+                        </tbody>
+                    </table>
+                </div>
 {% endblock %}
