@@ -23,7 +23,7 @@ class LiquidacionMaterial
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="liquidacion_material")
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="liquidacion_materiales")
      * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
      */
     protected $cliente;
@@ -55,7 +55,7 @@ class LiquidacionMaterial
     {
         $this->liquidacion_material_detalles = new ArrayCollection();
     }
-    
+
     /**
      * Get id
      *

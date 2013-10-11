@@ -22,7 +22,7 @@ class IncidenciaResolucion
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Incidencia", inversedBy="IncidenciaResolucion")
+     * @ORM\ManyToOne(targetEntity="Incidencia", inversedBy="incidencia_resoluciones")
      * @ORM\JoinColumn(name="incidencia_id", referencedColumnName="id")
      */
     protected $incidencia;
@@ -40,7 +40,6 @@ class IncidenciaResolucion
      * @ORM\Column(name="resolucion", type="string", length=255)
      */
     private $resolucion;
-
 
     /**
      * Get id

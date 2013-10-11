@@ -29,7 +29,7 @@ class Factura
     protected $cliente;
     
     /**
-     * @ORM\OneToMany(targetEntity="Pedido", mappedBy="facturas")
+     * @ORM\OneToMany(targetEntity="Pedido", mappedBy="factura")
      */
     protected $pedidos;
     

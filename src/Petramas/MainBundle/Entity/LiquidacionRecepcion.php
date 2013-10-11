@@ -22,10 +22,16 @@ class LiquidacionRecepcion
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="liquidacion_recepcion")
+     * @ORM\ManyToOne(targetEntity="Cliente", inversedBy="liquidacion_recepciones")
      * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id")
      */
     protected $cliente;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Estado", inversedBy="liquidacion_recepciones")
+     * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
+     */
+    protected $estado;
     
     /**
      * @var \DateTime
@@ -54,7 +60,6 @@ class LiquidacionRecepcion
      * @ORM\Column(name="importe", type="decimal", precision=10, scale=2)
      */
     private $importe;
-
 
     /**
      * Get id
@@ -179,5 +184,28 @@ class LiquidacionRecepcion
     public function getCliente()
     {
         return $this->cliente;
+    }
+
+    /**
+     * Set estado
+     *
+     * @param \Petramas\MainBundle\Entity\Estado $estado
+     * @return LiquidacionRecepcion
+     */
+    public function setEstado(\Petramas\MainBundle\Entity\Estado $estado = null)
+    {
+        $this->estado = $estado;
+    
+        return $this;
+    }
+
+    /**
+     * Get estado
+     *
+     * @return \Petramas\MainBundle\Entity\Estado 
+     */
+    public function getEstado()
+    {
+        return $this->estado;
     }
 }
