@@ -2,9 +2,7 @@
 namespace Petramas\MainBundle\Command;
 
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class ProductionUpdateCommand extends ContainerAwareCommand
@@ -17,13 +15,15 @@ class ProductionUpdateCommand extends ContainerAwareCommand
         $this->route = 'cd ' . __DIR__ . '/../../../../;php app/console ';
     }
     
-    protected function configure() {
+    protected function configure()
+    {
         $this->setName('prod:up')
              ->setDescription('Move to production.')
             ;
     }
     
-    protected function execute(InputInterface $input, OutputInterface $output) {
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
         $output->write('<comment>Pulling from git repository</comment> <question>>></question> ');
         $output->writeln(shell_exec('cd ' . __DIR__ . '/../../../../;git pull'));
         
