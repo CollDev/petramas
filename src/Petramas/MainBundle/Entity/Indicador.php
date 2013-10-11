@@ -96,9 +96,11 @@ class Indicador
      * 
      * @return string
      */
-    public function __toString() {
+    public function __toString()
+    {
         return $this->getNombre();
     }
+    
     /**
      * Get id
      *
