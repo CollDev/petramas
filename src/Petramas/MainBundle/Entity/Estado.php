@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Estado
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\EstadoRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\EstadoRepository")
  */
 class Estado
 {

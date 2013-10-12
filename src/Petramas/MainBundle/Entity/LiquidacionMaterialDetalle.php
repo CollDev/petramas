@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * LiquidacionMaterialDetalle
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\LiquidacionMaterialDetalleRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\LiquidacionMaterialDetalleRepository")
  */
 class LiquidacionMaterialDetalle
 {

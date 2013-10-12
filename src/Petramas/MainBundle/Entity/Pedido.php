@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Pedido
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\PedidoRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\PedidoRepository")
  */
 class Pedido
 {

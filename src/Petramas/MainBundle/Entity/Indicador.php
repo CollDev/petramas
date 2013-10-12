@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Indicador
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\IndicadorRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\IndicadorRepository")
  */
 class Indicador
 {

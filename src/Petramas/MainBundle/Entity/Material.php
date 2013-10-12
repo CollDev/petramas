@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Material
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\MaterialRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\MaterialRepository")
  */
 class Material
 {

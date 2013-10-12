@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * IncidenciaResolucion
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\IncidenciaResolucionRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\IncidenciaResolucionRepository")
  */
 class IncidenciaResolucion
 {

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Tope
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\TopeRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\TopeRepository")
  */
 class Tope
 {

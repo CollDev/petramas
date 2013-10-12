@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * MovimientoIndicador
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\MovimientoIndicadorRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\MovimientoIndicadorRepository")
  */
 class MovimientoIndicador
 {

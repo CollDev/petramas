@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Responsable
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\ResponsableRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\ResponsableRepository")
  */
 class Responsable
 {

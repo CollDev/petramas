@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * LiquidacionMaterial
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Petramas\MainBundle\Entity\LiquidacionMaterialRepository")
+ * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\LiquidacionMaterialRepository")
  */
 class LiquidacionMaterial
 {
