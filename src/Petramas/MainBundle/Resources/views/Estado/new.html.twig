@@ -1,15 +1,17 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Estado creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('estado') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content %}
+<div class="container">
+    <h2>Nuevo Estado</h2>
+    {{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+            {{ form_label(form.nombre, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            <div class="col-sm-10">
+                {{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            {{ form_errors(form.nombre) }}
+        </div>
+    {{ form_end(form) }}
+</div>
 {% endblock %}
