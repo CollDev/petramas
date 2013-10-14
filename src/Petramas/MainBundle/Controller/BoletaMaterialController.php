@@ -193,7 +193,7 @@ class BoletaMaterialController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('boletamaterial_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('boletamaterial', array('id' => $id)));
         }
 
         return array(

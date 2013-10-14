@@ -193,7 +193,7 @@ class TarifaController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('tarifa_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('tarifa', array('id' => $id)));
         }
 
         return array(

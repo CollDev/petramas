@@ -193,7 +193,7 @@ class IncidenciaResolucionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('incidenciaresolucion_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('incidenciaresolucion', array('id' => $id)));
         }
 
         return array(

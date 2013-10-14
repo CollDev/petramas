@@ -193,7 +193,7 @@ class IndicadorController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('indicador_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('indicador', array('id' => $id)));
         }
 
         return array(

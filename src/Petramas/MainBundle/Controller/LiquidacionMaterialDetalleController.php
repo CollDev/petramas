@@ -193,7 +193,7 @@ class LiquidacionMaterialDetalleController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('liquidacionmaterialdetalle_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('liquidacionmaterialdetalle', array('id' => $id)));
         }
 
         return array(

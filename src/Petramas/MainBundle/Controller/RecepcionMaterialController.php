@@ -193,7 +193,7 @@ class RecepcionMaterialController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('recepcionmaterial_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('recepcionmaterial', array('id' => $id)));
         }
 
         return array(

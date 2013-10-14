@@ -193,7 +193,7 @@ class FacturaController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('factura_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('factura', array('id' => $id)));
         }
 
         return array(

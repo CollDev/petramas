@@ -193,7 +193,7 @@ class LiquidacionRecepcionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('liquidacionrecepcion_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('liquidacionrecepcion', array('id' => $id)));
         }
 
         return array(

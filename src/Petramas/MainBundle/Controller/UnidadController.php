@@ -193,7 +193,7 @@ class UnidadController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('unidad_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('unidad', array('id' => $id)));
         }
 
         return array(
