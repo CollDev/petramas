@@ -1,15 +1,75 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>RecepcionMaterial creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('recepcionmaterial') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content %}
+<h4>Nueva Recepción Material</h4>
+{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+    {{ form_errors(form) }}
+    <div class="form-group{% if form.fechaIngreso.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.fechaIngreso, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.fechaIngreso, {'attr': {'class': 'form-control'}}) }}
+            {% if form.fechaIngreso.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.fechaIngreso.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.cantidad.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.cantidad, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.cantidad, {'attr': {'class': 'form-control'}}) }}
+            {% if form.cantidad.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.cantidad.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.boleta_recepcion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.boleta_recepcion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.boleta_recepcion, {'attr': {'class': 'form-control'}}) }}
+            {% if form.boleta_recepcion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.boleta_recepcion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.material.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.material, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.material, {'attr': {'class': 'form-control'}}) }}
+            {% if form.material.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.material.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.unidad_medida.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.unidad_medida, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.unidad_medida, {'attr': {'class': 'form-control'}}) }}
+            {% if form.unidad_medida.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.unidad_medida.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.usuario.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.usuario, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.usuario, {'attr': {'class': 'form-control'}}) }}
+            {% if form.usuario.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.usuario.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(form) }}
+<a class="btn btn-info pull-right" href="{{ path('recepcionmaterial') }}">Volver</a>
 {% endblock %}

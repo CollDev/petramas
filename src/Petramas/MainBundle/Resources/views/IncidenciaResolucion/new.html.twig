@@ -1,15 +1,42 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>IncidenciaResolucion creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('incidenciaresolucion') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content %}
+<h4>Nueva Incidencia Resolución</h4>
+{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+    {{ form_errors(form) }}
+    <div class="form-group{% if form.fechaResolucion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.fechaResolucion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.fechaResolucion, {'attr': {'class': 'form-control'}}) }}
+            {% if form.fechaResolucion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.fechaResolucion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.resolucion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.resolucion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.resolucion, {'attr': {'class': 'form-control'}}) }}
+            {% if form.resolucion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.resolucion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.incidencia.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.incidencia, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.incidencia, {'attr': {'class': 'form-control'}}) }}
+            {% if form.incidencia.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.incidencia.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(form) }}
+<a class="btn btn-info pull-right" href="{{ path('incidenciaresolucion') }}">Volver</a>
 {% endblock %}

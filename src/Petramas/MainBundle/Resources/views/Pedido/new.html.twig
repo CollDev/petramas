@@ -1,15 +1,53 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Pedido creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('pedido') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content %}
+<h4>Nuevo Pedido</h4>
+{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+    {{ form_errors(form) }}
+    <div class="form-group{% if form.fechaProgramacion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.fechaProgramacion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.fechaProgramacion, {'attr': {'class': 'form-control'}}) }}
+            {% if form.fechaProgramacion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.fechaProgramacion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.cliente.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.cliente, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.cliente, {'attr': {'class': 'form-control'}}) }}
+            {% if form.cliente.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.cliente.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.estado.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.estado, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.estado, {'attr': {'class': 'form-control'}}) }}
+            {% if form.estado.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.estado.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.factura.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.factura, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.factura, {'attr': {'class': 'form-control'}}) }}
+            {% if form.factura.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.factura.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(form) }}
+<a class="btn btn-info pull-right" href="{{ path('pedido') }}">Volver</a>
 {% endblock %}

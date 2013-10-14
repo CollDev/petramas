@@ -1,15 +1,53 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>MovimientoIndicador creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('movimientoindicador') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content %}
+<h4>Nuevo Movimiento Indicador</h4>
+{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+    {{ form_errors(form) }}
+    <div class="form-group{% if form.valor.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.valor, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.valor, {'attr': {'class': 'form-control'}}) }}
+            {% if form.valor.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.valor.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.fechaMovimiento.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.fechaMovimiento, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.fechaMovimiento, {'attr': {'class': 'form-control'}}) }}
+            {% if form.fechaMovimiento.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.fechaMovimiento.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.indicador.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.indicador, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.indicador, {'attr': {'class': 'form-control'}}) }}
+            {% if form.indicador.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.indicador.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.estado.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.estado, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.estado, {'attr': {'class': 'form-control'}}) }}
+            {% if form.estado.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.estado.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(form) }}
+<a class="btn btn-info pull-right" href="{{ path('movimientoindicador') }}">Volver</a>
 {% endblock %}

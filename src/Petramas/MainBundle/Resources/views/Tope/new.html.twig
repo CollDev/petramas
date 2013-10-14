@@ -1,15 +1,75 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Tope creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('tope') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content %}
+<h4>Nuevo Tope</h4>
+{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+    {{ form_errors(form) }}
+    <div class="form-group{% if form.descripcion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.descripcion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.descripcion, {'attr': {'class': 'form-control'}}) }}
+            {% if form.descripcion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.descripcion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.acumulado.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.acumulado, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.acumulado, {'attr': {'class': 'form-control'}}) }}
+            {% if form.acumulado.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.acumulado.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.previo.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.previo, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.previo, {'attr': {'class': 'form-control'}}) }}
+            {% if form.previo.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.previo.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.fechaRegistro.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.fechaRegistro, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.fechaRegistro, {'attr': {'class': 'form-control'}}) }}
+            {% if form.fechaRegistro.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.fechaRegistro.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.indicador.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.indicador, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.indicador, {'attr': {'class': 'form-control'}}) }}
+            {% if form.indicador.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.indicador.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if form.unidad_medida.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(form.unidad_medida, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(form.unidad_medida, {'attr': {'class': 'form-control'}}) }}
+            {% if form.unidad_medida.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ form.unidad_medida.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(form) }}
+<a class="btn btn-info pull-right" href="{{ path('tope') }}">Volver</a>
 {% endblock %}
