@@ -51,6 +51,16 @@ class Responsable
     }
     
     /**
+     * Magic method
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+    
+    /**
      * Get id
      *
      * @return integer 

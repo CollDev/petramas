@@ -63,6 +63,16 @@ class Factura
     }
 
     /**
+     * Magic method
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getCodigo();
+    }
+    
+    /**
      * Get id
      *
      * @return integer 

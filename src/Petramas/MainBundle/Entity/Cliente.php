@@ -88,6 +88,16 @@ class Cliente
     }
 
     /**
+     * Magic method
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getRazonSocial();
+    }
+    
+    /**
      * Get id
      *
      * @return integer 

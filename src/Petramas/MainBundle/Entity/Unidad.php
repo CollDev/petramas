@@ -77,6 +77,16 @@ class Unidad
     }
 
     /**
+     * Magic method
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getMarca();
+    }
+
+    /**
      * Get id
      *
      * @return integer 

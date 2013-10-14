@@ -96,6 +96,16 @@ class BoletaRecepcion
     }
 
     /**
+     * Magic method
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getTotal();
+    }
+
+    /**
      * Get id
      *
      * @return integer 

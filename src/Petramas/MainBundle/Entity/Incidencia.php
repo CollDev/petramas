@@ -96,6 +96,16 @@ class Incidencia
     }
     
     /**
+     * Magic method
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getSolucion();
+    }
+
+    /**
      * Get id
      *
      * @return integer 

@@ -57,6 +57,16 @@ class LiquidacionMaterial
     }
 
     /**
+     * Magic method
+     * 
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getImporte();
+    }
+    
+    /**
      * Get id
      *
      * @return integer 
