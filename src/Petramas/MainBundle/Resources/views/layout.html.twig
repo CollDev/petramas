@@ -9,6 +9,13 @@
 {% endblock %}
 
 {% block body -%}
+            {% for type, flashMessage in app.session.flashbag.all %}
+            <div class="alert alert-{{ type }} fade in">
+                <button class="close" data-dismiss="alert" type="button">×</button>
+                <strong>{{ flashMessage.title }}</strong>
+                {{ flashMessage.message }}
+            </div>
+            {% endfor %}
             <div id="petramasModal" class="modal fade"></div>
             <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="container">
