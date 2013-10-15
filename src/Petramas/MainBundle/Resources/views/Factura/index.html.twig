@@ -28,7 +28,6 @@
                                 <td>
                                     <a class="btn btn-info btn-xs entity" href="{{ path('factura_show', { 'id': entity.id }) }}" rel="tooltip" title="Detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-warning btn-xs entity" href="{{ path('factura_edit', { 'id': entity.id }) }}" rel="tooltip" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-                                    <a class="btn btn-danger btn-xs delete" href="{{ path('factura_delete', { 'id': entity.id }) }}" rel="tooltip" title="Eliminar"><span class="glyphicon glyphicon-remove"></span></a>
                                 </td>
                             </tr>
                             {% endfor -%}
