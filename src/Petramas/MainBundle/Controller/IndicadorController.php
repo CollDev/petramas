@@ -53,6 +53,14 @@ class IndicadorController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nuevo!',
+                    'message' => 'Indicador creado con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('indicador_show', array('id' => $entity->getId())));
         }
 
@@ -192,6 +200,14 @@ class IndicadorController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editado!',
+                    'message' => 'Indicador actualizado satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('indicador', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class IndicadorController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminado!',
+                    'message' => 'Indicador removido.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('indicador'));

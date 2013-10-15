@@ -52,6 +52,14 @@ class MaterialController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nuevo!',
+                    'message' => 'Material creado con éxito.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('material_show', array('id' => $entity->getId())));
         }
@@ -192,6 +200,14 @@ class MaterialController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editado!',
+                    'message' => 'Material actualizado satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('material', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class MaterialController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminado!',
+                    'message' => 'Material removido.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('material'));

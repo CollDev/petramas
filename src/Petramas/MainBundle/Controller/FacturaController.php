@@ -53,6 +53,14 @@ class FacturaController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nueva!',
+                    'message' => 'Factura creada con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('factura_show', array('id' => $entity->getId())));
         }
 
@@ -193,6 +201,14 @@ class FacturaController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editada!',
+                    'message' => 'Factura actualizada satisfactoriamente.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('factura', array('id' => $id)));
         }
 
@@ -223,6 +239,14 @@ class FacturaController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminada!',
+                    'message' => 'Factura removida.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('factura'));

@@ -52,6 +52,14 @@ class MovimientoIndicadorController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nuevo!',
+                    'message' => 'Movimiento indicador creado con éxito.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('movimientoindicador_show', array('id' => $entity->getId())));
         }
@@ -192,6 +200,14 @@ class MovimientoIndicadorController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editado!',
+                    'message' => 'Movimiento indicador actualizado satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('movimientoindicador', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class MovimientoIndicadorController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminado!',
+                    'message' => 'Movimiento indicador removido.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('movimientoindicador'));

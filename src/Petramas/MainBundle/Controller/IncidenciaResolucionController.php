@@ -53,6 +53,14 @@ class IncidenciaResolucionController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nueva!',
+                    'message' => 'Incidencia resolución creada con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('incidenciaresolucion_show', array('id' => $entity->getId())));
         }
 
@@ -193,6 +201,14 @@ class IncidenciaResolucionController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editada!',
+                    'message' => 'Incidencia resolución actualizada satisfactoriamente.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('incidenciaresolucion', array('id' => $id)));
         }
 
@@ -223,6 +239,14 @@ class IncidenciaResolucionController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminada!',
+                    'message' => 'Incidencia resolución removida.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('incidenciaresolucion'));

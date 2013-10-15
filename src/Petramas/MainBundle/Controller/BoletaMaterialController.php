@@ -53,6 +53,14 @@ class BoletaMaterialController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nueva!',
+                    'message' => 'Boleta material creada con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('boletamaterial_show', array('id' => $entity->getId())));
         }
 
@@ -193,6 +201,14 @@ class BoletaMaterialController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editada!',
+                    'message' => 'Boleta material actualizada satisfactoriamente.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('boletamaterial', array('id' => $id)));
         }
 
@@ -223,6 +239,14 @@ class BoletaMaterialController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminada!',
+                    'message' => 'Boleta material removida.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('boletamaterial'));

@@ -52,6 +52,14 @@ class PedidoDetalleController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nuevo!',
+                    'message' => 'Pedido detalle creado con éxito.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('pedidodetalle_show', array('id' => $entity->getId())));
         }
@@ -192,6 +200,14 @@ class PedidoDetalleController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editado!',
+                    'message' => 'Pedido detalle actualizado satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('pedidodetalle', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class PedidoDetalleController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminado!',
+                    'message' => 'Pedido detalle removido.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('pedidodetalle'));

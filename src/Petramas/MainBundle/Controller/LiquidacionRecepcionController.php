@@ -53,6 +53,14 @@ class LiquidacionRecepcionController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nueva!',
+                    'message' => 'Liquidación recepción creada con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('liquidacionrecepcion_show', array('id' => $entity->getId())));
         }
 
@@ -192,6 +200,14 @@ class LiquidacionRecepcionController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editada!',
+                    'message' => 'Liquidación recepción actualizada satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('liquidacionrecepcion', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class LiquidacionRecepcionController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminada!',
+                    'message' => 'Liquidación recepción removida.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('liquidacionrecepcion'));

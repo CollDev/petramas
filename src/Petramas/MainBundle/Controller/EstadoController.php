@@ -53,6 +53,14 @@ class EstadoController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nuevo!',
+                    'message' => 'Estado creado con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('estado_show', array('id' => $entity->getId())));
         }
 
@@ -193,6 +201,14 @@ class EstadoController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editado!',
+                    'message' => 'Estado actualizado satisfactoriamente.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('estado', array('id' => $id)));
         }
 
@@ -223,6 +239,14 @@ class EstadoController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminado!',
+                    'message' => 'Estado removido.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('estado'));

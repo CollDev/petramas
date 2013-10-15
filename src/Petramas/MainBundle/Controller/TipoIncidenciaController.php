@@ -52,6 +52,14 @@ class TipoIncidenciaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nuevo!',
+                    'message' => 'Tipo incidencia creado con éxito.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('tipoincidencia_show', array('id' => $entity->getId())));
         }
@@ -192,6 +200,14 @@ class TipoIncidenciaController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editado!',
+                    'message' => 'Tipo incidencia actualizado satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('tipoincidencia', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class TipoIncidenciaController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminado!',
+                    'message' => 'Tipo incidencia removido.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('tipoincidencia'));

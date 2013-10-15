@@ -52,6 +52,14 @@ class UnidadMedidaController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nueva!',
+                    'message' => 'Unidad medida creada con éxito.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('unidadmedida_show', array('id' => $entity->getId())));
         }
@@ -192,6 +200,14 @@ class UnidadMedidaController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editada!',
+                    'message' => 'Unidad medida actualizada satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('unidadmedida', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class UnidadMedidaController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminada!',
+                    'message' => 'Unidad medida removida.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('unidadmedida'));

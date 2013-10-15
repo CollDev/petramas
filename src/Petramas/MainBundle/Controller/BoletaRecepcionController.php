@@ -53,6 +53,14 @@ class BoletaRecepcionController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nueva!',
+                    'message' => 'Boleta recepción creada con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('boletarecepcion_show', array('id' => $entity->getId())));
         }
 
@@ -192,6 +200,14 @@ class BoletaRecepcionController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editada!',
+                    'message' => 'Boleta recepción actualizada satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('boletarecepcion', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class BoletaRecepcionController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminada!',
+                    'message' => 'Boleta recepción removida.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('boletarecepcion'));

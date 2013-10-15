@@ -52,6 +52,14 @@ class TopeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nuevo!',
+                    'message' => 'Tope creado con éxito.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('tope_show', array('id' => $entity->getId())));
         }
@@ -192,6 +200,14 @@ class TopeController extends Controller
 
         if ($editForm->isValid()) {
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editado!',
+                    'message' => 'Tope actualizado satisfactoriamente.'
+                )
+            );
 
             return $this->redirect($this->generateUrl('tope', array('id' => $id)));
         }
@@ -223,6 +239,14 @@ class TopeController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminado!',
+                    'message' => 'Tope removido.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('tope'));

@@ -53,6 +53,14 @@ class ClienteController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nuevo!',
+                    'message' => 'Cliente creado con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('cliente_show', array('id' => $entity->getId())));
         }
 
@@ -193,6 +201,14 @@ class ClienteController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editado!',
+                    'message' => 'Cliente actualizado satisfactoriamente.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('cliente', array('id' => $id)));
         }
 
@@ -223,6 +239,14 @@ class ClienteController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminado!',
+                    'message' => 'Cliente removido.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('cliente'));

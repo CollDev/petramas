@@ -53,6 +53,14 @@ class LiquidacionMaterialDetalleController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Nueva!',
+                    'message' => 'Liquidación material detalle creada con éxito.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('liquidacionmaterialdetalle_show', array('id' => $entity->getId())));
         }
 
@@ -193,6 +201,14 @@ class LiquidacionMaterialDetalleController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Editada!',
+                    'message' => 'Liquidación material detalle actualizada satisfactoriamente.'
+                )
+            );
+            
             return $this->redirect($this->generateUrl('liquidacionmaterialdetalle', array('id' => $id)));
         }
 
@@ -223,6 +239,14 @@ class LiquidacionMaterialDetalleController extends Controller
 
             $em->remove($entity);
             $em->flush();
+            
+            $this->get('session')->getFlashBag()->set(
+                'success',
+                array(
+                    'title' => 'Eliminada!',
+                    'message' => 'Liquidación material detalle removida.'
+                )
+            );
         }
 
         return $this->redirect($this->generateUrl('liquidacionmaterialdetalle'));
