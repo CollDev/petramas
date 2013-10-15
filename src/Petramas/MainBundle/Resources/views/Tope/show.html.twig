@@ -1,44 +1,32 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Tope</h1>
-
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Descripcion</th>
-                <td>{{ entity.descripcion }}</td>
-            </tr>
-            <tr>
-                <th>Acumulado</th>
-                <td>{{ entity.acumulado }}</td>
-            </tr>
-            <tr>
-                <th>Previo</th>
-                <td>{{ entity.previo }}</td>
-            </tr>
-            <tr>
-                <th>Fecharegistro</th>
-                <td>{{ entity.fechaRegistro|date('Y-m-d H:i:s') }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('tope') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('tope_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{% block content -%}
+<h1>Tope</h1>
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Descripcion</th>
+            <td>{{ entity.descripcion }}</td>
+        </tr>
+        <tr>
+            <th>Acumulado</th>
+            <td>{{ entity.acumulado }}</td>
+        </tr>
+        <tr>
+            <th>Previo</th>
+            <td>{{ entity.previo }}</td>
+        </tr>
+        <tr>
+            <th>Fecharegistro</th>
+            <td>{{ entity.fechaRegistro|date('Y-m-d H:i:s') }}</td>
+        </tr>
+    </tbody>
+</table>
+<a class="btn btn-info pull-right" href="{{ path('tope') }}">Volver</a>
+<a class="btn btn-warning pull-right" href="{{ path('tope_edit', { 'id': entity.id }) }}">Editar</a>
+{{ form(delete_form) }}
 {% endblock %}
