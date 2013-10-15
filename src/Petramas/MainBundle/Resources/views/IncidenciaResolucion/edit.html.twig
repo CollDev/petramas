@@ -1,16 +1,43 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>IncidenciaResolucion edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('incidenciaresolucion') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{% block content %}
+<h4>Editar Incidencia Resolución</h4>
+{{ form_start(edit_form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+    {{ form_errors(edit_form) }}
+    <div class="form-group{% if edit_form.fechaResolucion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.fechaResolucion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.fechaResolucion, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.fechaResolucion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.fechaResolucion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.resolucion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.resolucion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.resolucion, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.resolucion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.resolucion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.incidencia.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.incidencia, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.incidencia, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.incidencia.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.incidencia.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(edit_form) }}
+{{ form(delete_form) }}
+<a class="btn btn-info pull-right" href="{{ path('incidenciaresolucion') }}">Volver</a>
 {% endblock %}

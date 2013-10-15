@@ -1,7 +1,7 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content %}
-<h4>Nueva Boleta Material</h4>
+<h4>Editar Boleta Material</h4>
 {{ form_start(edit_form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
     {{ form_errors(edit_form) }}
     <div class="form-group{% if edit_form.neto.vars.errors[0].message is defined %} has-error{% endif %}">
@@ -38,5 +38,6 @@
         </div>
     </div>
 {{ form_end(edit_form) }}
+{{ form(delete_form) }}
 <a class="btn btn-info pull-right" href="{{ path('boletamaterial') }}">Volver</a>
 {% endblock %}

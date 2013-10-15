@@ -1,16 +1,65 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>LiquidacionRecepcion edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('liquidacionrecepcion') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{% block content %}
+<h4>Editar Liquidación Recepción</h4>
+{{ form_start(edit_form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+    {{ form_errors(edit_form) }}
+    <div class="form-group{% if edit_form.fechaLiquidacion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.fechaLiquidacion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.fechaLiquidacion, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.fechaLiquidacion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.fechaLiquidacion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.fechaInicio.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.fechaInicio, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.fechaInicio, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.fechaInicio.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.fechaInicio.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.fechaFin.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.fechaFin, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.fechaFin, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.fechaFin.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.fechaFin.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.importe.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.importe, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.importe, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.importe.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.importe.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.cliente.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.cliente, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.cliente, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.cliente.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.cliente.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(edit_form) }}
+{{ form(delete_form) }}
+<a class="btn btn-info pull-right" href="{{ path('liquidacionrecepcion') }}">Volver</a>
 {% endblock %}

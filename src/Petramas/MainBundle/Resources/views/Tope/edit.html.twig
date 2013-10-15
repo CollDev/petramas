@@ -1,16 +1,76 @@
-{% extends '::base.html.twig' %}
+{% extends 'PetramasMainBundle::layout.html.twig' %}
 
-{% block body -%}
-    <h1>Tope edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('tope') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+{% block content %}
+<h4>Editar Tope</h4>
+{{ form_start(edit_form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+    {{ form_errors(edit_form) }}
+    <div class="form-group{% if edit_form.descripcion.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.descripcion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.descripcion, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.descripcion.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.descripcion.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.acumulado.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.acumulado, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.acumulado, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.acumulado.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.acumulado.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.previo.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.previo, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.previo, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.previo.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.previo.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.fechaRegistro.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.fechaRegistro, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.fechaRegistro, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.fechaRegistro.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.fechaRegistro.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.indicador.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.indicador, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.indicador, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.indicador.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.indicador.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.unidad_medida.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.unidad_medida, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.unidad_medida, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.unidad_medida.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.unidad_medida.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+{{ form_end(edit_form) }}
+{{ form(delete_form) }}
+<a class="btn btn-info pull-right" href="{{ path('tope') }}">Volver</a>
 {% endblock %}
