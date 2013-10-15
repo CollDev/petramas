@@ -25,8 +25,10 @@ $(document).on('ready', function(){
 //        });
 //    });
     
-//    $('a.delete').on('click', function(e){
-//        e.preventDefault();
-//        
-//    });
+    $('button.entity-submit-delete').on('click', function(e){
+        e.preventDefault();
+        if (confirm('¿Desea eliminar el registro?')) {
+            $(this).parent().parent().parent().submit();
+        }
+    });
 });
