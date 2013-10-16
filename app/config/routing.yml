@@ -1,3 +1,8 @@
+petramas_my_fos_user:
+    resource: "@PetramasMyFOSUserBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 petramas_main:
     resource: "@PetramasMainBundle/Controller/"
     type:     annotation

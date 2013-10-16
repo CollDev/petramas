@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Petramas\MainBundle\PetramasMainBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Petramas\MyFOSUserBundle\PetramasMyFOSUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
