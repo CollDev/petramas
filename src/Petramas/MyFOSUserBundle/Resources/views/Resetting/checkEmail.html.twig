@@ -1,0 +1,8 @@
+{% extends 'PetramasMainBundle::layout.html.twig' %}
+
+{% block content -%}
+{% trans_default_domain 'FOSUserBundle' %}
+<p>
+{{ 'resetting.check_email'|trans({'%email%': email}) }}
+</p>
+{% endblock %}
