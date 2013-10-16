@@ -2,6 +2,7 @@
 
 namespace Petramas\MainBundle\Entity;
 
+use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -11,7 +12,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="Petramas\MainBundle\Repository\UsuarioRepository")
  */
-class Usuario
+class Usuario extends BaseUser
 {
     /**
      * @var integer
@@ -20,7 +21,7 @@ class Usuario
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @ORM\OneToMany(targetEntity="RecepcionMaterial", mappedBy="usuario")
@@ -40,6 +41,7 @@ class Usuario
      */
     public function __construct()
     {
+        parent::__construct();
         $this->recepcion_materiales = new ArrayCollection();
     }
 
