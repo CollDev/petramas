@@ -29,7 +29,6 @@ class LoadIndicadorData extends LoadPetramasData implements OrderedFixtureInterf
             $indicador->setSuperior($columns['superior']);
             $indicador->setValor($columns['valor']);
             $indicador->setObservacion($columns['observacion']);
-            $indicador->setTipoIndicador($columns['tipo_indicador']);
             $manager->persist($indicador);
 
             // Add a reference to be able to use this object in others entities loaders
