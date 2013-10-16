@@ -6,7 +6,6 @@ Indicador:
         superior: 18000.00
         valor: 17315.60
         observacion: TN para llegar al Tope Máximo 18000
-        tipo_indicador: Indicador de Tope
           
     mantenimiento:
         nombre: Mantenimiento
@@ -15,7 +14,6 @@ Indicador:
         superior: 5.00
         valor: 0.00
         observacion: Días para mantenimiento
-        tipo_indicador: Indicador de Mantenimiento
         
     numero_unidades:
         nombre: Nro Unidades
@@ -24,7 +22,6 @@ Indicador:
         superior: 4.00
         valor: 0.00
         observacion: unidades en matenimiento
-        tipo_indicador: Indicador de Mantenimiento  
           
     accidente_mayor:
         nombre: Accidente Mayor
@@ -33,7 +30,6 @@ Indicador:
         superior: 1.00
         valor: 6.00
         observacion: accidentes
-        tipo_indicador: Indicador de Incidencias
           
     accidente_menor:
         nombre: Accidente Menor
@@ -42,7 +38,6 @@ Indicador:
         superior: 4.00
         valor: 4.00
         observacion: accidentes
-        tipo_indicador: Indicador de Incidencias
           
     choque:
         nombre: Choque
@@ -51,7 +46,6 @@ Indicador:
         superior: 4.00
         valor: 2.00
         observacion: choques
-        tipo_indicador: Indicador de Incidencias
           
     desborde:
         nombre: Desborde
@@ -60,7 +54,6 @@ Indicador:
         superior: 1.00
         valor: 1.00
         observacion: desbordes
-        tipo_indicador: Indicador de Incidencias
           
     falto_cobertura_insecticidas:
         nombre: Falto cobertura insecticidas
@@ -69,7 +62,6 @@ Indicador:
         superior: 4.00
         valor: 0.00
         observacion: incidencias por falta cobertura insecticidas
-        tipo_indicador: Indicador de Incidencias
           
     falto_cobertura_agua:
         nombre: Falto cobertura agua
@@ -78,7 +70,6 @@ Indicador:
         superior: 4.00
         valor: 0.00
         observacion: incidencias por falta cobertura agua
-        tipo_indicador: Indicador de Incidencias
           
     plastico:
         nombre: Plástico
@@ -87,7 +78,6 @@ Indicador:
         superior: 10000.00
         valor: 9000.00
         observacion: tns
-        tipo_indicador: Indicador de Stock de Materiales
           
     vidrio:
         nombre: Vídrio
@@ -96,7 +86,6 @@ Indicador:
         superior: 5000.00
         valor: 36930.00
         observacion: tns
-        tipo_indicador: Indicador de Stock de Materiales
           
     carton_delgado:
         nombre: Cartón delgado
@@ -105,4 +94,3 @@ Indicador:
         superior: 10000.00
         valor: 3365.00
         observacion: tns
-        tipo_indicador: Indicador de Stock de Materiales
