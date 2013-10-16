@@ -14,6 +14,9 @@ var $modal = '<div class="modal-dialog">\n\
     </div>\n\
   </div>';
 $(document).on('ready', function(){
+    if ($('span#fosuserbundle-errors').text() !== '') {
+        $('#flash_message').message('danger',$('span#fosuserbundle-errors').text(), '#flash_title', false);
+    }
     $("[rel='tooltip']").tooltip();
     
 //    $('a.entity').on('click', function(e){
