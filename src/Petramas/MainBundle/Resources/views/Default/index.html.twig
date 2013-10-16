@@ -1,5 +1,9 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content%}
-Hello!
+{% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    {{ render(controller('FOSUserBundle:Registration:register')) }}
+{% else %}
+    Bienvenido {{ app.user.username }}
+{% endif %}
 {% endblock %}
