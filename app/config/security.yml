@@ -18,6 +18,7 @@ security:
         main:
             pattern: ^/
             form_login:
+                login_path: /
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
                 default_target_path: /
@@ -25,7 +26,10 @@ security:
                 always_use_default_target_path: true
                 target_path_parameter: _target_path
                 failure_path: /
-            logout: true
+            logout:
+                path: /logout
+                target: /
+                invalidate_session: false
             anonymous: true
             remember_me:
                 key: %secret%
@@ -34,5 +38,5 @@ security:
                 domain: local.petramas.com
 
     access_control:
-        - { path: ^/demo/secured/hello/admin/, roles: ROLE_ADMIN }
+        - { path: ^/admin/, roles: ROLE_ADMIN }
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
