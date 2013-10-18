@@ -23,6 +23,12 @@ class Indicador
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="TipoIndicador", inversedBy="indicadores")
+     * @ORM\JoinColumn(name="tipo_indicador_id", referencedColumnName="id")
+     */
+    protected $tipo_indicador;
+    
+    /**
      * @ORM\OneToMany(targetEntity="MovimientoIndicador", mappedBy="indicador")
      */
     protected $movimiento_indicadores;
@@ -306,5 +312,28 @@ class Indicador
     public function getTopes()
     {
         return $this->topes;
+    }
+
+    /**
+     * Set tipo_indicador
+     *
+     * @param \Petramas\MainBundle\Entity\TipoIndicador $tipoIndicador
+     * @return Indicador
+     */
+    public function setTipoIndicador(\Petramas\MainBundle\Entity\TipoIndicador $tipoIndicador = null)
+    {
+        $this->tipo_indicador = $tipoIndicador;
+    
+        return $this;
+    }
+
+    /**
+     * Get tipo_indicador
+     *
+     * @return \Petramas\MainBundle\Entity\TipoIndicador 
+     */
+    public function getTipoIndicador()
+    {
+        return $this->tipo_indicador;
     }
 }

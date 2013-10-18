@@ -23,6 +23,7 @@ class LoadIndicadorData extends LoadPetramasData implements OrderedFixtureInterf
         foreach ($indicadores['Indicador'] as $reference => $columns)
         {
             $indicador = new Indicador();
+            $indicador->setTipoIndicador($manager->merge($this->getReference('TipoIndicador_' . $columns['tipo_indicador'])));
             $indicador->setNombre($columns['nombre']);
             $indicador->setEstandar($columns['estandar']);
             $indicador->setInferior($columns['inferior']);
@@ -50,6 +51,6 @@ class LoadIndicadorData extends LoadPetramasData implements OrderedFixtureInterf
      */
     public function getOrder()
     {
-        return 3;
+        return 4;
     }
 }

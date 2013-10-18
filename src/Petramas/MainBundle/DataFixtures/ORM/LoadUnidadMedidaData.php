@@ -46,6 +46,6 @@ class LoadUnidadMedidaData extends LoadPetramasData implements OrderedFixtureInt
      */
     public function getOrder()
     {
-        return 5;
+        return 6;
     }
 }
