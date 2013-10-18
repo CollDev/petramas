@@ -1,7 +1,7 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content %}
-<h4>Nueva Boleta Recepcion</h4>
+<h4>Nueva Boleta Recepción</h4>
 {{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
     {{ form_errors(form) }}
     <div class="form-group{% if form.fechaIngreso.vars.errors[0].message is defined %} has-error{% endif %}">

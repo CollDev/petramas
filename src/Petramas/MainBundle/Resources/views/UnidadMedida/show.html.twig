@@ -1,24 +1,26 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content -%}
-<h1>UnidadMedida</h1>
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Nombre</th>
-            <td>{{ entity.nombre }}</td>
-        </tr>
-        <tr>
-            <th>Valor</th>
-            <td>{{ entity.valor }}</td>
-        </tr>
-    </tbody>
-</table>
-<a class="btn btn-info pull-right" href="{{ path('unidadmedida') }}">Volver</a>
-<a class="btn btn-warning pull-right" href="{{ path('unidadmedida_edit', { 'id': entity.id }) }}">Editar</a>
-{{ form(delete_form) }}
+                <h1>UnidadMedida</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-condensed">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ entity.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <td>{{ entity.nombre }}</td>
+                            </tr>
+                            <tr>
+                                <th>Valor</th>
+                                <td>{{ entity.valor }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="btn btn-info pull-right" href="{{ path('unidadmedida') }}">Volver</a>
+                    <a class="btn btn-warning pull-right" href="{{ path('unidadmedida_edit', { 'id': entity.id }) }}">Editar</a>
+                    {{ form(delete_form) }}
+                </div>
 {% endblock %}

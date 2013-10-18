@@ -12,6 +12,7 @@
                         <thead>
                             <tr>
                                 <th>Nº</th>
+                                <th>Tipo indicador</th>
                                 <th>Nombre</th>
                                 <th>Estandar</th>
                                 <th>Inferior</th>
@@ -25,6 +26,7 @@
                             {% for entity in entities -%}
                             <tr>
                                 <td>{{ loop.index }}</td>
+                                <td>{{ entity.tipoindicador }}</td>
                                 <td>{{ entity.nombre }}</td>
                                 <td>{{ entity.estandar }}</td>
                                 <td>{{ entity.inferior }}</td>

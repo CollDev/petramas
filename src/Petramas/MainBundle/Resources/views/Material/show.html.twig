@@ -1,28 +1,30 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content -%}
-<h1>Material</h1>
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Nombre</th>
-            <td>{{ entity.nombre }}</td>
-        </tr>
-        <tr>
-            <th>Stock</th>
-            <td>{{ entity.stock }}</td>
-        </tr>
-        <tr>
-            <th>Tarifa</th>
-            <td>{{ entity.tarifa }}</td>
-        </tr>
-    </tbody>
-</table>
-<a class="btn btn-info pull-right" href="{{ path('material') }}">Volver</a>
-<a class="btn btn-warning pull-right" href="{{ path('material_edit', { 'id': entity.id }) }}">Editar</a>
-{{ form(delete_form) }}
+                <h1>Material</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-condensed">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ entity.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Nombre</th>
+                                <td>{{ entity.nombre }}</td>
+                            </tr>
+                            <tr>
+                                <th>Stock</th>
+                                <td>{{ entity.stock }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tarifa</th>
+                                <td>{{ entity.tarifa }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="btn btn-info pull-right" href="{{ path('material') }}">Volver</a>
+                    <a class="btn btn-warning pull-right" href="{{ path('material_edit', { 'id': entity.id }) }}">Editar</a>
+                    {{ form(delete_form) }}
+                </div>
 {% endblock %}

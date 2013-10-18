@@ -1,7 +1,7 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content %}
-<h4>Nueva Liquidacion Material Detalle</h4>
+<h4>Nueva Liquidación Material Detalle</h4>
 {{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
     {{ form_errors(form) }}
     <div class="form-group{% if form.importe.vars.errors[0].message is defined %} has-error{% endif %}">

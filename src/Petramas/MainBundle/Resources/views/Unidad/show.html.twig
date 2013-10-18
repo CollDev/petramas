@@ -1,32 +1,34 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content -%}
-<h1>Unidad</h1>
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ entity.id }}</td>
-        </tr>
-        <tr>
-            <th>Marca</th>
-            <td>{{ entity.marca }}</td>
-        </tr>
-        <tr>
-            <th>Fechamantenimiento</th>
-            <td>{{ entity.fechaMantenimiento|date('Y-m-d H:i:s') }}</td>
-        </tr>
-        <tr>
-            <th>Kilometraje</th>
-            <td>{{ entity.kilometraje }}</td>
-        </tr>
-        <tr>
-            <th>Tiempo</th>
-            <td>{{ entity.tiempo|date('Y-m-d H:i:s') }}</td>
-        </tr>
-    </tbody>
-</table>
-<a class="btn btn-info pull-right" href="{{ path('unidad') }}">Volver</a>
-<a class="btn btn-warning pull-right" href="{{ path('unidad_edit', { 'id': entity.id }) }}">Editar</a>
-{{ form(delete_form) }}
+                <h1>Unidad</h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-condensed">
+                        <tbody>
+                            <tr>
+                                <th>Id</th>
+                                <td>{{ entity.id }}</td>
+                            </tr>
+                            <tr>
+                                <th>Marca</th>
+                                <td>{{ entity.marca }}</td>
+                            </tr>
+                            <tr>
+                                <th>Fechamantenimiento</th>
+                                <td>{{ entity.fechaMantenimiento|date('Y-m-d H:i:s') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Kilometraje</th>
+                                <td>{{ entity.kilometraje }}</td>
+                            </tr>
+                            <tr>
+                                <th>Tiempo</th>
+                                <td>{{ entity.tiempo|date('Y-m-d H:i:s') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a class="btn btn-info pull-right" href="{{ path('unidad') }}">Volver</a>
+                    <a class="btn btn-warning pull-right" href="{{ path('unidad_edit', { 'id': entity.id }) }}">Editar</a>
+                    {{ form(delete_form) }}
+                </div>
 {% endblock %}
