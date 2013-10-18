@@ -23,6 +23,12 @@ class Material
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="Tarifa", inversedBy="materiales")
+     * @ORM\JoinColumn(name="tarifa_id", referencedColumnName="id")
+     */
+    protected $tarifa;
+    
+    /**
      * @ORM\OneToMany(targetEntity="PedidoDetalle", mappedBy="material")
      */
     protected $pedido_detalles;
@@ -45,13 +51,6 @@ class Material
      * @ORM\Column(name="stock", type="decimal", precision=10, scale=2)
      */
     private $stock;
-
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="tarifa", type="decimal", precision=10, scale=2, nullable=true)
-     */
-    private $tarifa;
 
 
     /**
@@ -130,29 +129,6 @@ class Material
     }
 
     /**
-     * Set tarifa
-     *
-     * @param float $tarifa
-     * @return Material
-     */
-    public function setTarifa($tarifa)
-    {
-        $this->tarifa = $tarifa;
-    
-        return $this;
-    }
-
-    /**
-     * Get tarifa
-     *
-     * @return float 
-     */
-    public function getTarifa()
-    {
-        return $this->tarifa;
-    }
-
-    /**
      * Add pedido_detalles
      *
      * @param \Petramas\MainBundle\Entity\PedidoDetalle $pedidoDetalles
@@ -216,5 +192,28 @@ class Material
     public function getRecepcionMateriales()
     {
         return $this->recepcion_materiales;
+    }
+
+    /**
+     * Set tarifa
+     *
+     * @param \Petramas\MainBundle\Entity\Tarifa $tarifa
+     * @return Material
+     */
+    public function setTarifa(\Petramas\MainBundle\Entity\Tarifa $tarifa = null)
+    {
+        $this->tarifa = $tarifa;
+    
+        return $this;
+    }
+
+    /**
+     * Get tarifa
+     *
+     * @return \Petramas\MainBundle\Entity\Tarifa 
+     */
+    public function getTarifa()
+    {
+        return $this->tarifa;
     }
 }
