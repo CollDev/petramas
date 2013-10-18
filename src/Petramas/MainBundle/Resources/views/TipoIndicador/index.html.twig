@@ -1,0 +1,33 @@
+{% extends 'PetramasMainBundle::layout.html.twig' %}
+
+{% block content -%}
+                <h1>
+                    Tipo Indicadores
+                    <a class="btn btn-primary entity pull-right" href="{{ path('tipoindicador_new') }}" rel="tooltip" title="Nuevo">
+                        <span class="glyphicon glyphicon-file"></span>
+                    </a>
+                </h1>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Nº</th>
+                                <th>Nombre</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td>{{ loop.index }}</td>
+                                <td>{{ entity.nombre }}</td>
+                                <td>
+                                    <a class="btn btn-info btn-xs entity" href="{{ path('tipoindicador_show', { 'id': entity.id }) }}" rel="tooltip" title="Detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
+                                    <a class="btn btn-warning btn-xs entity" href="{{ path('tipoindicador_edit', { 'id': entity.id }) }}" rel="tooltip" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+{% endblock %}

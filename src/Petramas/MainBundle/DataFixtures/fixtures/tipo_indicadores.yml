@@ -1,0 +1,12 @@
+TipoIndicador:
+    indicador_tope:
+        nombre: Indicador de Tope
+          
+    indicador_mantenimiento:
+        nombre: Indicador de Mantenimiento
+        
+    indicador_incidencias:
+        nombre: Indicador de Incidencias
+          
+    indicador_stock_materiales:
+        nombre: Indicador de Stock de Materiales
