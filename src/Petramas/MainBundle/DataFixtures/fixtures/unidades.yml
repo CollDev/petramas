@@ -1,0 +1,25 @@
+Unidad:
+    ford:
+        estado: activo
+        marca: Ford
+        kilometraje: 100
+
+    subaru:
+        estado: activo
+        marca: Subaru
+        kilometraje: 100
+
+    kia:
+        estado: activo
+        marca: Kia
+        kilometraje: 100
+
+    chevrolet:
+        estado: inactivo
+        marca: Ford
+        kilometraje: 100
+
+    caterpillar:
+        estado: completado
+        marca: Ford
+        kilometraje: 100

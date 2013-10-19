@@ -1,0 +1,30 @@
+Usuario:
+    eder:
+        nombre: Eder
+        username: epariona
+        username_canonical: epariona
+        email: epariona@itrcinternational.com
+        email_canonical: epariona@itrcinternational.com
+        enabled: 1
+        plain_password: 123abc
+        roles: a,0,{}
+        
+    angel:
+        nombre: Angel
+        username: aanicama
+        username_canonical: aanicama
+        email: aanicama@gin.com
+        email_canonical: aanicama@gin.com
+        enabled: 1
+        plain_password: 123abc
+        roles: a,0,{}
+
+    ricardo:
+        nombre: Ricardo
+        username: rgarcia
+        username_canonical: rgarcia
+        email: rgarcia@gin.com
+        email_canonical: rgarcia@gin.com
+        enabled: 1
+        plain_password: 123abc
+        roles: a,0,{}

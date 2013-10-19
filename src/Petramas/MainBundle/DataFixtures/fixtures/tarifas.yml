@@ -1,0 +1,8 @@
+Tarifa:
+    diez:
+        nombre: Diez
+        valor: 10
+        
+    quince:
+        nombre: Quince
+        valor: 15
