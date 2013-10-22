@@ -15,12 +15,14 @@ class RecepcionMaterialType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaIngreso')
+            ->add('fechaIngreso','datetime', array(
+                'widget' => 'single_text',
+                'date_format' => 'yyyy-MM-dd H:i:s')
+            )
             ->add('cantidad')
             ->add('boleta_recepcion')
             ->add('material')
             ->add('unidad_medida')
-            ->add('usuario')
         ;
     }
     

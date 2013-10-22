@@ -50,6 +50,10 @@ class RecepcionMaterialController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
+            $user = $this->container->get('security.context')->getToken()->getUser();
+            $entity->setUsuario($user);
+            
             $em->persist($entity);
             $em->flush();
             
@@ -64,6 +68,7 @@ class RecepcionMaterialController extends Controller
             return $this->redirect($this->generateUrl('recepcionmaterial_show', array('id' => $entity->getId())));
         }
 
+        
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),

@@ -102,7 +102,7 @@ class BoletaRecepcion
      */
     public function __toString()
     {
-        return $this->getTotal();
+        return sprintf('%s - %s - %s', $this->getCliente(), $this->getFechaIngreso()->format('Y-m-d H:i:s'), $this->getTotal());
     }
 
     /**

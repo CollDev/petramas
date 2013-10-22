@@ -15,8 +15,14 @@ class BoletaRecepcionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaIngreso')
-            ->add('fechaSalida')
+            ->add('fechaIngreso','datetime', array(
+                'widget' => 'single_text',
+                'date_format' => 'yyyy-MM-dd H:i:s')
+            )
+            ->add('fechaSalida','datetime', array(
+                'widget' => 'single_text',
+                'date_format' => 'yyyy-MM-dd H:i:s')
+            )
             ->add('total')
             ->add('tara')
             ->add('neto')
