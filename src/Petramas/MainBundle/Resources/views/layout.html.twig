@@ -43,54 +43,50 @@
                         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <ul class="nav navbar-nav">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Gestión<b class="caret"></b></a>
+                                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Menú<span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="{{ path('cliente') }}">Cliente</a></li>
-                                    <li><a href="{{ path('pedido') }}">Pedido</a></li>
-                                    <li><a href="{{ path('factura') }}">Factura</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{ path('incidencia') }}">Incidencia</a></li>
-                                    <li><a href="{{ path('incidenciaresolucion') }}">Incidencia Resolución</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{ path('liquidacionmaterial') }}">Liquidación Material</a></li>
-                                    <li><a href="{{ path('liquidacionrecepcion') }}">Liquidación Recepción</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Seguimiento<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ path('boletamaterial') }}">Boleta Material</a></li>
-                                    <li><a href="{{ path('boletarecepcion') }}">Boleta Recepción</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{ path('liquidacionmaterialdetalle') }}">Liquidación Material Detalle</a></li>
-                                    <li><a href="{{ path('pedidodetalle') }}">Pedido Detalle</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{ path('recepcionmaterial') }}">Recepción Material</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin<b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="{{ path('estado') }}">Estado</a></li>
-                                    <li><a href="{{ path('material') }}">Material</a></li>
-                                    <li><a href="{{ path('indicador') }}">Indicador</a></li>
-                                    <li><a href="{{ path('tipoindicador') }}">Tipo Indicador</a></li>
-                                    <li><a href="{{ path('movimientoindicador') }}">Movimiento Indicador</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{ path('tope') }}">Tope</a></li>
-                                    <li><a href="{{ path('responsable') }}">Responsable</a></li>
-                                    <li><a href="{{ path('tarifa') }}">Tarifa</a></li>
-                                    <li><a href="{{ path('tipoincidencia') }}">Tipo Incidencia</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="{{ path('unidad') }}">Unidad</a></li>
-                                    <li><a href="{{ path('unidadmedida') }}">Unidad Medida</a></li>
-                                    <li><a href="{{ path('usuario') }}">Usuario</a></li>
+                                    <li>
+                                        <a href="#">Recepción <span class="right-caret"></span></a>
+                                        <ul class="dropdown-menu sub-menu">
+                                            <li class="disabled"><a href="#">Verificación de ingresos</a></li>
+                                            <li><a href="{{ path('recepcionmaterial') }}">Registrar ingreso de material</a></li>
+                                            <li class="disabled"><a href="#">Liquidación de servicios</a></li>
+                                            <li class="disabled"><a href="#">Aceptación de liquidación</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Disposición final <span class="right-caret"></span></a>
+                                        <ul class="dropdown-menu sub-menu">
+                                            <li class="disabled"><a href="#">Programación de horas</a></li>
+                                            <li class="disabled"><a href="#">Reasignación de plataforma</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Monitoreo de servicios <span class="right-caret"></span></a>
+                                        <ul class="dropdown-menu sub-menu">
+                                            <li><a href="{{ path('incidencia') }}">Incidencias</a></li>
+                                            <li><a href="{{ path('incidenciaresolucion') }}">Resolución de incidencias</a></li>
+                                            <li class="disabled"><a href="#">Monitoreo de indicadores</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#">Venta de materiales <span class="right-caret"></span></a>
+                                        <ul class="dropdown-menu sub-menu">
+                                            <li><a href="{{ path('pedido') }}">Pedidos</a></li>
+                                            <li><a href="{{ path('pedidodetalle') }}">Detalle de pedidos</a></li>
+                                            <li class="disabled"><a href="#">Aceptación de pedidos</a></li>
+                                            <li class="disabled"><a href="#">Registrar salidas</a></li>
+                                            <li class="disabled"><a href="#">Stocks de materiales</a></li>
+                                            <li class="disabled"><a href="#">Proyección de materiales</a></li>
+                                            <li><a href="{{ path('liquidacionmaterial') }}">Liquidación de materiales</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <b class="caret"></b></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ path('fos_user_profile_show') }}">Perfil</a></li>
                                     <li><a href="{{ path('fos_user_change_password') }}">Cambiar contraseña</a></li>
