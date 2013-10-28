@@ -15,7 +15,10 @@ class PedidoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaProgramacion')
+            ->add('fechaProgramacion','datetime', array(
+                'widget' => 'single_text',
+                'date_format' => 'yyyy-MM-dd H:i:s')
+            )
             ->add('cliente')
             ->add('estado')
             ->add('factura')
