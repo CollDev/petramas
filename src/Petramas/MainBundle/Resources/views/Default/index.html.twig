@@ -2,7 +2,9 @@
 
 {% block content%}
 {% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-    {{ render(controller('FOSUserBundle:Registration:register')) }}
+Ingrese su nombre de usuario y contraseña
+ó
+Cree una cuenta: <a class="btn btn-primary" href="{{ path('fos_user_registration_register') }}">Registrarse</a>
 {% else %}
     Bienvenido {{ app.user.username }}
 {% endif %}
