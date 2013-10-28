@@ -26,12 +26,7 @@ class Tarifa
      * @ORM\OneToMany(targetEntity="BoletaMaterial", mappedBy="tarifa")
      */
     protected $boleta_materiales;
-    
-    /**
-     * @ORM\OneToMany(targetEntity="Material", mappedBy="tarifa")
-     */
-    protected $materiales;
-    
+
     /**
      * @var string
      *
@@ -53,7 +48,6 @@ class Tarifa
     public function __construct()
     {
         $this->boleta_materiales = new ArrayCollection();
-        $this->materiales = new ArrayCollection();
     }
 
     /**
@@ -152,38 +146,5 @@ class Tarifa
     public function getBoletaMateriales()
     {
         return $this->boleta_materiales;
-    }
-
-    /**
-     * Add materiales
-     *
-     * @param \Petramas\MainBundle\Entity\Material $materiales
-     * @return Tarifa
-     */
-    public function addMateriales(\Petramas\MainBundle\Entity\Material $materiales)
-    {
-        $this->materiales[] = $materiales;
-    
-        return $this;
-    }
-
-    /**
-     * Remove materiales
-     *
-     * @param \Petramas\MainBundle\Entity\Material $materiales
-     */
-    public function removeMateriales(\Petramas\MainBundle\Entity\Material $materiales)
-    {
-        $this->materiales->removeElement($materiales);
-    }
-
-    /**
-     * Get materiales
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getMateriales()
-    {
-        return $this->materiales;
     }
 }

@@ -25,7 +25,7 @@ class LoadMaterialData extends LoadPetramasData implements OrderedFixtureInterfa
             $material = new Material();
             $material->setNombre($columns['nombre']);
             $material->setStock($columns['stock']);
-            $material->setTarifa($manager->merge($this->getReference('Tarifa_' . $columns['tarifa'])));
+            $material->setTarifa($columns['tarifa']);
             $manager->persist($material);
 
             // Add a reference to be able to use this object in others entities loaders

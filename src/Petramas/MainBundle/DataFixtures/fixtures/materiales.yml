@@ -2,14 +2,14 @@ Material:
     plastico:
         nombre: Plástico
         stock: 9000
-        tarifa: diez
+        tarifa: 10.00
         
     vidrio:
         nombre: Vídrio
         stock: 36930
-        tarifa: quince
+        tarifa: 15.00
         
     vidrio:
         nombre: Cartón delgado
         stock: 3365
-        tarifa: diez
+        tarifa: 10.00
