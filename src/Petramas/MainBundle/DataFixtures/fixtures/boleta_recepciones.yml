@@ -1,0 +1,16 @@
+BoletaRecepcion:
+    boleta1:
+        cliente: valle
+        unidad: ford
+        total: 10005.20
+        tara: 10.20
+        neto: 6690.00
+        estado: activo
+
+    boleta2:
+        cliente: valle
+        unidad: kia
+        total: 10085.20
+        tara: 10.20
+        neto: 6690.00
+        estado: completado
