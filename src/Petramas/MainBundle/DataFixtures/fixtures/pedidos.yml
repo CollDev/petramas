@@ -1,0 +1,60 @@
+Pedido:
+    pedido1:
+        cliente: valle
+        estado: atendido
+        factura: primera
+    
+    pedido2:
+        cliente: valle
+        estado: atendido
+        factura: primera
+    
+    pedido3:
+        cliente: valle
+        estado: confirmado
+        factura: primera
+    
+    pedido4:
+        cliente: valle
+        estado: confirmado
+        factura: primera
+    
+    pedido5:
+        cliente: valle
+        estado: confirmado
+        factura: primera
+    
+    pedido6:
+        cliente: valle
+        estado: confirmado
+        factura: primera
+    
+    pedido7:
+        cliente: valle
+        estado: pendiente
+        factura: segunda
+    
+    pedido8:
+        cliente: valle
+        estado: pendiente
+        factura: segunda
+    
+    pedido9:
+        cliente: valle
+        estado: confirmado
+        factura: segunda
+    
+    pedido10:
+        cliente: valle
+        estado: pendiente
+        factura: segunda
+    
+    pedido11:
+        cliente: valle
+        estado: pendiente
+        factura: segunda
+    
+    pedido12:
+        cliente: valle
+        estado: pendiente
+        factura: segunda
