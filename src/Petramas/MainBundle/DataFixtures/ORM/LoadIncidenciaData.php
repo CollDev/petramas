@@ -6,9 +6,9 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 
 use Petramas\MainBundle\DataFixtures\ORM\LoadPetramasData;
-use Petramas\MainBundle\Entity\Indicador as Indicador;
+use Petramas\MainBundle\Entity\Incidencia as Incidencia;
 
-class LoadIndicadorData extends LoadPetramasData implements OrderedFixtureInterface
+class LoadIncidenciaData extends LoadPetramasData implements OrderedFixtureInterface
 {
     /**
      * Main load function.
@@ -17,23 +17,25 @@ class LoadIndicadorData extends LoadPetramasData implements OrderedFixtureInterf
      */
     function load(ObjectManager $manager)
     {
-        $indicadores = $this->getModelFixtures();
+        $incidencias = $this->getModelFixtures();
 
         // Now iterate thought all fixtures
-        foreach ($indicadores['Indicador'] as $reference => $columns)
+        foreach ($incidencias['Incidencia'] as $reference => $columns)
         {
-            $indicador = new Indicador();
-            $indicador->setTipoIndicador($manager->merge($this->getReference('TipoIndicador_' . $columns['tipo_indicador'])));
-            $indicador->setNombre($columns['nombre']);
-            $indicador->setEstandar($columns['estandar']);
-            $indicador->setInferior($columns['inferior']);
-            $indicador->setSuperior($columns['superior']);
-            $indicador->setValor($columns['valor']);
-            $indicador->setObservacion($columns['observacion']);
-            $manager->persist($indicador);
+            $incidencia = new Incidencia();
+            $incidencia->setTipoIncidencia($manager->merge($this->getReference('TipoIncidencia_' . $columns['tipo_incidencia'])));
+            $incidencia->setEstado($manager->merge($this->getReference('Estado_' . $columns['estado'])));
+            $incidencia->setUnidad($manager->merge($this->getReference('Unidad_' . $columns['unidad'])));
+            $incidencia->setFechaIncidencia(new \DateTime("yesterday"));
+            $incidencia->setMaquinaria($columns['maquinaria']);
+            $incidencia->setObservacion($columns['observacion']);
+            $incidencia->setFechaResolucion(new \DateTime("now"));
+            $incidencia->setSolucion($columns['solucion']);
+            $incidencia->setResponsable($manager->merge($this->getReference('Responsable_' . $columns['responsable'])));
+            $manager->persist($incidencia);
 
             // Add a reference to be able to use this object in others entities loaders
-            $this->addReference('Indicador_'. $reference, $indicador);
+            $this->addReference('Incidencia_'. $reference, $incidencia);
         }
         $manager->flush();
     }
@@ -43,7 +45,7 @@ class LoadIndicadorData extends LoadPetramasData implements OrderedFixtureInterf
      */
     public function getModelFile()
     {
-        return 'indicadores';
+        return 'incidencias';
     }
 
     /**
@@ -51,6 +53,6 @@ class LoadIndicadorData extends LoadPetramasData implements OrderedFixtureInterf
      */
     public function getOrder()
     {
-        return 4;
+        return 12;
     }
 }

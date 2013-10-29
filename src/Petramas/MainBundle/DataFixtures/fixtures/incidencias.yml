@@ -1,108 +1,127 @@
-Indicador:
-    tope:
-        nombre: Tope
-        estandar: SI
-        inferior: 3000.00
-        superior: 18000.00
-        valor: 17315.60
-        observacion: TN para llegar al Tope Máximo 18000
-        tipo_indicador: indicador_tope
-          
-    mantenimiento:
-        nombre: Mantenimiento
-        estandar: SI
-        inferior: 2.00
-        superior: 5.00
-        valor: 0.00
-        observacion: Días para mantenimiento
-        tipo_indicador: indicador_mantenimiento
-        
-    numero_unidades:
-        nombre: Nro Unidades
-        estandar: SI
-        inferior: 1.00
-        superior: 4.00
-        valor: 0.00
-        observacion: unidades en matenimiento
-        tipo_indicador: indicador_mantenimiento
-          
-    accidente_mayor:
-        nombre: Accidente Mayor
-        estandar: SI
-        inferior: 0.00
-        superior: 1.00
-        valor: 6.00
-        observacion: accidentes
-        tipo_indicador: indicador_incidencias
-          
-    accidente_menor:
-        nombre: Accidente Menor
-        estandar: SI
-        inferior: 2.00
-        superior: 4.00
-        valor: 4.00
-        observacion: accidentes
-        tipo_indicador: indicador_incidencias
-          
+Incidencia:
     choque:
-        nombre: Choque
-        estandar: SI
-        inferior: 2.00
-        superior: 4.00
-        valor: 2.00
-        observacion: choques
-        tipo_indicador: indicador_incidencias
-          
-    desborde:
-        nombre: Desborde
-        estandar: SI
-        inferior: 0.00
-        superior: 1.00
-        valor: 1.00
-        observacion: desbordes
-        tipo_indicador: indicador_incidencias
-          
-    falto_cobertura_insecticidas:
-        nombre: Falto cobertura insecticidas
-        estandar: SI
-        inferior: 2.00
-        superior: 4.00
-        valor: 0.00
-        observacion: incidencias por falta cobertura insecticidas
-        tipo_indicador: indicador_incidencias
-          
-    falto_cobertura_agua:
-        nombre: Falto cobertura agua
-        estandar: SI
-        inferior: 2.00
-        superior: 4.00
-        valor: 0.00
-        observacion: incidencias por falta cobertura agua
-        tipo_indicador: indicador_incidencias
-          
-    plastico:
-        nombre: Plástico
-        estandar: SI
-        inferior: 100.00
-        superior: 10000.00
-        valor: 9000.00
-        observacion: tns
-        tipo_indicador: indicador_stock_materiales
-          
-    vidrio:
-        nombre: Vídrio
-        estandar: SI
-        inferior: 500.00
-        superior: 5000.00
-        valor: 36930.00
-        observacion: tns
-        tipo_indicador: indicador_stock_materiales
-          
-    carton_delgado:
-        nombre: Cartón delgado
-        estandar: SI
-        inferior: 4000.00
-        superior: 10000.00
-        valor: 3365.00
-        observacion: tns
-        tipo_indicador: indicador_stock_materiales
+        tipo_incidencia: accidente_mayor
+        estado: activo
+        unidad: ford
+        maquinaria: 2
+        observacion: choque
+        fecha_resolucion:
+        solucion: 
+        responsable: jose
+    
+    test:
+        tipo_incidencia: accidente_mayor
+        estado: activo
+        unidad: ford
+        maquinaria: 100
+        observacion: test
+        solucion: Arreglo
+        responsable: jose
+    
+    test1:
+        tipo_incidencia: accidente_mayor
+        estado: completado
+        unidad: ford
+        maquinaria: 2
+        observacion: test
+        fecha_resolucion:
+        solucion: 
+        responsable: jose
+    
+    test2:
+        tipo_incidencia: accidente_menor
+        estado: activo
+        unidad: subaru
+        maquinaria: 100
+        observacion: test
+        solucion: jj
+        responsable: jose
+    
+    xxxx:
+        tipo_incidencia: accidente_mayor
+        estado: completado
+        unidad: subaru
+        maquinaria: 1
+        observacion: xxxx
+        solucion: Se solucionó
+        responsable: pedro
+    
+    zzzz:
+        tipo_incidencia: accidente_menor
+        estado: completado
+        unidad: subaru
+        maquinaria: 1
+        observacion: zzzz
+        fecha_resolucion:
+        solucion: 
+        responsable: pedro
+    
+    Otra:
+        tipo_incidencia: accidente_menor
+        estado: activo
+        unidad: subaru
+        maquinaria:
+        observacion: Otra prueba
+        fecha_resolucion:
+        solucion: 
+        responsable: jose
+    
+    xxx:
+        tipo_incidencia: accidente_mayor
+        estado: activo
+        unidad: kia
+        maquinaria:
+        observacion: xxx
+        fecha_resolucion:
+        solucion: 
+        responsable: jose
+    
+    Incidencia:
+        tipo_incidencia: choque
+        estado: activo
+        unidad: kia
+        maquinaria:
+        observacion: Incidencia
+        fecha_resolucion:
+        solucion: 
+        responsable: jose
+    
+    Mayor:
+        tipo_incidencia: choque
+        estado: activo
+        unidad: kia
+        maquinaria:
+        observacion: Mayor
+        fecha_resolucion:
+        solucion: 
+        responsable: pedro
+    
+    Media:
+        tipo_incidencia: accidente_mayor
+        estado: activo
+        unidad: kia
+        maquinaria:
+        observacion: Media
+        fecha_resolucion:
+        solucion: 
+        responsable: jose
+    
+    Media1:
+        tipo_incidencia: desborde
+        estado: activo
+        unidad: kia
+        maquinaria:
+        observacion: Media
+        fecha_resolucion:
+        solucion: 
+        responsable: jose
+    
+    xxx1:
+        tipo_incidencia: accidente_menor
+        estado: activo
+        unidad: kia
+        maquinaria:
+        observacion: xxx
+        fecha_resolucion:
+        solucion: 
+        responsable: jose
