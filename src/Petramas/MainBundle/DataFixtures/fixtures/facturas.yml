@@ -1,0 +1,10 @@
+Factura:
+    primera:
+        cliente: valle
+        codigo: 1001
+        total: 100
+        
+    segunda:
+        cliente: valle
+        codigo: 1002
+        total: 103
