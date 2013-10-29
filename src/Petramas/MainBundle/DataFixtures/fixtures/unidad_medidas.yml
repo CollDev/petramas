@@ -1,8 +1,8 @@
 UnidadMedida:
+    kilogramos:
+        nombre: Kg
+        valor: 1000.00
+    
     toneladas:
         nombre: TN
         valor: 1000000.00
-    
-    kilogramos:
-        nombre: KG
-        valor: 1000.00

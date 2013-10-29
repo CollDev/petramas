@@ -1,0 +1,132 @@
+PedidoDetalle:
+    pedido_detalle1:
+        pedido: pedido1
+        material: plastico
+        cantidad: 2
+        importe: 20
+    
+    pedido_detalle2:
+        pedido: pedido1
+        material: vidrio
+        cantidad: 3
+        importe: 45
+    
+    pedido_detalle3:
+        pedido: pedido1
+        material: carton
+        cantidad: 2
+        importe: 20
+    
+    pedido_detalle4:
+        pedido: pedido2
+        material: plastico
+        cantidad: 4
+        importe: 40
+    
+    pedido_detalle5:
+        pedido: pedido2
+        material: vidrio
+        cantidad: 7
+        importe: 105
+    
+    pedido_detalle6:
+        pedido: pedido3
+        material: plastico
+        cantidad: 2
+        importe: 20
+    
+    pedido_detalle7:
+        pedido: pedido3
+        material: carton
+        cantidad: 3
+        importe: 30
+    
+    pedido_detalle8:
+        pedido: pedido4
+        material: vidrio
+        cantidad: 14
+        importe: 210
+    
+    pedido_detalle9:
+        pedido: pedido4
+        material: carton
+        cantidad: 10
+        importe: 100
+    
+    pedido_detalle10:
+        pedido: pedido5
+        material: plastico
+        cantidad: 1
+        importe: 10
+    
+    pedido_detalle11:
+        pedido: pedido6
+        material: vidrio
+        cantidad: 10
+        importe: 150
+    
+    pedido_detalle12:
+        pedido: pedido7
+        material: carton
+        cantidad: 14
+        importe: 140
+    
+    pedido_detalle13:
+        pedido: pedido8
+        material: plastico
+        cantidad: 4
+        importe: 40
+    
+    pedido_detalle14:
+        pedido: pedido8
+        material: vidrio
+        cantidad: 1
+        importe: 15
+    
+    pedido_detalle15:
+        pedido: pedido8
+        material: carton
+        cantidad: 3
+        importe: 30
+    
+    pedido_detalle16:
+        pedido: pedido9
+        material: plastico
+        cantidad: 12
+        importe: 120
+    
+    pedido_detalle17:
+        pedido: pedido9
+        material: vidrio
+        cantidad: 9
+        importe: 135
+    
+    pedido_detalle18:
+        pedido: pedido10
+        material: plastico
+        cantidad: 32
+        importe: 320
+    
+    pedido_detalle19:
+        pedido: pedido10
+        material: carton
+        cantidad: 3
+        importe: 30
+    
+    pedido_detalle20:
+        pedido: pedido11
+        material: vidrio
+        cantidad: 2
+        importe: 30
+    
+    pedido_detalle21:
+        pedido: pedido11
+        material: carton
+        cantidad: 2
+        importe: 20
+    
+    pedido_detalle22:
+        pedido: pedido12
+        material: plastico
+        cantidad: 2
+        importe: 20

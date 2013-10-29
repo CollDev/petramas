@@ -9,7 +9,7 @@ Material:
         stock: 36930
         tarifa: 15.00
         
-    vidrio:
+    carton:
         nombre: Cartón delgado
         stock: 3365
         tarifa: 10.00
