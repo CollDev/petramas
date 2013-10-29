@@ -49,19 +49,38 @@ class PedidoDetalleController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-            $em->flush();
+            $entity->setImporte($entity->getCantidad() * $entity->getMaterial()->getTarifa());
             
-            $this->get('session')->getFlashBag()->set(
-                'success',
-                array(
-                    'title' => 'Nuevo!',
-                    'message' => 'Pedido detalle creado con éxito.'
-                )
-            );
+            $em = $this->getDoctrine()->getManager();
+            
+            $objMaterial = $em->getRepository('PetramasMainBundle:Material')->find($entity->getMaterial()->getId());
+            
+            if ($objMaterial->getStock() > $entity->getCantidad()) {
+                $objMaterial->setStock($objMaterial->getStock() - $entity->getCantidad());
 
-            return $this->redirect($this->generateUrl('pedidodetalle_show', array('id' => $entity->getId())));
+                $em->persist($objMaterial);
+                $em->persist($entity);
+
+                $em->flush();
+
+                $this->get('session')->getFlashBag()->set(
+                    'success',
+                    array(
+                        'title' => 'Nuevo!',
+                        'message' => 'Pedido detalle creado con éxito.'
+                    )
+                );
+
+                return $this->redirect($this->generateUrl('pedidodetalle_show', array('id' => $entity->getId())));
+            } else {
+                $this->get('session')->getFlashBag()->set(
+                    'danger',
+                    array(
+                        'title' => 'Error',
+                        'message' => 'No hay stock para este pedido. Máximo: ' . $objMaterial->getStock()
+                    )
+                );
+            }
         }
 
         return array(

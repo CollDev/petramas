@@ -54,7 +54,15 @@ class RecepcionMaterialController extends Controller
             $user = $this->container->get('security.context')->getToken()->getUser();
             $entity->setUsuario($user);
             
+            $nueva_cantidad = $entity->getCantidad() * $entity->getUnidadMedida()->getValor();
+            
+            $entity->setCantidad($nueva_cantidad);
+            $objMaterial = $em->getRepository('PetramasMainBundle:Material')->find($entity->getMaterial()->getId());
+            $objMaterial->setStock($objMaterial->getStock() + $nueva_cantidad);
+
+            $em->persist($objMaterial);
             $em->persist($entity);
+            
             $em->flush();
             
             $this->get('session')->getFlashBag()->set(
@@ -198,12 +206,22 @@ class RecepcionMaterialController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find RecepcionMaterial entity.');
         }
-
+        
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $cantidad_original = $request->request->get('cantidad');
+            $nueva_cantidad = $entity->getCantidad() * $entity->getUnidadMedida()->getValor();
+            
+            $entity->setCantidad($nueva_cantidad);
+            $objMaterial = $em->getRepository('PetramasMainBundle:Material')->find($entity->getMaterial()->getId());
+            $objMaterial->setStock($objMaterial->getStock() - $cantidad_original + $nueva_cantidad);
+
+            $em->persist($objMaterial);
+            $em->persist($entity);
+            
             $em->flush();
             
             $this->get('session')->getFlashBag()->set(

@@ -59,4 +59,8 @@ $(document).on('ready', function(){
             $(this).parent().find('button').attr('data-dismiss', 'modal').trigger('click');
         });
     });
+    
+    $('input#petramas_mainbundle_pedidodetalle_cantidad').on('keyup', function(){
+        $('div#petramas_mainbundle_pedidodetalle_importe').html(parseFloat($(this).val()) * 20);
+    });
 });

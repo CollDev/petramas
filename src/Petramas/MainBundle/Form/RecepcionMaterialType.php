@@ -22,7 +22,10 @@ class RecepcionMaterialType extends AbstractType
             ->add('cantidad')
             ->add('boleta_recepcion')
             ->add('material')
-            ->add('unidad_medida')
+            ->add('unidad_medida', 'entity', array(
+                'class' => 'PetramasMainBundle:UnidadMedida',
+                'empty_value' => false,
+            ))
         ;
     }
     

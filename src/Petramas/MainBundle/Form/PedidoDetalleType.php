@@ -16,7 +16,6 @@ class PedidoDetalleType extends AbstractType
     {
         $builder
             ->add('cantidad')
-            ->add('importe')
             ->add('pedido')
             ->add('material')
         ;
