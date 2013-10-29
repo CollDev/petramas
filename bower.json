@@ -1,0 +1,28 @@
+{
+  "name": "petramas",
+  "version": "1.0.0",
+  "homepage": "http://petramas.colldev.com/",
+  "authors": [
+    "Joe Robles <joe.robles.pdj@gmail.com>"
+  ],
+  "description": "Tesis para sistema de administración deempresa Petramas",
+  "main": "web/app.php",
+  "keywords": [
+    "erp",
+    "sgi",
+    "administracion"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "latest",
+    "bootstrap": "latest",
+    "mustache": "latest"
+  }
+}
