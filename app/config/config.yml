@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: @PetramasMainBundle/Resources/config/services.yml }
 
 framework:
     #esi:             ~
@@ -24,6 +25,9 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    form:
+        resources:
+            - PetramasMainBundle:Form:fields.html.twig
 
 # Assetic Configuration
 assetic:

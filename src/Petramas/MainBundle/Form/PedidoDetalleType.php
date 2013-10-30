@@ -16,8 +16,14 @@ class PedidoDetalleType extends AbstractType
     {
         $builder
             ->add('cantidad')
-            ->add('pedido')
-            ->add('material')
+            ->add('pedido', 'hidden_entity', array(
+                'entity' => 'PetramasMainBundle:Pedido'
+            ))
+            ->add('material', 'extended_entity',array(
+                'class' => 'PetramasMainBundle:Material',
+                // 'option_attributes' injects $incident->getSlug() into each option tag e.g. <option data-slug="foo"...> 
+                'option_attributes' => array('data-tarifa' => 'tarifa'), 
+            ))
         ;
     }
     

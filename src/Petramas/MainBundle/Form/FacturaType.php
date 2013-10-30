@@ -17,7 +17,10 @@ class FacturaType extends AbstractType
         $builder
             ->add('codigo')
             ->add('total')
-            ->add('fecha')
+            ->add('fecha','datetime', array(
+                'widget' => 'single_text',
+                'date_format' => 'yyyy-MM-dd H:i:s')
+            )
             ->add('cliente')
         ;
     }
