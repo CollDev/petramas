@@ -6,8 +6,11 @@
     {{ form_errors(form) }}
     <div class="form-group{% if form.fechaProgramacion.vars.errors[0].message is defined %} has-error{% endif %}">
         {{ form_label(form.fechaProgramacion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        <div class="col-sm-10">
-            {{ form_widget(form.fechaProgramacion, {'attr': {'class': 'form-control'}}) }}
+        <div class="col-sm-10 input-group datetimepicker">
+            {{ form_widget(form.fechaProgramacion, {'attr': {'class': 'form-control', 'data-format': 'YYYY/MM/DD HH:mm:ss'}}) }}
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
             {% if form.fechaProgramacion.vars.errors[0].message is defined %}
             <span class="help-block">
                 {{ form.fechaProgramacion.vars.errors[0].message }}

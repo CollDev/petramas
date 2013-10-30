@@ -3,6 +3,7 @@
 {% block stylesheets %}
 {% stylesheets output='css/main.css' filter='cssrewrite' debug=false
 'bundles/petramasmain/lib/bootstrap/css/bootstrap.min.css'
+'bundles/petramasmain/css/bootstrap-datetimepicker.min.css'
 'bundles/petramasmain/css/styles.css' -%}
     <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
 {% endstylesheets %}
@@ -111,6 +112,9 @@
 '@PetramasMainBundle/Resources/public/js/jquery.js'
 '@PetramasMainBundle/Resources/public/lib/bootstrap/js/bootstrap.min.js'
 '@PetramasMainBundle/Resources/public/js/jquery.mustache.js'
+'@PetramasMainBundle/Resources/public/lib/moment.js'
+'@PetramasMainBundle/Resources/public/lib/datetimepicker/bootstrap-datetimepicker.js'
+'@PetramasMainBundle/Resources/public/lib/datetimepicker/locales/bootstrap-datetimepicker.es.js'
 '@PetramasMainBundle/Resources/public/js/jquery.plugins.js'
 '@PetramasMainBundle/Resources/public/js/scripts.js' -%}
     <script src="{{ asset_url }}"></script>

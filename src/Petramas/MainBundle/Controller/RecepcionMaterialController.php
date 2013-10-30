@@ -161,7 +161,7 @@ class RecepcionMaterialController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find RecepcionMaterial entity.');
         }
-
+        $entity->setCantidad($entity->getCantidad() / $entity->getUnidadMedida()->getValor());
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
@@ -206,13 +206,12 @@ class RecepcionMaterialController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find RecepcionMaterial entity.');
         }
-        
+        $cantidad_original = $entity->getCantidad();
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
-            $cantidad_original = $request->request->get('cantidad');
             $nueva_cantidad = $entity->getCantidad() * $entity->getUnidadMedida()->getValor();
             
             $entity->setCantidad($nueva_cantidad);
