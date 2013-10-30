@@ -1,22 +1,22 @@
 Usuario:
-    eder:
-        nombre: Eder
-        username: epariona
-        username_canonical: epariona
-        email: epariona@itrcinternational.com
-        email_canonical: epariona@itrcinternational.com
+    jose:
+        nombre: José
+        username: jose
+        username_canonical: jose
+        email: pepianico@gmail.com
+        email_canonical: pepianico@gmail.com
         enabled: 1
-        plain_password: 123abc
+        plain_password: jose
         roles: a,0,{}
         
-    angel:
-        nombre: Angel
-        username: aanicama
-        username_canonical: aanicama
+    cliente:
+        nombre: Cliente
+        username: cliente
+        username_canonical: cliente
         email: aanicama@gin.com
         email_canonical: aanicama@gin.com
         enabled: 1
-        plain_password: 123abc
+        plain_password: cliente
         roles: a,0,{}
 
     ricardo:

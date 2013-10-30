@@ -45,6 +45,7 @@ class PedidoDetalleController extends Controller
     public function createAction(Request $request)
     {
         $entity = new PedidoDetalle();
+        
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -111,18 +112,24 @@ class PedidoDetalleController extends Controller
     /**
      * Displays a form to create a new PedidoDetalle entity.
      *
-     * @Route("/new", name="pedidodetalle_new")
+     * @Route("/{pedido_id}/new", name="pedidodetalle_new")
      * @Method("GET")
      * @Template()
      */
-    public function newAction()
+    public function newAction($pedido_id)
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $objPedido = $em->getRepository('PetramasMainBundle:Pedido')->find($pedido_id);
+        
         $entity = new PedidoDetalle();
+        $entity->setPedido($objPedido);
         $form   = $this->createCreateForm($entity);
 
         return array(
             'entity' => $entity,
             'form'   => $form->createView(),
+            'pedido' => $objPedido,
         );
     }
 

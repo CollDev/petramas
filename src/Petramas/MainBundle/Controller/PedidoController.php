@@ -119,6 +119,7 @@ class PedidoController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('PetramasMainBundle:Pedido')->find($id);
+        $objPedidoDetalle = $em->getRepository('PetramasMainBundle:PedidoDetalle')->findBy(array('pedido' => $entity->getId()));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Pedido entity.');
@@ -129,6 +130,7 @@ class PedidoController extends Controller
         return array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
+            'pedido_detalle' => $objPedidoDetalle,
         );
     }
 
