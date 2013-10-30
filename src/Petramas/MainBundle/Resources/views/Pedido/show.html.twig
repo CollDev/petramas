@@ -6,17 +6,49 @@
                     <table class="table table-bordered table-hover table-condensed">
                         <tbody>
                             <tr>
-                                <th>Id</th>
-                                <td>{{ entity.id }}</td>
+                                <th>Fechaprogramacion</th>
+                                <td>{{ entity.cliente.razonsocial }}</td>
+                            </tr>
+                            <tr>
+                                <th>Factura</th>
+                                <td>{{ entity.factura.codigo }}</td>
                             </tr>
                             <tr>
                                 <th>Fechaprogramacion</th>
                                 <td>{{ entity.fechaProgramacion|date('Y-m-d H:i:s') }}</td>
+                            </tr>
+                            <tr>
+                                <th>Estado</th>
+                                <td>{{ entity.estado.nombre }}</td>
                             </tr>
                         </tbody>
                     </table>
                     <a class="btn btn-info pull-right" href="{{ path('pedido') }}">Volver</a>
                     <a class="btn btn-warning pull-right" href="{{ path('pedido_edit', { 'id': entity.id }) }}">Editar</a>
                     {{ form(delete_form) }}
+                    <a class="btn btn-default pull-right" href="{{ path('pedidodetalle_new', { 'pedido_id': entity.id }) }}">Agregar detalle</a>
                 </div>
+                {% if pedido_detalle is not empty %}
+                <h2>Detalles</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-condensed">
+                        <tbody>
+                            {% for detalle in pedido_detalle %}
+                            <tr class="active">
+                                <th>Material</th>
+                                <td>{{ detalle.material.nombre }}</td>
+                            </tr>
+                            <tr>
+                                <th>Cantidad</th>
+                                <td>{{ detalle.cantidad }}</td>
+                            </tr>
+                            <tr>
+                                <th>Importe</th>
+                                <td>{{ detalle.importe }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
 {% endblock %}

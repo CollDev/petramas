@@ -11,8 +11,9 @@
                     <table class="table table-bordered table-striped table-condensed">
                         <thead>
                             <tr>
-                                <th>Id</th>
+                                <th>Nº</th>
                                 <th>Codigo</th>
+                                <th>Cliente</th>
                                 <th>Total</th>
                                 <th>Fecha</th>
                                 <th>Actions</th>
@@ -23,6 +24,7 @@
                             <tr>
                                 <td>{{ loop.index }}</td>
                                 <td>{{ entity.codigo }}</td>
+                                <td>{{ entity.cliente.razonsocial }}</td>
                                 <td>{{ entity.total }}</td>
                                 <td>{% if entity.fecha %}{{ entity.fecha|date('Y-m-d H:i:s') }}{% endif %}</td>
                                 <td>

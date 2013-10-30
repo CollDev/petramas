@@ -82,12 +82,38 @@
                                             <li><a href="{{ path('liquidacionmaterial') }}">Liquidación de materiales</a></li>
                                         </ul>
                                     </li>
+                                    <li>
+                                        <a href="#">Admin <span class="right-caret"></span></a>
+                                        <ul class="dropdown-menu sub-menu">
+                                            <li><a href="{{ path('cliente') }}">Cliente</a></li>
+                                            <li><a href="{{ path('factura') }}">Factura</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="{{ path('liquidacionmaterialdetalle') }}">Liquidación Material Detalle</a></li>
+                                            <li><a href="{{ path('liquidacionrecepcion') }}">Liquidación Recepción</a></li>
+                                            <li><a href="{{ path('boletamaterial') }}">Boleta Material</a></li>
+                                            <li><a href="{{ path('boletarecepcion') }}">Boleta Recepción</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="{{ path('estado') }}">Estado</a></li>
+                                            <li><a href="{{ path('material') }}">Material</a></li>
+                                            <li><a href="{{ path('indicador') }}">Indicador</a></li>
+                                            <li><a href="{{ path('movimientoindicador') }}">Movimiento Indicador</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="{{ path('tope') }}">Tope</a></li>
+                                            <li><a href="{{ path('responsable') }}">Responsable</a></li>
+                                            <li><a href="{{ path('tarifa') }}">Tarifa</a></li>
+                                            <li><a href="{{ path('tipoincidencia') }}">Tipo Incidencia</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href="{{ path('unidad') }}">Unidad</a></li>
+                                            <li><a href="{{ path('unidadmedida') }}">Unidad Medida</a></li>
+                                            <li><a href="{{ path('usuario') }}">Usuario</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.username }} <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ app.user.nombre }} <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="{{ path('fos_user_profile_show') }}">Perfil</a></li>
                                     <li><a href="{{ path('fos_user_change_password') }}">Cambiar contraseña</a></li>

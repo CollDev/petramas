@@ -2,13 +2,13 @@
 
 {% block content %}
 <h4>Nueva Recepción Material</h4>
-{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'} }) }}
     {{ form_errors(form) }}
     <div class="col-sm-6">
         <div class="form-group{% if form.boleta_recepcion.vars.errors[0].message is defined %} has-error{% endif %}">
-            {{ form_label(form.boleta_recepcion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_label(form.boleta_recepcion, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
             <div class="col-sm-10">
-                {{ form_widget(form.boleta_recepcion, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.boleta_recepcion, {'attr': {'class': 'form-control'} }) }}
                 {% if form.boleta_recepcion.vars.errors[0].message is defined %}
                 <span class="help-block">
                     {{ form.boleta_recepcion.vars.errors[0].message }}
@@ -17,9 +17,9 @@
             </div>
         </div>
         <div class="form-group{% if form.material.vars.errors[0].message is defined %} has-error{% endif %}">
-            {{ form_label(form.material, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_label(form.material, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
             <div class="col-sm-10">
-                {{ form_widget(form.material, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.material, {'attr': {'class': 'form-control'} }) }}
                 {% if form.material.vars.errors[0].message is defined %}
                 <span class="help-block">
                     {{ form.material.vars.errors[0].message }}
@@ -30,9 +30,9 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group{% if form.fechaIngreso.vars.errors[0].message is defined %} has-error{% endif %}">
-            {{ form_label(form.fechaIngreso, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_label(form.fechaIngreso, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
             <div class="col-sm-10 input-group datetimepicker">
-                {{ form_widget(form.fechaIngreso, {'attr': {'class': 'form-control', 'data-format': 'YYYY/MM/DD HH:mm:ss' }}) }}
+                {{ form_widget(form.fechaIngreso, {'attr': {'class': 'form-control', 'data-format': 'YYYY/MM/DD HH:mm:ss' } }) }}
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -44,9 +44,9 @@
             </div>
         </div>
         <div class="form-group{% if form.unidad_medida.vars.errors[0].message is defined %} has-error{% endif %}">
-            {{ form_label(form.unidad_medida, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_label(form.unidad_medida, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
             <div class="col-sm-10">
-                {{ form_widget(form.unidad_medida, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.unidad_medida, {'attr': {'class': 'form-control'} }) }}
                 {% if form.unidad_medida.vars.errors[0].message is defined %}
                 <span class="help-block">
                     {{ form.unidad_medida.vars.errors[0].message }}
@@ -57,9 +57,9 @@
     </div>
     <div class="col-sm-6">
         <div class="form-group{% if form.cantidad.vars.errors[0].message is defined %} has-error{% endif %}">
-            {{ form_label(form.cantidad, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+            {{ form_label(form.cantidad, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
             <div class="col-sm-10">
-                {{ form_widget(form.cantidad, {'attr': {'class': 'form-control'}}) }}
+                {{ form_widget(form.cantidad, {'attr': {'class': 'form-control'} }) }}
                 {% if form.cantidad.vars.errors[0].message is defined %}
                 <span class="help-block">
                     {{ form.cantidad.vars.errors[0].message }}

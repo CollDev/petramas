@@ -16,6 +16,13 @@ var $modal = '<div class="modal-dialog">\n\
 
 $("[rel='tooltip']").tooltip();
 
+function isFloat(n) {
+    return n === +n && n !== (n|0);
+}
+function isInteger(n) {
+    return n != "" && !isNaN(n) && Math.round(n) == n;
+}
+
 $(document).on('ready', function(){
     if ($('span#fosuserbundle-errors').text() !== '') {
         $('#flash_message').message('danger',$('span#fosuserbundle-errors').text(), '#flash_title', false);
@@ -39,7 +46,15 @@ $(document).on('ready', function(){
     });
     
     $('input#petramas_mainbundle_pedidodetalle_cantidad').on('keyup', function(){
-        $('div#petramas_mainbundle_pedidodetalle_importe').html(parseFloat($(this).val()) * 20);
+        var $val = $(this).val();
+
+        if (isFloat(parseFloat($val))) {
+            $('div#petramas_mainbundle_pedidodetalle_importe').html(parseFloat($val * $('select#petramas_mainbundle_pedidodetalle_material option:selected').data('tarifa')));
+        } else if (isInteger(parseInt($val))) {
+            $('div#petramas_mainbundle_pedidodetalle_importe').html(parseFloat($val * $('select#petramas_mainbundle_pedidodetalle_material option:selected').data('tarifa')));
+        } else {
+            $('div#petramas_mainbundle_pedidodetalle_importe').html('Por favor ingrese números.');
+        }
     });
     
     $('.datetimepicker').datetimepicker({

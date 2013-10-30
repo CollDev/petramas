@@ -15,6 +15,39 @@
             {% endif %}
         </div>
     </div>
+    <div class="form-group{% if edit_form.username.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.username, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.username, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.username.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.username.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.email.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.email, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.email, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.email.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.email.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
+    <div class="form-group{% if edit_form.plainpassword.vars.errors[0].message is defined %} has-error{% endif %}">
+        {{ form_label(edit_form.plainpassword, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        <div class="col-sm-10">
+            {{ form_widget(edit_form.plainpassword, {'attr': {'class': 'form-control'}}) }}
+            {% if edit_form.plainpassword.vars.errors[0].message is defined %}
+            <span class="help-block">
+                {{ edit_form.plainpassword.vars.errors[0].message }}
+            </span>
+            {% endif %}
+        </div>
+    </div>
 {{ form_end(edit_form) }}
 {{ form(delete_form) }}
 <a class="btn btn-info pull-right" href="{{ path('usuario') }}">Volver</a>

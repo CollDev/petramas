@@ -1,0 +1,12 @@
+services:
+    petramas_utility.type.hidden_entity:
+        class: Petramas\MainBundle\Form\Type\HiddenEntityType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: hidden_entity }
+    
+    petramas_utility.type.extended_entity:
+        class: Petramas\MainBundle\Form\Type\ExtendedEntityType
+        arguments: ["@property_accessor"]
+        tags:
+            - { name: form.type, alias: extended_entity }

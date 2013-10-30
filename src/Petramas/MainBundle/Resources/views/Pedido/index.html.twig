@@ -12,7 +12,10 @@
                         <thead>
                             <tr>
                                 <th>Nº</th>
-                                <th>Fechaprogramacion</th>
+                                <th>Cliente</th>
+                                <th>Factura</th>
+                                <th>Fecha de programacion</th>
+                                <th>Estado</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -20,7 +23,10 @@
                             {% for entity in entities -%}
                             <tr>
                                 <td>{{ loop.index }}</td>
+                                <td>{{ entity.cliente.razonsocial }}</td>
+                                <td>{{ entity.factura.codigo }}</td>
                                 <td>{% if entity.fechaProgramacion %}{{ entity.fechaProgramacion|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ entity.estado.nombre }}</td>
                                 <td>
                                     <a class="btn btn-info btn-xs entity" href="{{ path('pedido_show', { 'id': entity.id }) }}" rel="tooltip" title="Detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-warning btn-xs entity" href="{{ path('pedido_edit', { 'id': entity.id }) }}" rel="tooltip" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>

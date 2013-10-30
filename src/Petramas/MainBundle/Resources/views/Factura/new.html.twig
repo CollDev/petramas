@@ -2,12 +2,12 @@
 
 {% block content %}
 <h4>Nueva Factura</h4>
-{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+{{ form_start(form, {'attr': {'class': 'form-horizontal', 'role': 'form'} }) }}
     {{ form_errors(form) }}
     <div class="form-group{% if form.codigo.vars.errors[0].message is defined %} has-error{% endif %}">
-        {{ form_label(form.codigo, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_label(form.codigo, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
         <div class="col-sm-10">
-            {{ form_widget(form.codigo, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.codigo, {'attr': {'class': 'form-control'} }) }}
             {% if form.codigo.vars.errors[0].message is defined %}
             <span class="help-block">
                 {{ form.codigo.vars.errors[0].message }}
@@ -16,9 +16,9 @@
         </div>
     </div>
     <div class="form-group{% if form.total.vars.errors[0].message is defined %} has-error{% endif %}">
-        {{ form_label(form.total, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_label(form.total, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
         <div class="col-sm-10">
-            {{ form_widget(form.total, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.total, {'attr': {'class': 'form-control'} }) }}
             {% if form.total.vars.errors[0].message is defined %}
             <span class="help-block">
                 {{ form.total.vars.errors[0].message }}
@@ -27,9 +27,12 @@
         </div>
     </div>
     <div class="form-group{% if form.fecha.vars.errors[0].message is defined %} has-error{% endif %}">
-        {{ form_label(form.fecha, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        <div class="col-sm-10">
-            {{ form_widget(form.fecha, {'attr': {'class': 'form-control'}}) }}
+        {{ form_label(form.fecha, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
+        <div class="col-sm-10 input-group datetimepicker">
+            {{ form_widget(form.fecha, {'attr': {'class': 'form-control', 'data-format': 'YYYY/MM/DD HH:mm:ss' } }) }}
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
             {% if form.fecha.vars.errors[0].message is defined %}
             <span class="help-block">
                 {{ form.fecha.vars.errors[0].message }}
@@ -38,9 +41,9 @@
         </div>
     </div>
     <div class="form-group{% if form.cliente.vars.errors[0].message is defined %} has-error{% endif %}">
-        {{ form_label(form.cliente, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_label(form.cliente, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
         <div class="col-sm-10">
-            {{ form_widget(form.cliente, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(form.cliente, {'attr': {'class': 'form-control'} }) }}
             {% if form.cliente.vars.errors[0].message is defined %}
             <span class="help-block">
                 {{ form.cliente.vars.errors[0].message }}
