@@ -6,7 +6,7 @@
                     <table class="table table-bordered table-hover table-condensed">
                         <tbody>
                             <tr>
-                                <th>Fechaprogramacion</th>
+                                <th>Cliente</th>
                                 <td>{{ entity.cliente.razonsocial }}</td>
                             </tr>
                             <tr>
@@ -14,7 +14,7 @@
                                 <td>{{ entity.factura.codigo }}</td>
                             </tr>
                             <tr>
-                                <th>Fechaprogramacion</th>
+                                <th>Fecha de programación</th>
                                 <td>{{ entity.fechaProgramacion|date('Y-m-d H:i:s') }}</td>
                             </tr>
                             <tr>
@@ -31,20 +31,24 @@
                 {% if pedido_detalle is not empty %}
                 <h2>Detalles</h2>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-hover table-condensed">
+                    <table class="table table-bordered table-striped table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Material</th>
+                                <th>Cantidad</th>
+                                <th>Importe</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
                         <tbody>
                             {% for detalle in pedido_detalle %}
-                            <tr class="active">
-                                <th>Material</th>
+                            <tr>                           
                                 <td>{{ detalle.material.nombre }}</td>
-                            </tr>
-                            <tr>
-                                <th>Cantidad</th>
                                 <td>{{ detalle.cantidad }}</td>
-                            </tr>
-                            <tr>
-                                <th>Importe</th>
                                 <td>{{ detalle.importe }}</td>
+                                <td>
+                                    <a class="btn btn-warning btn-xs entity" href="{{ path('pedidodetalle_edit', { 'id': detalle.id }) }}" rel="tooltip" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
