@@ -15,11 +15,12 @@ class IncidenciaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaIncidencia')
-            ->add('fechaResolucion')
+            ->add('fechaIncidencia', 'datetime', array(
+                'widget' => 'single_text',
+                'date_format' => 'yyyy-MM-dd H:i:s')
+            )
             ->add('maquinaria')
             ->add('observacion')
-            ->add('solucion')
             ->add('tipo_incidencia')
             ->add('responsable')
             ->add('estado')

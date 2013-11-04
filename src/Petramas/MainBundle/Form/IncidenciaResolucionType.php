@@ -15,7 +15,10 @@ class IncidenciaResolucionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('fechaResolucion')
+            ->add('fechaResolucion', 'datetime', array(
+                'widget' => 'single_text',
+                'date_format' => 'yyyy-MM-dd H:i:s')
+            )
             ->add('resolucion')
             ->add('incidencia')
         ;

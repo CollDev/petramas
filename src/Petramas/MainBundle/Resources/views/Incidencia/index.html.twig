@@ -13,10 +13,8 @@
                             <tr>
                                 <th>Nº</th>
                                 <th>Fechaincidencia</th>
-                                <th>Fecharesolucion</th>
                                 <th>Maquinaria</th>
                                 <th>Observacion</th>
-                                <th>Solucion</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -25,10 +23,8 @@
                             <tr>
                                 <td>{{ loop.index }}</td>
                                 <td>{% if entity.fechaIncidencia %}{{ entity.fechaIncidencia|date('Y-m-d H:i:s') }}{% endif %}</td>
-                                <td>{% if entity.fechaResolucion %}{{ entity.fechaResolucion|date('Y-m-d H:i:s') }}{% endif %}</td>
                                 <td>{{ entity.maquinaria }}</td>
                                 <td>{{ entity.observacion }}</td>
-                                <td>{{ entity.solucion }}</td>
                                 <td>
                                     <a class="btn btn-info btn-xs entity" href="{{ path('incidencia_show', { 'id': entity.id }) }}" rel="tooltip" title="Detalle"><span class="glyphicon glyphicon-eye-open"></span></a>
                                     <a class="btn btn-warning btn-xs entity" href="{{ path('incidencia_edit', { 'id': entity.id }) }}" rel="tooltip" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>

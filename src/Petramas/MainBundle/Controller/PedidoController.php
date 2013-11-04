@@ -35,6 +35,27 @@ class PedidoController extends Controller
             'entities' => $entities,
         );
     }
+    
+    /**
+     * Lists all Pedido entities.
+     *
+     * @Route("/cliente", name="pedido_cliente")
+     * @Method("GET")
+     * @Template("PetramasMainBundle:Pedido:index.html.twig")
+     */
+    public function clienteAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $user = $this->container->get('security.context')->getToken()->getUser();
+                
+        $entities = $em->getRepository('PetramasMainBundle:Pedido')->findBy(array('cliente' => $user->getId()));
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
     /**
      * Creates a new Pedido entity.
      *

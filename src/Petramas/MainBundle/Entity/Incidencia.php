@@ -59,13 +59,6 @@ class Incidencia
     private $fechaIncidencia;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_resolucion", type="datetime", nullable=true)
-     */
-    private $fechaResolucion;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="maquinaria", type="string", length=255, nullable=true)
@@ -78,13 +71,6 @@ class Incidencia
      * @ORM\Column(name="observacion", type="string", length=255)
      */
     private $observacion;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="solucion", type="string", length=255, nullable=true)
-     */
-    private $solucion;
 
 
     /**
@@ -102,7 +88,7 @@ class Incidencia
      */
     public function __toString()
     {
-        return $this->getSolucion();
+        return $this->getObservacion();
     }
 
     /**
@@ -136,29 +122,6 @@ class Incidencia
     public function getFechaIncidencia()
     {
         return $this->fechaIncidencia;
-    }
-
-    /**
-     * Set fechaResolucion
-     *
-     * @param \DateTime $fechaResolucion
-     * @return Incidencia
-     */
-    public function setFechaResolucion($fechaResolucion)
-    {
-        $this->fechaResolucion = $fechaResolucion;
-    
-        return $this;
-    }
-
-    /**
-     * Get fechaResolucion
-     *
-     * @return \DateTime 
-     */
-    public function getFechaResolucion()
-    {
-        return $this->fechaResolucion;
     }
 
     /**
@@ -205,29 +168,6 @@ class Incidencia
     public function getObservacion()
     {
         return $this->observacion;
-    }
-
-    /**
-     * Set solucion
-     *
-     * @param string $solucion
-     * @return Incidencia
-     */
-    public function setSolucion($solucion)
-    {
-        $this->solucion = $solucion;
-    
-        return $this;
-    }
-
-    /**
-     * Get solucion
-     *
-     * @return string 
-     */
-    public function getSolucion()
-    {
-        return $this->solucion;
     }
 
     /**

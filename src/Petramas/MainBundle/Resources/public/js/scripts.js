@@ -23,11 +23,23 @@ function isInteger(n) {
     return n != "" && !isNaN(n) && Math.round(n) == n;
 }
 
+function updateImporte($this) {
+    var $val = $($this).val();
+
+    if (isFloat(parseFloat($val)) || isInteger(parseInt($val))) {
+        $('div#petramas_mainbundle_pedidodetalle_importe').html(parseFloat($val * $('select#petramas_mainbundle_pedidodetalle_material option:selected').data('tarifa')));
+    } else {
+        $('div#petramas_mainbundle_pedidodetalle_importe').html('Por favor ingrese números.');
+    }
+}
+
 $(document).on('ready', function(){
     if ($('span#fosuserbundle-errors').text() !== '') {
         $('#flash_message').message('danger',$('span#fosuserbundle-errors').text(), '#flash_title', false);
     }
 
+    updateImporte($('input#petramas_mainbundle_pedidodetalle_cantidad'));
+    
     $('button.entity-submit-delete').on('click', function(e){
         e.preventDefault();
         var $this = this;
@@ -46,15 +58,11 @@ $(document).on('ready', function(){
     });
     
     $('input#petramas_mainbundle_pedidodetalle_cantidad').on('keyup', function(){
-        var $val = $(this).val();
-
-        if (isFloat(parseFloat($val))) {
-            $('div#petramas_mainbundle_pedidodetalle_importe').html(parseFloat($val * $('select#petramas_mainbundle_pedidodetalle_material option:selected').data('tarifa')));
-        } else if (isInteger(parseInt($val))) {
-            $('div#petramas_mainbundle_pedidodetalle_importe').html(parseFloat($val * $('select#petramas_mainbundle_pedidodetalle_material option:selected').data('tarifa')));
-        } else {
-            $('div#petramas_mainbundle_pedidodetalle_importe').html('Por favor ingrese números.');
-        }
+        updateImporte(this);
+    });
+    
+    $('select#petramas_mainbundle_pedidodetalle_material').on('change', function(){
+        updateImporte($('input#petramas_mainbundle_pedidodetalle_cantidad'));
     });
     
     $('.datetimepicker').datetimepicker({

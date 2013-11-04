@@ -13,9 +13,13 @@
                                 <th>Cantidad</th>
                                 <td>{{ entity.cantidad }}</td>
                             </tr>
+                            <tr>
+                                <th>Importe</th>
+                                <td>{{ entity.importe }}</td>
+                            </tr>
                         </tbody>
                     </table>
-                    <a class="btn btn-info pull-right" href="{{ path('pedido') }}">Volver</a>
+                    <a class="btn btn-info pull-right" href="{{ path('pedido_show', { 'id': entity.pedido.id }) }}">Volver</a>
                     <a class="btn btn-warning pull-right" href="{{ path('pedidodetalle_edit', { 'id': entity.id }) }}">Editar</a>
                     {{ form(delete_form) }}
                 </div>

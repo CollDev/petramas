@@ -235,7 +235,7 @@ class PedidoDetalleController extends Controller
                 )
             );
 
-            return $this->redirect($this->generateUrl('pedidodetalle', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pedido_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -275,7 +275,7 @@ class PedidoDetalleController extends Controller
             );
         }
 
-        return $this->redirect($this->generateUrl('pedidodetalle'));
+        return $this->redirect($this->generateUrl('pedido_show', array('id' => $entity->getId())));
     }
 
     /**

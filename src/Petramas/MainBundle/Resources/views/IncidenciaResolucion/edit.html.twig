@@ -2,12 +2,15 @@
 
 {% block content %}
 <h4>Editar Incidencia Resolución</h4>
-{{ form_start(edit_form, {'attr': {'class': 'form-horizontal', 'role': 'form'}}) }}
+{{ form_start(edit_form, {'attr': {'class': 'form-horizontal', 'role': 'form'} }) }}
     {{ form_errors(edit_form) }}
     <div class="form-group{% if edit_form.fechaResolucion.vars.errors[0].message is defined %} has-error{% endif %}">
-        {{ form_label(edit_form.fechaResolucion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
-        <div class="col-sm-10">
-            {{ form_widget(edit_form.fechaResolucion, {'attr': {'class': 'form-control'}}) }}
+        {{ form_label(edit_form.fechaResolucion, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
+        <div class="col-sm-10 input-group datetimepicker">
+            {{ form_widget(edit_form.fechaResolucion, {'attr': {'class': 'form-control', 'data-format': 'YYYY/MM/DD HH:mm:ss'} }) }}
+            <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+            </span>
             {% if edit_form.fechaResolucion.vars.errors[0].message is defined %}
             <span class="help-block">
                 {{ edit_form.fechaResolucion.vars.errors[0].message }}
@@ -16,9 +19,9 @@
         </div>
     </div>
     <div class="form-group{% if edit_form.resolucion.vars.errors[0].message is defined %} has-error{% endif %}">
-        {{ form_label(edit_form.resolucion, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_label(edit_form.resolucion, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
         <div class="col-sm-10">
-            {{ form_widget(edit_form.resolucion, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(edit_form.resolucion, {'attr': {'class': 'form-control'} }) }}
             {% if edit_form.resolucion.vars.errors[0].message is defined %}
             <span class="help-block">
                 {{ edit_form.resolucion.vars.errors[0].message }}
@@ -27,9 +30,9 @@
         </div>
     </div>
     <div class="form-group{% if edit_form.incidencia.vars.errors[0].message is defined %} has-error{% endif %}">
-        {{ form_label(edit_form.incidencia, null, {'label_attr': {'class': 'col-sm-2 control-label'}}) }}
+        {{ form_label(edit_form.incidencia, null, {'label_attr': {'class': 'col-sm-2 control-label'} }) }}
         <div class="col-sm-10">
-            {{ form_widget(edit_form.incidencia, {'attr': {'class': 'form-control'}}) }}
+            {{ form_widget(edit_form.incidencia, {'attr': {'class': 'form-control'} }) }}
             {% if edit_form.incidencia.vars.errors[0].message is defined %}
             <span class="help-block">
                 {{ edit_form.incidencia.vars.errors[0].message }}

@@ -34,5 +34,5 @@
     </div>
 {{ form_end(edit_form) }}
 {{ form(delete_form) }}
-<a class="btn btn-info pull-right" href="{{ path('pedido') }}">Volver</a>
+<a class="btn btn-info pull-right" href="{{ path('pedido_show', { 'id': edit_form.pedido.vars.value }) }}">Volver</a>
 {% endblock %}
