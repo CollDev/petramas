@@ -37,11 +37,11 @@ class PedidoController extends Controller
     }
     
     /**
-     * Lists all Pedido entities.
+     * Lista los Pedidos pendientes del cliente.
      *
      * @Route("/cliente", name="pedido_cliente")
      * @Method("GET")
-     * @Template("PetramasMainBundle:Pedido:index.html.twig")
+     * @Template("PetramasMainBundle:Pedido:cliente.html.twig")
      */
     public function clienteAction()
     {
@@ -49,7 +49,27 @@ class PedidoController extends Controller
 
         $user = $this->container->get('security.context')->getToken()->getUser();
                 
-        $entities = $em->getRepository('PetramasMainBundle:Pedido')->findBy(array('cliente' => $user->getId()));
+        $objEstado = $em->getRepository('PetramasMainBundle:Estado')->findOneBy(array('nombre' => 'pendiente'));
+        $entities = $em->getRepository('PetramasMainBundle:Pedido')->findPedidosDeUsuarioPorEstado($user->getId(), $objEstado->getId());
+
+        return array(
+            'entities' => $entities,
+        );
+    }
+    
+    /**
+     * Lista los Pedidos confirmados.
+     *
+     * @Route("/salida", name="pedido_salida")
+     * @Method("GET")
+     * @Template("PetramasMainBundle:Pedido:salida.html.twig")
+     */
+    public function salidaAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $objEstado = $em->getRepository('PetramasMainBundle:Estado')->findOneBy(array('nombre' => 'confirmado'));
+        $entities = $em->getRepository('PetramasMainBundle:Pedido')->findBy(array('estado' => $objEstado));
 
         return array(
             'entities' => $entities,
@@ -290,5 +310,71 @@ class PedidoController extends Controller
             ->add('submit', 'submit', array('label' => 'Eliminar', 'attr' => array('class' => 'btn btn-danger entity-submit-delete pull-right')))
             ->getForm()
         ;
+    }
+    
+    /**
+     * Confirma un Pedido.
+     *
+     * @Route("/confirmar/{id}", name="pedido_confirmar")
+     * @Method("GET")
+     */
+    public function confirmarAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('PetramasMainBundle:Pedido')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Pedido entity.');
+        }
+        
+        $objEstado = $em->getRepository('PetramasMainBundle:Estado')->findOneBy(array('nombre' => 'confirmado'));
+        $entity->setEstado($objEstado);
+        
+        $em->persist($entity);
+        $em->flush();
+
+        $this->get('session')->getFlashBag()->set(
+            'success',
+            array(
+                'title' => 'Aceptado!',
+                'message' => 'Pedido confirmado satisfactoriamente.'
+            )
+        );
+
+        return $this->redirect($this->generateUrl('pedido_cliente'));
+    }
+    
+    /**
+     * Registra la salida de un Pedido.
+     *
+     * @Route("/registrar/{id}", name="pedido_registrar")
+     * @Method("GET")
+     */
+    public function registrarAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('PetramasMainBundle:Pedido')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Pedido entity.');
+        }
+        
+        $objEstado = $em->getRepository('PetramasMainBundle:Estado')->findOneBy(array('nombre' => 'atendido'));
+        $entity->setEstado($objEstado);
+        
+        $em->persist($entity);
+        $em->flush();
+
+        $this->get('session')->getFlashBag()->set(
+            'success',
+            array(
+                'title' => 'Registrado!',
+                'message' => 'Registrada la salida del pedido satisfactoriamente.'
+            )
+        );
+
+        return $this->redirect($this->generateUrl('pedido_salida'));
     }
 }

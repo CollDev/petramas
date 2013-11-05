@@ -12,4 +12,22 @@ use Doctrine\ORM\EntityRepository;
  */
 class PedidoRepository extends EntityRepository
 {
+    public function findPedidosDeUsuarioPorEstado($id, $estado)
+    {
+        $query = $this->getEntityManager()
+            ->createQueryBuilder()
+            ->select('p')
+            ->from('PetramasMainBundle:Pedido', 'p')
+            ->innerJoin('p.cliente','c')
+            ->innerJoin('c.usuario','u')
+            ->where('u.id = :cliente_id')->setParameter('cliente_id', $id)
+            ->andWhere('p.estado = :estado_id')->setParameter('estado_id', $estado)
+            ->getQuery();
+        
+        try {
+            return $query->getResult();
+        } catch (\Doctrine\ORM\NoResultException $e) {
+            return null;
+        }
+    }
 }

@@ -57,6 +57,38 @@ $(document).on('ready', function(){
         });
     });
     
+    $('a.entity-submit-confirmar_pedido').on('click', function(e){
+        e.preventDefault();
+        var $this = this;
+        var data = {
+            title: 'Aceptación de pedido',
+            body: '¿Esta seguro de confirmar este pedido?',
+            ok: 'Confirmar'
+        };
+        modal = $.mustache($modal, data);
+        $('#petramasModal').html(modal).modal();
+
+        $(document).on('click', 'button.delete-remove', function(){
+            window.location = $($this).attr("href");
+        });
+    });
+    
+    $('a.entity-submit-registrar_salida').on('click', function(e){
+        e.preventDefault();
+        var $this = this;
+        var data = {
+            title: 'Registro de salida',
+            body: '¿Esta seguro de registrar la salida de este pedido?',
+            ok: 'Registrar'
+        };
+        modal = $.mustache($modal, data);
+        $('#petramasModal').html(modal).modal();
+
+        $(document).on('click', 'button.delete-remove', function(){
+            window.location = $($this).attr("href");
+        });
+    });
+    
     $('input#petramas_mainbundle_pedidodetalle_cantidad').on('keyup', function(){
         updateImporte(this);
     });

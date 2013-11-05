@@ -23,10 +23,12 @@
                             </tr>
                         </tbody>
                     </table>
+                    {% if is_granted('ROLE_ADMIN') %}
                     <a class="btn btn-info pull-right" href="{{ path('pedido') }}">Volver</a>
                     <a class="btn btn-warning pull-right" href="{{ path('pedido_edit', { 'id': entity.id }) }}">Editar</a>
                     {{ form(delete_form) }}
                     <a class="btn btn-default pull-right" href="{{ path('pedidodetalle_new', { 'pedido_id': entity.id }) }}">Agregar detalle</a>
+                    {% endif %}
                 </div>
                 {% if pedido_detalle is not empty %}
                 <h2>Detalles</h2>
@@ -37,7 +39,9 @@
                                 <th>Material</th>
                                 <th>Cantidad</th>
                                 <th>Importe</th>
+                                {% if is_granted('ROLE_ADMIN') %}
                                 <th>Acciones</th>
+                                {% endif %}
                             </tr>
                         </thead>
                         <tbody>
@@ -46,9 +50,11 @@
                                 <td>{{ detalle.material.nombre }}</td>
                                 <td>{{ detalle.cantidad }}</td>
                                 <td>{{ detalle.importe }}</td>
+                                {% if is_granted('ROLE_ADMIN') %}
                                 <td>
                                     <a class="btn btn-warning btn-xs entity" href="{{ path('pedidodetalle_edit', { 'id': detalle.id }) }}" rel="tooltip" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
                                 </td>
+                                {% endif %}
                             </tr>
                             {% endfor %}
                         </tbody>
