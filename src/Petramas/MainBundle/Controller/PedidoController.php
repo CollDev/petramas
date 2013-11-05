@@ -91,6 +91,8 @@ class PedidoController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $objEstado = $em->getRepository('PetramasMainBundle:Estado')->findOneBy(array('nombre' => 'pendiente'));
+            $entity->setEstado($objEstado);
             $em->persist($entity);
             $em->flush();
             
@@ -364,6 +366,14 @@ class PedidoController extends Controller
         $objEstado = $em->getRepository('PetramasMainBundle:Estado')->findOneBy(array('nombre' => 'atendido'));
         $entity->setEstado($objEstado);
         
+        $objPedidoDetalles = $em->getRepository('PetramasMainBundle:PedidoDetalle')->findBy(array('pedido' => $entity->getId()));
+        
+        foreach ($objPedidoDetalles as $objPedidoDetalle) {
+            $objMaterial = $em->getRepository('PetramasMainBundle:Material')->find($objPedidoDetalle->getMaterial()->getId());
+            $objMaterial->setStock($objMaterial->getStock() - $objPedidoDetalle->getCantidad());
+            $em->persist($objMaterial);
+        }
+
         $em->persist($entity);
         $em->flush();
 

@@ -63,7 +63,9 @@ class Pedido
 
     public function __toString()
     {
-        return $this->getCliente()->getRazonSocial() . ' ' . $this->getFechaProgramacion()->format("Y-m-d H:i:s") . ' ' . $this->getFactura()->getTotal();
+        return $this->getCliente()->getRazonSocial() .
+            ' ' . $this->getFechaProgramacion()->format("Y-m-d H:i:s") .
+            ' ' . $this->getFactura()->getTotal();
     }
     /**
      * Get id

@@ -57,11 +57,7 @@ class PedidoDetalleController extends Controller
             $objMaterial = $em->getRepository('PetramasMainBundle:Material')->find($entity->getMaterial()->getId());
             
             if ($objMaterial->getStock() > $entity->getCantidad()) {
-                $objMaterial->setStock($objMaterial->getStock() - $entity->getCantidad());
-
-                $em->persist($objMaterial);
                 $em->persist($entity);
-
                 $em->flush();
 
                 $this->get('session')->getFlashBag()->set(

@@ -17,10 +17,12 @@
                                 <th>Fecha de programación</th>
                                 <td>{{ entity.fechaProgramacion|date('Y-m-d H:i:s') }}</td>
                             </tr>
+                            {% if entity.estado.nombre is defined %}
                             <tr>
                                 <th>Estado</th>
                                 <td>{{ entity.estado.nombre }}</td>
                             </tr>
+                            {% endif %}
                         </tbody>
                     </table>
                     {% if is_granted('ROLE_ADMIN') %}
