@@ -33,11 +33,11 @@ class ProductionUpdateCommand extends ContainerAwareCommand
         $output->write('<comment>Updating schema</comment> <question>>></question> ');
         $output->writeln(shell_exec($this->route . 'doctrine:schema:update --force'));
         
-        $output->write('<comment>Dumping assets</comment> <question>>></question> ');
-        $output->writeln(shell_exec($this->route . 'assetic:dump web --env=prod --no-debug'));
-        
         $output->write('<comment>Clearing cache</comment> <question>>></question> ');
         $output->writeln(shell_exec($this->route . 'cache:clear --env=prod'));
+        
+        $output->write('<comment>Dumping assets</comment> <question>>></question> ');
+        $output->writeln(shell_exec($this->route . 'assetic:dump web --env=prod --no-debug'));
         
         $output->writeln('<info>Finished successfully.</info>');
     }
