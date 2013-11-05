@@ -24,6 +24,7 @@ class LoadClienteData extends LoadPetramasData implements OrderedFixtureInterfac
         {
             $cliente = new Cliente();
             $cliente->setEstado($manager->merge($this->getReference('Estado_' . $columns['estado'])));
+            $cliente->setUsuario($manager->merge($this->getReference('Usuario_' . $columns['usuario'])));
             $cliente->setRazonSocial($columns['razon_social']);
             $cliente->setRuc($columns['ruc']);
             $cliente->setDireccion($columns['direccion']);
@@ -48,6 +49,6 @@ class LoadClienteData extends LoadPetramasData implements OrderedFixtureInterfac
      */
     public function getOrder()
     {
-        return 2;
+        return 3;
     }
 }

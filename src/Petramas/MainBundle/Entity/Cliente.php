@@ -27,6 +27,12 @@ class Cliente
      * @ORM\JoinColumn(name="estado_id", referencedColumnName="id")
      */
     protected $estado;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Usuario", inversedBy="cliente")
+     * @ORM\JoinColumn(name="usuario_id", referencedColumnName="id")
+     */
+    protected $usuario;
     
     /**
      * @ORM\OneToMany(targetEntity="BoletaRecepcion", mappedBy="cliente")
@@ -362,5 +368,28 @@ class Cliente
     public function getPedidos()
     {
         return $this->pedidos;
+    }
+
+    /**
+     * Set usuario
+     *
+     * @param \Petramas\MainBundle\Entity\Usuario $usuario
+     * @return Cliente
+     */
+    public function setUsuario(\Petramas\MainBundle\Entity\Usuario $usuario = null)
+    {
+        $this->usuario = $usuario;
+    
+        return $this;
+    }
+
+    /**
+     * Get usuario
+     *
+     * @return \Petramas\MainBundle\Entity\Usuario 
+     */
+    public function getUsuario()
+    {
+        return $this->usuario;
     }
 }

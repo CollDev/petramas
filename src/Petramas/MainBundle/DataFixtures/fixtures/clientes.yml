@@ -1,6 +1,14 @@
 Cliente:
     valle:
         estado: activo
+        usuario: cliente
         razon_social: Valle Distribuciones S.A.C.
         ruc: 123456789
         direccion: Av. Valle 124
+
+    jira:
+        estado: activo
+        usuario: jira
+        razon_social: Attlantlap
+        ruc: 465454065
+        direccion: USA

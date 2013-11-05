@@ -29,6 +29,11 @@ class Usuario extends BaseUser
     protected $recepcion_materiales;
     
     /**
+     * @ORM\OneToOne(targetEntity="Cliente", mappedBy="usuario")
+     **/
+    private $cliente;
+    
+    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=255, nullable=true)
@@ -119,5 +124,28 @@ class Usuario extends BaseUser
     public function getRecepcionMateriales()
     {
         return $this->recepcion_materiales;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \Petramas\MainBundle\Entity\Cliente $cliente
+     * @return Usuario
+     */
+    public function setCliente(\Petramas\MainBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \Petramas\MainBundle\Entity\Cliente 
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
     }
 }

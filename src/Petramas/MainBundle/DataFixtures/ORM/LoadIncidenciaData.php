@@ -29,8 +29,6 @@ class LoadIncidenciaData extends LoadPetramasData implements OrderedFixtureInter
             $incidencia->setFechaIncidencia(new \DateTime("yesterday"));
             $incidencia->setMaquinaria($columns['maquinaria']);
             $incidencia->setObservacion($columns['observacion']);
-            $incidencia->setFechaResolucion(new \DateTime("now"));
-            $incidencia->setSolucion($columns['solucion']);
             $incidencia->setResponsable($manager->merge($this->getReference('Responsable_' . $columns['responsable'])));
             $manager->persist($incidencia);
 

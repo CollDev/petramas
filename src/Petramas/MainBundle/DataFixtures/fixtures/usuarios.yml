@@ -7,7 +7,7 @@ Usuario:
         email_canonical: pepianico@gmail.com
         enabled: 1
         plain_password: jose
-        roles: a,0,{}
+        roles: [ROLE_ADMIN, ROLE_SUPERADMIN]
         
     cliente:
         nombre: Cliente
@@ -17,14 +17,34 @@ Usuario:
         email_canonical: aanicama@gin.com
         enabled: 1
         plain_password: cliente
-        roles: a,0,{}
+        roles: [ROLE_CLIENTE]
 
-    ricardo:
-        nombre: Ricardo
-        username: rgarcia
-        username_canonical: rgarcia
-        email: rgarcia@gin.com
-        email_canonical: rgarcia@gin.com
+    jira:
+        nombre: Jira
+        username: jira
+        username_canonical: jira
+        email: jira@jira.com
+        email_canonical: jira@jira.com
         enabled: 1
-        plain_password: 123abc
-        roles: a,0,{}
+        plain_password: jira
+        roles: [ROLE_CLIENTE]
+
+    admin:
+        nombre: Admin
+        username: admin
+        username_canonical: admin
+        email: admin@admin.com
+        email_canonical: admin@admin.com
+        enabled: 1
+        plain_password: adminpass
+        roles: [ROLE_ADMIN]
+
+    user:
+        nombre: User
+        username: user
+        username_canonical: user
+        email: user@user.com
+        email_canonical: user@user.com
+        enabled: 1
+        plain_password: userpass
+        roles: [ROLE_USER]

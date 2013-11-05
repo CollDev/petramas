@@ -1,15 +1,9 @@
 {% extends 'PetramasMainBundle::layout.html.twig' %}
 
 {% block content%}
-{% if not is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-Ingrese su nombre de usuario y contraseña
-ó
-Cree una cuenta: <a class="btn btn-primary" href="{{ path('fos_user_registration_register') }}">Registrarse</a>
-{% else %}
     {% if is_granted('ROLE_CLIENTE') %}
         {{ render(controller('PetramasMainBundle:Pedido:cliente')) }}
     {% else %}
     Bienvenido {{ app.user.username }}
     {% endif %}
-{% endif %}
 {% endblock %}

@@ -1,23 +1,49 @@
+{% extends 'PetramasMainBundle::layout.html.twig' %}
+
+{% block content -%}
 {% trans_default_domain 'FOSUserBundle' %}
 
 {% if error %}
 <span class="hidden" id="fosuserbundle-errors">{{ error|trans }}</span>
 {% endif %}
-
-<form action="{{ path("fos_user_security_check") }}" method="post" class="navbar-form navbar-right" role="form">
-    <div class="form-group">
-        <label class="sr-only" for="username">{{ 'security.login.username'|trans }}</label>
-        <input class="form-control" id="username" name="_username" placeholder="{{ 'security.login.username'|trans }}" required="required" type="text" value="{{ last_username }}">
+<div clas="row">
+    <div class="col-sm-6">
+        <h3 class="text-center">Inicie sesión</h3>
+        <form action="{{ path("fos_user_security_check") }}" method="post" class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="username">{{ 'security.login.username'|trans }}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="username" name="_username" required="required" type="text" value="{{ last_username }}">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label" for="password">{{ 'security.login.password'|trans }}</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="password" name="_password" required="required" type="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-8">
+                    <div class="checkbox">
+                        <label>
+                            <input id="remember_me" name="_remember_me" type="checkbox" value="on"> {{ 'security.login.remember_me'|trans }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button class="btn btn-primary" id="_submit" name="_submit" type="submit">{{ 'security.login.submit'|trans }}</button>
+                </div>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-        <label class="sr-only" for="password">{{ 'security.login.password'|trans }}</label>
-        <input class="form-control" id="password" name="_password" placeholder="{{ 'security.login.password'|trans }}" required="required" type="password">
+    <div class="col-sm-6">
+        <h3 class="text-center">O también</h3>
+        <a class="btn btn-primary center-block" href="{{ path('fos_user_registration_register') }}">Cree una cuenta</a>
+        <hr>
+        <a class="btn btn-primary center-block" href="{{ path('fos_user_resetting_request') }}">Recupere su contraseña</a>
     </div>
-    <div class="checkbox">
-        <label class="text-muted">
-            <input id="remember_me" name="_remember_me" type="checkbox" value="on"> {{ 'security.login.remember_me'|trans }}
-        </label>
-    </div>
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-    <button class="btn btn-primary" id="_submit" name="_submit" type="submit">{{ 'security.login.submit'|trans }}</button>
-</form>
+</div>
+{% endblock %}

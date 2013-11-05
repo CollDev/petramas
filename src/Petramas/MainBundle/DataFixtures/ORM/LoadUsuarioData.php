@@ -30,7 +30,7 @@ class LoadUsuarioData extends LoadPetramasData implements OrderedFixtureInterfac
             $usuario->setEmailCanonical($columns['email_canonical']);
             $usuario->setEnabled($columns['enabled']);
             $usuario->setPlainPassword($columns['plain_password']);
-            $usuario->setRoles(array($columns['roles']));
+            $usuario->setRoles($columns['roles']);
             $manager->persist($usuario);
 
             // Add a reference to be able to use this object in others entities loaders
@@ -52,6 +52,6 @@ class LoadUsuarioData extends LoadPetramasData implements OrderedFixtureInterfac
      */
     public function getOrder()
     {
-        return 11;
+        return 2;
     }
 }

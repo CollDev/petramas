@@ -10,9 +10,9 @@ Pedido:
         factura: primera
     
     pedido3:
-        cliente: valle
+        cliente: jira
         estado: confirmado
-        factura: primera
+        factura: tercera
     
     pedido4:
         cliente: valle
@@ -20,9 +20,9 @@ Pedido:
         factura: primera
     
     pedido5:
-        cliente: valle
+        cliente: jira
         estado: confirmado
-        factura: primera
+        factura: tercera
     
     pedido6:
         cliente: valle
@@ -30,14 +30,14 @@ Pedido:
         factura: primera
     
     pedido7:
-        cliente: valle
+        cliente: jira
         estado: pendiente
-        factura: segunda
+        factura: tercera
     
     pedido8:
-        cliente: valle
+        cliente: jira
         estado: pendiente
-        factura: segunda
+        factura: tercera
     
     pedido9:
         cliente: valle
@@ -50,9 +50,9 @@ Pedido:
         factura: segunda
     
     pedido11:
-        cliente: valle
+        cliente: jira
         estado: pendiente
-        factura: segunda
+        factura: tercera
     
     pedido12:
         cliente: valle

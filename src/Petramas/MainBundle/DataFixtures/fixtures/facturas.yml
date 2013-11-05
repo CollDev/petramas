@@ -8,3 +8,8 @@ Factura:
         cliente: valle
         codigo: 1002
         total: 103
+
+    tercera:
+        cliente: jira
+        codigo: 1003
+        total: 235
