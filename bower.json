@@ -5,7 +5,7 @@
   "authors": [
     "Joe Robles <joe.robles.pdj@gmail.com>"
   ],
-  "description": "Tesis para sistema de administración deempresa Petramas",
+  "description": "Tesis para sistema de administración de empresa Petramas",
   "main": "web/app.php",
   "keywords": [
     "erp",

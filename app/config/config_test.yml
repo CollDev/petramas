@@ -14,3 +14,6 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+parameters:
+    petramas.test.hostname.local: http://local.petramas.com/app_dev.php
